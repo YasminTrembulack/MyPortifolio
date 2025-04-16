@@ -29,7 +29,7 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 8vh;
+    max-height: 0vh;
 }
 
 section{
@@ -120,6 +120,7 @@ section{
 	letter-spacing: .2rem;
 	color: #FFFFFF;
 	text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 .intro-content .intro-position span {
 	display: inline-block;
@@ -180,6 +181,7 @@ strong {
 	margin-left: auto;
 	margin-right: auto;
 	text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 /* 🖼️ Imagem Principal */
