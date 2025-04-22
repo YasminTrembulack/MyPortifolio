@@ -1,16 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* 🎨 Variáveis */
+:root {
+    --primary-bg: #151515;
+    --overlay-bg: #111111;
+    --highlight-color: rgb(255, 209, 133);
+    --text-color: #f6f6f6;
+    --font-primary: "Montserrat", sans-serif;
+    --font-secondary: "Poppins", sans-serif;
+    --font-tertiary: "Roboto", sans-serif;
+}
+
+/* 🎨 Reset e Configuração de Caixa */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 🎨 Configuração do Fundo */
+/* 🎨 Corpo e Fundo */
 body {
-    background-color: black;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
     max-width: 100vw;
     min-height: 100vh;
-    color: #f6f6f6;
 }
 
 /* 📌 Layout Principal */
@@ -22,137 +33,60 @@ main {
     min-height: 84vh;
 }
 
-
-footer {
-    min-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-height: 0vh;
-}
-
-section{
-    gap: 2vw;
+/* 📦 Seções e Containers */
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2vw;
 }
-.section-a{
+
+.section-a {
     max-width: 40%;
 }
-.section-b{
+
+.section-b {
     max-width: 60%;
 }
 
+/* 🎨 Estilo para textos importantes */
 strong {
-    color: rgb(255, 209, 133);
+    color: var(--highlight-color);
     text-transform: uppercase;
     text-shadow: 
-      0 0 10px rgba(255, 194, 102, 0.8), 
-      0 0 20px rgba(255, 194, 102, 0.6),
-      0 0 40px rgba(255, 194, 102, 0.4), 
-      0 0 60px rgba(255, 194, 102, 0.2);
-  }
-  
-
-#intro {
-	background: #151515 url(../images/intro-bg.jpg) no-repeat center bottom;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	background-attachment: fixed;
-	width: 100%;
-	height: 100%;
-	min-height: 720px;
-	display: table;
-	position: relative;
-	text-align: center;
-    min-height: 100vh;
+        0 0 10px rgba(255, 194, 102, 0.8), 
+        0 0 20px rgba(255, 194, 102, 0.6),
+        0 0 40px rgba(255, 194, 102, 0.4), 
+        0 0 60px rgba(255, 194, 102, 0.2);
 }
 
-.intro-overlay {
-	position: absolute;
-    top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #111111;
-	opacity: .85;
-    min-height: 100vh;
-}
-
-.intro-content{
-	transform: translateY(-2.1rem);
-    top: 8vh;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-	height: 100%;
-}
-
-.intro-content .intro-position {
-	font-family: "lora-regular", serif;
-	font-size: 1rem;
-	line-height: 2.4rem;
-	text-transform: uppercase;
-	letter-spacing: .2rem;
-	color: #FFFFFF;
-	text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-.intro-content .intro-position span {
-	display: inline-block;
-}
-.intro-content .intro-position span::after {
-	content: "|";
-	text-align: center;
-	display: inline-block;
-	padding: 0 8px 0 14px;
-	color: rgba(255, 255, 255, 0.3);
-}
-.intro-content .intro-position span:first-child::before {
-	content: "|";
-	text-align: center;
-	display: inline-block;
-	padding: 0 14px 0 8px;
-	color: rgba(255, 255, 255, 0.3);
-}
-
-.intro-section{
-    gap: 0;
-}
-
+/* 📝 Textos e Descrições */
 .text {
     font-weight: 400;
-    letter-spacing: 0.5px; /* Pequeno aumento no espaçamento entre as letras para legibilidade */
+    letter-spacing: 0.5px;
 }
 
 .description {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-primary);
     font-size: clamp(16px, 2vw, 24px);
     line-height: 1.5;
     text-align: justify;
-    max-width: 80vw; /* Ou altere para 70vw se você quiser um pouco mais de espaço lateral */
-    margin: 0 auto; /* Centraliza o texto no container */
-    padding: 10px; /* Espaço interno para melhorar a leitura */
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 10px;
 }
 
+/* 🎨 Títulos */
 .title {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-secondary);
     color: #FFFFFF;
-	font-size: 4rem;
+    font-size: 4rem;
     font-weight: bold;
-	line-height: 1.071;
-	max-width: 900px;
-	margin-top: 0;
-	margin-bottom: .6rem;
-	margin-left: auto;
-	margin-right: auto;
-	text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    line-height: 1.071;
+    max-width: 900px;
+    margin: 0 auto;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     text-align: center;
 }
 
@@ -168,21 +102,17 @@ strong {
 .container {
     padding-top: 8vh;
     display: flex;
-    flex-wrap: nowrap; /* Impede quebra de linha em telas grandes */
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    gap: 2vw; /* Espaço entre a imagem e o texto */
+    gap: 2vw;
     max-width: 80vw;
     margin: 0 auto;
     min-height: 100vh;
 }
 
-/* #inicio{
-    background-image: url();
-} */
-
 .container section {
-    flex: 1; /* Faz com que os elementos ocupem espaço igual */
+    flex: 1;
 }
 
 /* 📏 Ajustes de Layout para Diferentes Telas */
@@ -192,37 +122,30 @@ strong {
     }
 }
 
-/* 📱 Responsividade para Tablets */
 @media screen and (max-width: 768px) {
     .main-image {
         max-width: 60%;
     }
-
     .container {
         gap: 8vw;
         flex-direction: column;
         max-width: 75vw;
     }
-
     .container section {
-        flex: unset; /* Remove o `flex: 1` para não forçar tamanhos */
+        flex: unset;
     }
 }
 
-/* 📱 Responsividade para Celulares */
 @media screen and (max-width: 480px) {
     .main-image {
         max-width: 80%;
     }
-
     .description {
         font-size: 13px;
     }
-
     .title {
         font-size: 19px;
     }
-
     .container {
         gap: 10vw;
     }
