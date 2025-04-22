@@ -33,7 +33,7 @@ footer {
 }
 
 section{
-    gap: 4vw;
+    gap: 2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,35 +45,17 @@ section{
 .section-b{
     max-width: 60%;
 }
-/* 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 5vw;
-}
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    font-family: "Montserrat", sans-serif;
-    text-decoration: none;
-    font-weight: 600;
-    color: #af6600;
-    font-size: clamp(14px, 4vw, 20px);
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #d176ff;
-} */
+strong {
+    color: rgb(255, 209, 133);
+    text-transform: uppercase;
+    text-shadow: 
+      0 0 10px rgba(255, 194, 102, 0.8), 
+      0 0 20px rgba(255, 194, 102, 0.6),
+      0 0 40px rgba(255, 194, 102, 0.4), 
+      0 0 60px rgba(255, 194, 102, 0.2);
+  }
+  
 
 #intro {
 	background: #151515 url(../images/intro-bg.jpg) no-repeat center bottom;
@@ -144,21 +126,9 @@ section{
     gap: 0;
 }
 
-/* 🖍️ Elementos de Texto */
-strong {
-    font-family: "Poppins", sans-serif;
-    color: #ffa527;
-    font-size: 1.8rem;
-	line-height: 1.565;
-	margin-bottom: 0;
-	text-transform: uppercase;
-	letter-spacing: .3rem;
-	text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-}
-
 .text {
     font-weight: 400;
-    letter-spacing: 0%;
+    letter-spacing: 0.5px; /* Pequeno aumento no espaçamento entre as letras para legibilidade */
 }
 
 .description {
@@ -166,13 +136,15 @@ strong {
     font-size: clamp(16px, 2vw, 24px);
     line-height: 1.5;
     text-align: justify;
-    max-width: 80vw;
+    max-width: 80vw; /* Ou altere para 70vw se você quiser um pouco mais de espaço lateral */
+    margin: 0 auto; /* Centraliza o texto no container */
+    padding: 10px; /* Espaço interno para melhorar a leitura */
 }
 
 .title {
     font-family: "Poppins", sans-serif;
     color: #FFFFFF;
-	font-size: 4.5rem;
+	font-size: 4rem;
     font-weight: bold;
 	line-height: 1.071;
 	max-width: 900px;
@@ -189,7 +161,7 @@ strong {
     max-width: 400px;
     width: 100%;
     height: auto;
-    box-shadow: 0px 0px 37px 0px rgb(210, 155, 155);
+    box-shadow: 0px 0px 55px 6px rgb(255, 200, 111);
 }
 
 /* 🏗️ Container Principal */
