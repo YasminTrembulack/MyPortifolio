@@ -9,13 +9,6 @@
     --font-tertiary: "Roboto", sans-serif;
 }
 
-/* 🎨 Reset e Configuração de Caixa */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* 🎨 Corpo e Fundo */
 body {
     background-color: var(--primary-bg);
