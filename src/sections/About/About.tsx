@@ -16,21 +16,27 @@ import {
 import GithubIcon from "../../assets/icons/github.svg?react";
 import LinkedinIcon from "../../assets/icons/linkedin.svg?react";
 import { AsciiArt } from "../../components/Decorative/AsciiArt";
-import { border, sunflower } from "../../assets/ascii-art";
+import { border } from "../../assets/ascii-art";
 
 export function About() {
   return (
     <Section id="about">
       <Container>
         <PhotoWrapper>
-          <AsciiArt left="0.5rem" top="-4.5rem" font_size="8px" line_height="1">
+          <AsciiArt
+            color="#f5c77a"
+            left="-9rem"
+            top="-6.5rem"
+            font_size="9.7px"
+            line_height="0.38"
+          >
             {border}
           </AsciiArt>
           <Photo src="/me.png" alt="Yasmin Trembulack" />
         </PhotoWrapper>
 
         <Content>
-          <Title>Olá, sou a Yasmin Trembulack Agostinho</Title>
+          <Title>Olá, sou a Yasmin Trembulack Agostinho!</Title>
 
           <TypingWrapper>
             <img
@@ -64,9 +70,6 @@ export function About() {
           </Socials>
         </Content>
       </Container>
-      <AsciiArt right="2rem" bottom="0" font_size="4.5px" line_height="1.3">
-        {sunflower}
-      </AsciiArt>
     </Section>
   );
 }

@@ -19,7 +19,7 @@ export const Container = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  gap: 12rem;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -38,9 +38,43 @@ export const Photo = styled.img`
   width: 380px;
   height: 560px;
   object-fit: cover;
-  border-radius: 16px;
 
-  box-shadow: 0 0 40px rgba(0, 90, 200, 0.25);
+  border-top-left-radius: 150px;
+  border-top-right-radius: 150px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.85) 30%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 0.85) 70%,
+      rgba(0, 0, 0, 0.4) 85%,
+      rgba(0, 0, 0, 0) 95%
+    );
+
+  mask-composite: intersect;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.85) 30%,
+      rgba(0, 0, 0, 1) 60%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 0.85) 70%,
+      rgba(0, 0, 0, 0.4) 85%,
+      rgba(0, 0, 0, 0) 95%
+    );
+
+  -webkit-mask-composite: destination-in;
 `;
 
 export const Content = styled.div`
@@ -93,7 +127,7 @@ export const TypingWrapper = styled.div`
   );
 
   border-radius: 10px;
-  box-shadow: 0 0 18px rgba(122, 162, 255, 0.15);
+  box-shadow: 0 0 18px ${colors.blueMuted};
 
   img {
     height: 40px;
