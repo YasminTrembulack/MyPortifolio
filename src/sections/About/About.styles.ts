@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../styles/theme";
 
 export const Section = styled.section`
   position: relative;
@@ -9,11 +10,11 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
 
-  background-color: #000;
+  background: linear-gradient(${colors.black}, ${colors.background});
 `;
 
 export const Container = styled.div`
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
 
   display: grid;
@@ -27,6 +28,7 @@ export const Container = styled.div`
 `;
 
 export const PhotoWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,21 +46,21 @@ export const Photo = styled.img`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
 `;
 
 export const Title = styled.h2`
-  font-size: 2.8rem;
+  font-size: 2.7rem;
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 0.5rem;
+  color: ${colors.white};
+  margin: 0.5rem 0;
 `;
 
 export const Text = styled.p`
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #cfcfcf;
-  margin-bottom: 2rem;
+  color: ${colors.softWhite};
+  margin: 2rem 0;
 `;
 
 export const Subtitle = styled.div`
@@ -70,16 +72,37 @@ export const Subtitle = styled.div`
   span {
     padding: 0.45rem 1rem;
     border-radius: 999px;
-    background: #1f273a;
-    color: #7aa2ff;
-    font-size: 0.9rem;
+    background: ${colors.gradientSoft};
+    color: ${colors.white};
+    border: 1px solid ${colors.yellowMuted};
+  }
+`;
+
+export const TypingWrapper = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+
+  padding: 0.5rem 1.2rem;
+
+  color: ${colors.white};
+  background: linear-gradient(
+    135deg,
+    ${colors.blueMuted},
+    ${colors.yellowMuted}
+  );
+
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(122, 162, 255, 0.15);
+
+  img {
+    height: 40px;
   }
 `;
 
 export const Actions = styled.div`
   display: flex;
   gap: 1rem;
-  margin-bottom: 1.5rem;
 
   @media (max-width: 900px) {
     justify-content: center;
@@ -94,9 +117,9 @@ export const Button = styled.a<{ primary?: boolean }>`
   cursor: pointer;
   text-decoration: none;
 
-  color: ${({ primary }) => (primary ? "#000" : "#fff")};
+  color: ${({ primary }) => (primary ? colors.black : colors.white)};
   background: ${({ primary }) =>
-    primary ? "#7aa2ff" : "rgba(255,255,255,0.08)"};
+    primary ? colors.bluePrimary : colors.blueSoft};
 
   transition: opacity 0.2s;
 
@@ -110,7 +133,7 @@ export const Socials = styled.div`
   gap: 0.8rem;
 
   a {
-    color: #7aa2ff;
+    color: ${colors.blueSoft};
     transition:
       opacity 0.2s,
       color 0.2s;
@@ -121,7 +144,7 @@ export const Socials = styled.div`
     }
 
     &:hover {
-      color: #ffffffc4;
+      color: ${colors.bluePrimary};
     }
   }
 
@@ -130,32 +153,12 @@ export const Socials = styled.div`
   }
 `;
 
-export const AsciiFlower = styled.pre`
-  position: absolute;
-  right: 2rem;
-  bottom: 0;
+export const Divider = styled.hr`
+  width: 100%;
+  height: 1px;
+  border: none;
+  margin: 1.5rem 0 1.2rem;
+  opacity: 0.45;
 
-  font-family: "Courier New", monospace;
-  font-size: 4px;
-  line-height: 1.5;
-
-  color: rgba(122, 162, 255, 0.45); /* azul discreto */
-  pointer-events: none;
-  user-select: none;
-
-  @media (max-width: 900px) {
-    display: none; /* some no mobile */
-  }
-
-  animation: float 6s ease-in-out infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-6px);
-    }
-  }
+  background-color: ${colors.blueSoft};
 `;

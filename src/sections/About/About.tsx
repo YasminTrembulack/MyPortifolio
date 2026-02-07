@@ -6,32 +6,38 @@ import {
   Content,
   Title,
   Text,
-  Subtitle,
+  TypingWrapper,
   Actions,
   Button,
   Socials,
-  AsciiFlower,
+  Divider,
 } from "./About.styles";
 
 import GithubIcon from "../../assets/icons/github.svg?react";
 import LinkedinIcon from "../../assets/icons/linkedin.svg?react";
-import { sunflower } from "../../assets/ascii-art";
+import { AsciiArt } from "../../components/Decorative/AsciiArt";
+import { border, sunflower } from "../../assets/ascii-art";
 
 export function About() {
   return (
     <Section id="about">
       <Container>
         <PhotoWrapper>
+          <AsciiArt left="0.5rem" top="-4.5rem" font_size="8px" line_height="1">
+            {border}
+          </AsciiArt>
           <Photo src="/me.png" alt="Yasmin Trembulack" />
         </PhotoWrapper>
 
         <Content>
-          <Title>Olá, sou a Yasmin Trembulack</Title>
+          <Title>Olá, sou a Yasmin Trembulack Agostinho</Title>
 
-          <Subtitle>
-            <span>Software Engineer</span>
-            <span>Full Stack Development</span>
-          </Subtitle>
+          <TypingWrapper>
+            <img
+              src="https://readme-typing-svg.herokuapp.com?font=Consolas&size=30&pause=1000&color=F7F7F7&vCenter=true&width=435&lines=Software+Engineer;Full+Stack+Developer"
+              alt="Typing roles"
+            />
+          </TypingWrapper>
 
           <Text>
             Sou estudante de Engenharia de Software, apaixonada por criar
@@ -40,12 +46,14 @@ export function About() {
           </Text>
 
           <Actions>
-            <Button primary href="/cv.pdf" download>
+            <Button primary href="#contact">
+              Contato
+            </Button>
+            <Button href="/cv.pdf" download>
               Download CV
             </Button>
-            <Button href="#contact">Contato</Button>
           </Actions>
-
+          <Divider />
           <Socials>
             <a href="https://github.com/seuuser" target="_blank">
               <GithubIcon />
@@ -56,7 +64,9 @@ export function About() {
           </Socials>
         </Content>
       </Container>
-      <AsciiFlower>{sunflower}</AsciiFlower>
+      <AsciiArt right="2rem" bottom="0" font_size="4.5px" line_height="1.3">
+        {sunflower}
+      </AsciiArt>
     </Section>
   );
 }
