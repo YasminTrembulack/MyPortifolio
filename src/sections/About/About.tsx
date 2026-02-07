@@ -16,7 +16,7 @@ import {
 import GithubIcon from "../../assets/icons/github.svg?react";
 import LinkedinIcon from "../../assets/icons/linkedin.svg?react";
 import { AsciiArt } from "../../components/Decorative/AsciiArt";
-import { border } from "../../assets/ascii-art";
+import { gothic_window } from "../../assets/ascii-art";
 
 export function About() {
   return (
@@ -30,7 +30,7 @@ export function About() {
             font_size="9.7px"
             line_height="0.38"
           >
-            {border}
+            {gothic_window}
           </AsciiArt>
           <Photo src="/me.png" alt="Yasmin Trembulack" />
         </PhotoWrapper>
