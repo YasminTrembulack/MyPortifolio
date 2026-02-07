@@ -41,8 +41,6 @@ export const Art = styled.pre<{
       `}
 
   background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 
   pointer-events: none;
   user-select: none;
