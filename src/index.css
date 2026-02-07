@@ -5,23 +5,34 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-background: #0e0e0e;
+  --color-white: #ffffff;
+
+  --font-primary: "Inter", sans-serif;
+  --font-decorative: "DotGothic16", monospace;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+
+  background: var(--color-background);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--color-background);
+    background-color: var(--color-white);
   }
 }
