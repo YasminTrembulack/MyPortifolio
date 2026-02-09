@@ -9,7 +9,11 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(${colors.black}, ${colors.background});
+  background: linear-gradient(
+    ${colors.black},
+    ${colors.background},
+    ${colors.background}
+  );
 `;
 
 export const Container = styled.div`
