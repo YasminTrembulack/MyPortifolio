@@ -4,7 +4,8 @@ export const colors = {
   softBlack: "#1e1e1e",
 
   white: "#ffffff",
-  softWhite: "#eeeeee",
+  softWhite: "#e0e0e0",
+  grey: "#aeaeae",
 
   bluePrimary: "#38bdf8",
   blueHover: "#0ea5e9",
