@@ -18,6 +18,7 @@ export function Home() {
 
           <Subtitle>
             <span>“Turning ideas into code.”</span>
+            <span>“Learning, building, evolving.”</span>
           </Subtitle>
 
           <Actions>
