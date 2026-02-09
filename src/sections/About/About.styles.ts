@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { colors } from "../../styles/theme";
+import { colors, fonts } from "../../styles/theme";
 
 export const Section = styled.section`
-  position: relative;
   min-height: 88vh;
   padding: 4rem 2rem;
 
@@ -78,9 +77,29 @@ export const Photo = styled.img`
 `;
 
 export const Content = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: start;
+`;
+
+export const ContentHeader = styled.div`
+  display: flex;
+  justify-content: start;
+  gap: 0.75rem;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+`;
+export const Icon = styled.pre`
+  font-family: ${fonts.decorative};
+  white-space: pre;
+
+  font-size: 35px;
+  margin: 0;
+  color: ${colors.bluePrimary};
+  text-align: center;
 `;
 
 export const Title = styled.h2`
@@ -94,7 +113,8 @@ export const Text = styled.p`
   font-size: 1.1rem;
   line-height: 1.7;
   color: ${colors.softWhite};
-  margin: 2rem 0;
+  font-family: ${fonts.terciary};
+  font-weight: regular;
 `;
 
 export const Subtitle = styled.div`
@@ -112,14 +132,25 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const TypingWrapper = styled.div`
-  display: inline-flex;
-  align-items: center;
+export const Tags = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   justify-content: start;
 
-  padding: 0.5rem 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+
+  font-family: ${fonts.secundary};
+`;
+
+export const Tag = styled.span`
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
 
   color: ${colors.white};
+
   background: linear-gradient(
     135deg,
     ${colors.blueMuted},
@@ -127,38 +158,14 @@ export const TypingWrapper = styled.div`
   );
 
   border-radius: 10px;
-  box-shadow: 0 0 18px ${colors.blueMuted};
+  box-shadow: 0 0 14px ${colors.yellowMuted};
 
-  img {
-    height: 40px;
-  }
-`;
-
-export const Actions = styled.div`
-  display: flex;
-  gap: 1rem;
-
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
-`;
-
-export const Button = styled.a<{ primary?: boolean }>`
-  padding: 0.7rem 1.6rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-
-  color: ${({ primary }) => (primary ? colors.black : colors.white)};
-  background: ${({ primary }) =>
-    primary ? colors.bluePrimary : colors.blueSoft};
-
-  transition: opacity 0.2s;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
 
   &:hover {
-    opacity: 0.85;
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px ${colors.yellowSoft};
   }
 `;
 
@@ -173,8 +180,8 @@ export const Socials = styled.div`
       color 0.2s;
 
     svg {
-      width: 18px;
-      height: 18px;
+      width: 24px;
+      height: 24px;
     }
 
     &:hover {
