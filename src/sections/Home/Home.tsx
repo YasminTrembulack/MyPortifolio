@@ -1,3 +1,4 @@
+import { scrollToSection } from "../../utils/scrollToSection";
 import {
   Section,
   Content,
@@ -22,7 +23,9 @@ export function Home() {
           </Subtitle>
 
           <Actions>
-            <Button href="#contact">🡪 Contact</Button>
+            <Button onClick={() => scrollToSection("contact")}>
+              🡪 Contact
+            </Button>
             <Button href="/cv-yasmin.pdf" download>
               Download CV
             </Button>
