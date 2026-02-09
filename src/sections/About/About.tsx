@@ -65,10 +65,13 @@ export function About() {
           <Divider />
 
           <Socials>
-            <a href="https://github.com/seuuser" target="_blank">
+            <a href="https://github.com/YasminTrembulack" target="_blank">
               <GithubIcon />
             </a>
-            <a href="https://linkedin.com/in/seuuser" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/yasmintrembulack/"
+              target="_blank"
+            >
               <LinkedinIcon />
             </a>
           </Socials>
