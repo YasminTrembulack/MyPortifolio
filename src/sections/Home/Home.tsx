@@ -13,16 +13,16 @@ export function Home() {
       <Content>
         <div>
           <Title>
-            Hello, I'm <strong>Yasmin Trembulack</strong>.
+            Hello, I'm <strong>Yasmin Trembulack Agostinho</strong>.
           </Title>
 
           <Subtitle>
-            <span>“Transformando ideias em código.”</span>
+            <span>“Turning ideas into code.”</span>
           </Subtitle>
 
           <Actions>
-            <Button href="#contact">Contato</Button>
-            <Button secondary href="/cv-yasmin.pdf" download>
+            <Button href="#contact">🡪 Contact</Button>
+            <Button href="/cv-yasmin.pdf" download>
               Download CV
             </Button>
           </Actions>

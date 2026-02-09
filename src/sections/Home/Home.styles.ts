@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colors } from "../../styles/theme";
+import { colors, fonts } from "../../styles/theme";
 
 const fadeUp = keyframes`
   from {
@@ -44,26 +44,26 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: "Poppins", sans-serif;
+  font-family: ${fonts.primary};
   color: ${colors.softWhite};
 
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 400;
 
   line-height: 1.071;
-  max-width: 900px;
+  max-width: 1000px;
 
   margin-top: 0;
   margin-bottom: 0.6rem;
 
   strong {
     color: ${colors.bluePrimary};
-    font-weight: 900;
+    font-weight: 800;
   }
 `;
 
 export const Subtitle = styled.p`
-  font-family: "lora-regular", serif;
+  font-family: ${fonts.secundary};
   font-size: 1rem;
   line-height: 2.4rem;
   text-transform: uppercase;
@@ -95,23 +95,20 @@ export const Actions = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const Button = styled.a<{ secondary?: boolean }>`
+export const Button = styled.a`
   padding: 0.8rem 2rem;
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
 
-  background: ${({ secondary }) =>
-    secondary ? "transparent" : colors.yellowAccent};
-  color: ${({ secondary }) =>
-    secondary ? colors.softWhite : colors.softBlack};
+  background: "transparent";
+  color: ${colors.white};
   border: 2px solid ${colors.yellowAccent};
 
   &:hover {
     transform: translateY(-4px);
-    background: ${({ secondary }) =>
-      secondary ? colors.yellowAccent : colors.yellowHover};
+    background: ${colors.yellowAccent};
     color: ${colors.softBlack};
   }
 `;
