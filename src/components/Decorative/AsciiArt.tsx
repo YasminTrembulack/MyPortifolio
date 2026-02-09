@@ -1,18 +1,37 @@
-import { Art } from "./AsciiArt.styles";
+import { ArtText, ArtImage } from "./AsciiArt.styles";
 
-type Props = {
-  children: React.ReactNode;
-  top?: string;
-  right?: string;
-  bottom?: string;
-  left?: string;
-  font_size?: string;
-  line_height?: string;
-  color?: string;
-  useGradient?: boolean;
-  animation?: boolean;
+type BaseProps = {
+  $top?: string;
+  $right?: string;
+  $bottom?: string;
+  $left?: string;
+  $animation?: boolean;
 };
 
-export function AsciiArt({ children, ...props }: Props) {
-  return <Art {...props}>{children}</Art>;
+type TextArtProps = BaseProps & {
+  $children?: React.ReactNode;
+  $font_size?: string;
+  $line_height?: string;
+  $color?: string;
+  $useGradient?: boolean;
+  $src?: never;
+};
+
+type ImageArtProps = BaseProps & {
+  $src: string;
+  $alt?: string;
+  $width?: string;
+  $height?: string;
+  $opacity?: string;
+  $children?: never;
+};
+
+type Props = TextArtProps | ImageArtProps;
+
+export function AsciiArt({ $src, $children, ...props }: Props) {
+  if ($src) {
+    return <ArtImage {...props} src={$src} />;
+  }
+
+  return <ArtText {...props}>{$children}</ArtText>;
 }
