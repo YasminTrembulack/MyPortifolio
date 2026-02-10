@@ -25,7 +25,7 @@ export function Footer() {
         </Brand>
 
         <Links>
-          <h4>Links rápidos</h4>
+          <h4>Quick links</h4>
           <a onClick={() => scrollToSection("home")}>Home</a>
           <a onClick={() => scrollToSection("about")}>About</a>
           <a onClick={() => scrollToSection("projects")}>Projects</a>
@@ -33,7 +33,7 @@ export function Footer() {
         </Links>
 
         <Social>
-          <h4>Siga-me</h4>
+          <h4>Follow me</h4>
           <Socials
             $color={`${colors.greyLight}`}
             $hover={`${colors.softBlack}`}
@@ -44,7 +44,7 @@ export function Footer() {
       <Divider />
 
       <FooterBottom>
-        © {new Date().getFullYear()} Yasmin. Todos os direitos reservados.
+        © {new Date().getFullYear()} Yasmin. All rights reserved.
       </FooterBottom>
     </FooterContainer>
   );
