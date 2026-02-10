@@ -5,7 +5,10 @@ export const colors = {
 
   white: "#ffffff",
   softWhite: "#e0e0e0",
-  grey: "#aeaeae",
+
+  greyDark: "#444444",    
+  grey: "#666666",       
+  greyLight: "#aeaeae",
 
   bluePrimary: "#38bdf8",
   blueHover: "#0ea5e9",

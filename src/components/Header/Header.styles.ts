@@ -47,7 +47,7 @@ export const NavItem = styled.button<{ $active?: boolean }>`
 
   gap: 0;
 
-  color: ${({ $active }) => ($active ? colors.background : colors.grey)};
+  color: ${({ $active }) => ($active ? colors.background : colors.greyLight)};
   font-size: 1rem;
   font-weight: 500;
 
