@@ -2,44 +2,29 @@ import { createGlobalStyle } from "styled-components";
 import { colors, fonts } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
-  #root {
+  * {
     margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  :root {
-    line-height: 1.5;
-    font-weight: 400;
-
-    color-scheme: light dark;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-
-    background: ${colors.background};
-    color: ${colors.softWhite};
+    padding: 0;
+    box-sizing: border-box;
     font-family: ${fonts.primary};
-    -webkit-font-smoothing: antialiased;
+
   }
 
+  #root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  html {
+    height: 100%;
+  }
+  
   main {
-    width: 100vw;
-  }
-
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: ${colors.background};
-      background-color: ${colors.softWhite};
-    }
+    flex: 1;
+    width: 100%;
+    background: ${colors.black};
+    color: ${colors.softWhite};
   }
 `;
