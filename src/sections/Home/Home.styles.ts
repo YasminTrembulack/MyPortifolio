@@ -69,6 +69,7 @@ export const Subtitle = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   color: ${colors.softWhite};
+  margin: 1rem 0;
 
   span {
     display: inline-block;
@@ -92,7 +93,7 @@ export const Actions = styled.div`
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 `;
 
 export const Button = styled.a`
