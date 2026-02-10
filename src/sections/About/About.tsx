@@ -7,18 +7,16 @@ import {
   Title,
   Text,
   Tags,
-  Socials,
   Divider,
   Tag,
   ContentHeader,
   Icon,
 } from "./About.styles";
 
-import GithubIcon from "../../assets/icons/github.svg?react";
-import LinkedinIcon from "../../assets/icons/linkedin.svg?react";
 import { AsciiArt } from "../../components/Decorative/AsciiArt";
 import { flower, gothic_window } from "../../assets/ascii-art";
 import { colors } from "../../styles/theme";
+import { Socials } from "../../components/Socials/Socials";
 
 export function About() {
   return (
@@ -27,10 +25,10 @@ export function About() {
         <PhotoWrapper>
           <AsciiArt
             $color={`${colors.yellowAccent}`}
-            $left="-9rem"
-            $top="-6.5rem"
-            $font_size="9.7px"
-            $line_height="0.38"
+            $left="0.5rem"
+            $top="-1.5rem"
+            $font_size="6.5px"
+            $line_height="0.4"
             $children={gothic_window}
           />
           <Photo src="/me.png" alt="Yasmin Trembulack" />
@@ -63,18 +61,7 @@ export function About() {
           </Text>
 
           <Divider />
-
-          <Socials>
-            <a href="https://github.com/YasminTrembulack" target="_blank">
-              <GithubIcon />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/yasmintrembulack/"
-              target="_blank"
-            >
-              <LinkedinIcon />
-            </a>
-          </Socials>
+          <Socials />
         </Content>
       </Container>
     </Section>

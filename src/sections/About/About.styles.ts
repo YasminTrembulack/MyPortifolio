@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { colors, fonts } from "../../styles/theme";
 
 export const Section = styled.section`
-  min-height: 88vh;
+  min-height: 100vh;
+  margin-top: 4rem;
   padding: 4rem 2rem;
 
   display: flex;
@@ -22,7 +23,7 @@ export const Container = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 12rem;
+  gap: 5rem;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -38,8 +39,8 @@ export const PhotoWrapper = styled.div`
 `;
 
 export const Photo = styled.img`
-  width: 380px;
-  height: 560px;
+  width: 290px;
+  height: 420px;
   object-fit: cover;
 
   border-top-left-radius: 150px;
@@ -170,31 +171,6 @@ export const Tag = styled.span`
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 22px ${colors.yellowSoft};
-  }
-`;
-
-export const Socials = styled.div`
-  display: flex;
-  gap: 0.8rem;
-
-  a {
-    color: ${colors.blueSoft};
-    transition:
-      opacity 0.2s,
-      color 0.2s;
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    &:hover {
-      color: ${colors.bluePrimary};
-    }
-  }
-
-  @media (max-width: 900px) {
-    justify-content: center;
   }
 `;
 
