@@ -3,8 +3,8 @@ import { colors, fonts } from "../../styles/theme";
 
 export const Section = styled.section`
   min-height: 100vh;
-  margin-top: 4rem;
-  padding: 4rem 2rem;
+  margin-top: 2rem;
+  padding: 6rem 2rem;
 
   display: flex;
   align-items: center;
