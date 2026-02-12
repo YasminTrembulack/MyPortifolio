@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.timeline-section {
+  min-height: 100vh;
+  padding: 120px 20px;
+  background: #0f0f0f;
+  color: #f5f5f5;
+  position: relative;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 80px;
+  font-weight: 600;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Linha base */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #2a2a2a;
+  transform: translateX(-50%);
+}
+
+/* Linha animada */
+.timeline-progress {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: #0078D4;
+  transform: translateX(-50%);
+  transition: height 0.2s ease-out;
+}
+
+/* ITEM */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 70px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternância automática */
+.timeline-item:nth-child(odd) .timeline-card {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+  left: 55%;
+}
+
+/* CARD */
+.timeline-card {
+  position: relative;
+  width: 45%;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 20px 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.timeline-card:hover {
+  border-color: #0078D4;
+}
+
+/* Bolinha central */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #0078D4;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(0, 120, 212, 0.6);
+
+}
+
+/* HEADER */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.year {
+  font-size: 0.8rem;
+  color: #0078D4;
+  margin-bottom: 4px;
+}
+
+.icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+/* BODY */
+.card-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* OPEN STATE */
+.timeline-card.active .card-body {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 15px;
+}
+
+.timeline-card.active .icon {
+  transform: rotate(45deg);
+}

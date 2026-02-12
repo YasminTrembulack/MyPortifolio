@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<section class="timeline-section">
+  <h2 class="timeline-title">Career Timeline</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="card-header">
+          <div>
+            <span class="year">2022</span>
+            <h3>ETS - Desenvolvimento de Sistemas</h3>
+          </div>
+          <span class="icon">+</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Início na Bosch como aprendiz técnica com foco em lógica,
+            backend e fundamentos de arquitetura.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="card-header">
+          <div>
+            <span class="year">2023</span>
+            <h3>BDO - Xpertify Team</h3>
+          </div>
+          <span class="icon">+</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Atuação com Azure, APIs REST, testes automatizados e arquitetura
+            de sistemas escaláveis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="timeline-progress"></div>
+</section>
+
+<script>
+  // Expandir ao clicar
+  document.querySelectorAll('.timeline-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+  });
+
+  // Scroll animation
+  const items = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(item => observer.observe(item));
+
+  // Progress indicator
+  window.addEventListener('scroll', () => {
+    const timeline = document.querySelector('.timeline');
+    const progress = document.querySelector('.timeline-progress');
+
+    const rect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    let progressHeight = Math.min(
+      timeline.offsetHeight,
+      Math.max(0, windowHeight - rect.top)
+    );
+
+    progress.style.height = progressHeight + 'px';
+  });
+</script>
+
+</body>
+</html>
