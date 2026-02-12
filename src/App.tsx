@@ -3,6 +3,7 @@ import { Home } from "./sections/Home/Home";
 import { About } from "./sections/About/About";
 import { GlobalStyle } from "./styles/global";
 import { Footer } from "./components/Footer/Footer";
+import { Projects } from "./sections/Projects/Projects";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Home />
         <About />
+        <Projects />
       </main>
       <Footer />
     </>
