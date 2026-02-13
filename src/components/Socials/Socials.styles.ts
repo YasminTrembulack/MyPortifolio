@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../styles/theme";
 
 export const Container = styled.div<{
   $color?: string;
@@ -9,7 +8,7 @@ export const Container = styled.div<{
   gap: 0.8rem;
 
   a {
-    color: ${({ $color }) => $color || colors.blueSoft};
+    color: ${({ $color, theme }) => $color || theme.colors.blueSoft};
 
     transition:
       opacity 0.2s,
@@ -21,7 +20,7 @@ export const Container = styled.div<{
     }
 
     &:hover {
-      color: ${({ $hover }) => $hover || colors.bluePrimary};
+      color: ${({ $hover, theme }) => $hover || theme.colors.bluePrimary};
     }
   }
 

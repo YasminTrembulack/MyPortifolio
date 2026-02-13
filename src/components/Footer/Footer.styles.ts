@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { colors } from "../../styles/theme";
 
 export const FooterContainer = styled.footer`
-  background: ${colors.softWhite};
-  color: ${colors.background};
+  background: ${({ theme }) => theme.colors.softWhite};
+  color: ${({ theme }) => theme.colors.background};
 
   padding: 4rem 2rem 2rem;
 `;
@@ -29,7 +28,7 @@ export const Brand = styled.div`
 
   p {
     font-size: 0.95rem;
-    color: ${colors.greyDark};
+    color: ${({ theme }) => theme.colors.greyDark};
     line-height: 1.6;
     max-width: 350px;
   }
@@ -44,12 +43,12 @@ export const Links = styled.div`
   a {
     display: block;
     font-size: 0.95rem;
-    color: ${colors.greyDark};
+    color: ${({ theme }) => theme.colors.greyDark};
     text-decoration: none;
     margin-bottom: 0.5rem;
 
     &:hover {
-      color: ${colors.black};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 `;
@@ -63,12 +62,12 @@ export const Social = styled.div`
 
 export const Divider = styled.div`
   height: 1px;
-  background: ${colors.greyLight};
+  background: ${({ theme }) => theme.colors.greyLight};
   margin: 3rem 0 1.5rem;
 `;
 
 export const FooterBottom = styled.div`
   text-align: center;
   font-size: 0.85rem;
-  color: ${colors.grey};
+  color: ${({ theme }) => theme.colors.greyDark};
 `;

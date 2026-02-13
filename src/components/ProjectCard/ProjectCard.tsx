@@ -49,7 +49,7 @@ export function ProjectCard({ title, description, techs }: Props) {
       <RepoDescription>{description}</RepoDescription>
       <TagWrapper>
         {techs.map((tech) => (
-          <Badge key={tech} variant={normalizeTech(tech)}>
+          <Badge key={tech} $variant={normalizeTech(tech)}>
             {tech}
           </Badge>
         ))}

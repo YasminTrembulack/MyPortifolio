@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../styles/theme";
 
 export const Container = styled.header`
   position: fixed;
@@ -37,7 +36,8 @@ export const Nav = styled.nav`
 export const NavItem = styled.button<{ $active?: boolean }>`
   border: none;
   border-radius: 999px;
-  background: ${({ $active }) => ($active ? colors.softWhite : "transparent")};
+  background: ${({ $active, theme }) =>
+    $active ? theme.colors.softWhite : "transparent"};
 
   padding: 0.75rem 1.1rem;
   cursor: pointer;
@@ -47,7 +47,8 @@ export const NavItem = styled.button<{ $active?: boolean }>`
 
   gap: 0;
 
-  color: ${({ $active }) => ($active ? colors.background : colors.greyLight)};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.background : theme.colors.greyLight};
   font-size: 1rem;
   font-weight: 500;
 
@@ -84,7 +85,8 @@ export const NavItem = styled.button<{ $active?: boolean }>`
 
   &:hover {
     gap: 0.6rem;
-    color: ${({ $active }) => ($active ? colors.background : colors.softWhite)};
+    color: ${({ $active, theme }) =>
+      $active ? theme.colors.background : theme.colors.softWhite};
   }
 
   &:hover span {

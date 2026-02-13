@@ -15,16 +15,18 @@ import {
 
 import { AsciiArt } from "../../components/Decorative/AsciiArt";
 import { flower, gothic_window } from "../../assets/ascii-art";
-import { colors } from "../../styles/theme";
 import { Socials } from "../../components/Socials/Socials";
+import { useTheme } from "styled-components";
 
 export function About() {
+  const theme = useTheme();
+
   return (
     <Section id="about">
       <Container>
         <PhotoWrapper>
           <AsciiArt
-            $color={`${colors.yellowAccent}`}
+            $color={`${theme.colors.yellowAccent}`}
             $left="0.5rem"
             $top="-1.5rem"
             $font_size="6.5px"

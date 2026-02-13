@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { colors, fonts } from "../../styles/theme";
 
 export const Section = styled.section`
   min-height: 100vh;
   padding: 4rem 0;
-  background: ${colors.background};
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Container = styled.div`
@@ -19,7 +18,7 @@ export const Header = styled.div`
 export const Title = styled.h2`
   font-size: 2.7rem;
   font-weight: 600;
-  color: ${colors.white};
+  color: ${({ theme }) => theme.colors.white};
   margin: 0.5rem 0;
 `;
 
@@ -33,18 +32,18 @@ export const ContentHeader = styled.div`
   }
 `;
 export const Icon = styled.pre`
-  font-family: ${fonts.decorative};
+  font-family: ${({ theme }) => theme.fonts.decorative};
   white-space: pre;
 
   font-size: 35px;
   margin: 0;
-  color: ${colors.yellowAccent};
+  color: ${({ theme }) => theme.colors.yellowAccent};
   text-align: center;
 `;
 
 export const Subtitle = styled.p`
   margin-top: 0.75rem;
-  color: ${colors.greyLight};
+  color: ${({ theme }) => theme.colors.greyLight};
   max-width: 520px;
 `;
 

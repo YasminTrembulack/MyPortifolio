@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { colors, fonts } from "../../styles/theme";
 import { badgeVariants, type BadgeVariant } from "./badge.types";
 
 /* Animations */
@@ -17,8 +16,8 @@ export const BlinkingCursor = styled.span`
   width: 10px;
   height: 3px;
 
-  background: ${colors.bluePrimary};
-  box-shadow: 0 0 8px ${colors.bluePrimary};
+  background: ${({ theme }) => theme.colors.bluePrimary};
+  box-shadow: 0 0 8px ${({ theme }) => theme.colors.bluePrimary};
 
   display: none;
 
@@ -42,14 +41,14 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  background: ${colors.background};
-  border: 1px solid ${colors.softBlack};
+  background: ${({ theme }) => theme.colors.background};
+  border: 1px solid ${({ theme }) => theme.colors.softBlack};
   border-radius: 16px;
 
-  font-family: ${fonts.primary};
+  font-family: ${({ theme }) => theme.fonts.primary};
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 
-  border-color: ${colors.greyDark};
+  border-color: ${({ theme }) => theme.colors.greyDark};
 
   transition:
     transform 0.3s ease,
@@ -59,7 +58,7 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    border-color: ${colors.bluePrimary};
+    border-color: ${({ theme }) => theme.colors.bluePrimary};
   }
 
   &:hover ${BlinkingCursor} {
@@ -77,8 +76,15 @@ export const CardGrid = styled.div`
   pointer-events: none;
 
   background-image:
-    linear-gradient(${colors.greyDark} 1px, transparent 1px),
-    linear-gradient(90deg, ${colors.greyDark} 1px, transparent 1px);
+    linear-gradient(
+      ${({ theme }) => theme.colors.greyDark} 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      ${({ theme }) => theme.colors.greyDark} 1px,
+      transparent 1px
+    );
   background-size: 30px 30px;
 
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
@@ -97,7 +103,11 @@ export const CardGlow = styled.div`
   width: 180px;
   height: 180px;
 
-  background: radial-gradient(circle, ${colors.blueSoft}, transparent 70%);
+  background: radial-gradient(
+    circle,
+    ${({ theme }) => theme.colors.blueSoft},
+    transparent 70%
+  );
   filter: blur(40px);
   z-index: -1;
 
@@ -131,12 +141,12 @@ export const IconButton = styled.button`
   border-radius: 8px;
   cursor: pointer;
 
-  color: ${colors.greyLight};
+  color: ${({ theme }) => theme.colors.greyLight};
   transition: all 0.2s ease;
 
   &:hover {
-    background: ${colors.blueMuted};
-    color: ${colors.white};
+    background: ${({ theme }) => theme.colors.blueMuted};
+    color: ${({ theme }) => theme.colors.white};
     transform: translateY(-2px);
   }
 
@@ -152,18 +162,18 @@ export const RepoTitle = styled.h3`
   align-items: center;
   gap: 6px;
 
-  font-family: ${fonts.decorative};
+  font-family: ${({ theme }) => theme.fonts.decorative};
   font-size: 22px;
   font-weight: 500;
-  color: ${colors.softWhite};
+  color: ${({ theme }) => theme.colors.softWhite};
 `;
 
 export const RepoDescription = styled.p`
   min-height: 48px;
-  font-family: ${fonts.terciary};
+  font-family: ${({ theme }) => theme.fonts.terciary};
   font-size: 15px;
   line-height: 1.6;
-  color: ${colors.grey};
+  color: ${({ theme }) => theme.colors.grey};
   margin-bottom: 24px;
   z-index: 2;
 
@@ -182,16 +192,16 @@ export const TagWrapper = styled.div`
   z-index: 2;
 `;
 
-export const Badge = styled.span<{ variant?: BadgeVariant }>`
-  font-family: ${fonts.decorative};
+export const Badge = styled.span<{ $variant?: BadgeVariant }>`
+  font-family: ${({ theme }) => theme.fonts.decorative};
   font-size: 12px;
   padding: 4px 10px;
   border-radius: 6px;
 
-  background: ${({ variant = "default" }) => badgeVariants[variant].bg};
-  color: ${({ variant = "default" }) => badgeVariants[variant].color};
+  background: ${({ $variant = "default" }) => badgeVariants[$variant].bg};
+  color: ${({ $variant = "default" }) => badgeVariants[$variant].color};
   border: 1px solid
-    ${({ variant = "default" }) => badgeVariants[variant].border};
+    ${({ $variant = "default" }) => badgeVariants[$variant].border};
 
   transition:
     transform 0.2s ease,
@@ -200,6 +210,6 @@ export const Badge = styled.span<{ variant?: BadgeVariant }>`
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 0 12px
-      ${({ variant = "default" }) => badgeVariants[variant].glow};
+      ${({ $variant = "default" }) => badgeVariants[$variant].glow};
   }
 `;

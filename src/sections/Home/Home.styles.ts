@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { colors, fonts } from "../../styles/theme";
 
 const fadeUp = keyframes`
   from {
@@ -38,14 +37,14 @@ export const Content = styled.div`
   justify-content: center;
 
   text-align: center;
-  color: ${colors.softWhite};
+  color: ${({ theme }) => theme.colors.softWhite};
 
   animation: ${fadeUp} 1.2s ease forwards;
 `;
 
 export const Title = styled.h1`
-  font-family: ${fonts.primary};
-  color: ${colors.softWhite};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  color: ${({ theme }) => theme.colors.softWhite};
 
   font-size: 2.8rem;
   font-weight: 400;
@@ -57,18 +56,18 @@ export const Title = styled.h1`
   margin-bottom: 0.6rem;
 
   strong {
-    color: ${colors.bluePrimary};
+    color: ${({ theme }) => theme.colors.bluePrimary};
     font-weight: 800;
   }
 `;
 
 export const Subtitle = styled.p`
-  font-family: ${fonts.secundary};
+  font-family: ${({ theme }) => theme.fonts.secundary};
   font-size: 1rem;
   line-height: 2.4rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  color: ${colors.softWhite};
+  color: ${({ theme }) => theme.colors.softWhite};
   margin: 1rem 0;
 
   span {
@@ -104,12 +103,12 @@ export const Button = styled.a`
   transition: all 0.3s ease;
 
   background: "transparent";
-  color: ${colors.white};
-  border: 2px solid ${colors.yellowAccent};
+  color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.yellowAccent};
 
   &:hover {
     transform: translateY(-4px);
-    background: ${colors.yellowAccent};
-    color: ${colors.softBlack};
+    background: ${({ theme }) => theme.colors.yellowAccent};
+    color: ${({ theme }) => theme.colors.softBlack};
   }
 `;

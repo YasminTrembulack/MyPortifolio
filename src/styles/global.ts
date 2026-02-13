@@ -1,12 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-import { colors, fonts } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: ${fonts.primary};
+    font-family: ${({ theme }) => theme.fonts.primary};
 
   }
 
@@ -24,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   main {
     flex: 1;
     width: 100%;
-    background: ${colors.black};
-    color: ${colors.softWhite};
+    background: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.softWhite};
   }
 `;

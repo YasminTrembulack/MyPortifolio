@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors, fonts } from "../../styles/theme";
 
 export const Section = styled.section`
   min-height: 100vh;
@@ -11,9 +10,9 @@ export const Section = styled.section`
   justify-content: center;
 
   background: linear-gradient(
-    ${colors.black},
-    ${colors.background},
-    ${colors.background}
+    ${({ theme }) => theme.colors.black},
+    ${({ theme }) => theme.colors.background},
+    ${({ theme }) => theme.colors.background}
   );
 `;
 
@@ -98,27 +97,27 @@ export const ContentHeader = styled.div`
   }
 `;
 export const Icon = styled.pre`
-  font-family: ${fonts.decorative};
+  font-family: ${({ theme }) => theme.fonts.decorative};
   white-space: pre;
 
   font-size: 35px;
   margin: 0;
-  color: ${colors.bluePrimary};
+  color: ${({ theme }) => theme.colors.bluePrimary};
   text-align: center;
 `;
 
 export const Title = styled.h2`
   font-size: 2.7rem;
   font-weight: 600;
-  color: ${colors.white};
+  color: ${({ theme }) => theme.colors.white};
   margin: 0.5rem 0;
 `;
 
 export const Text = styled.p`
   font-size: 1.1rem;
   line-height: 1.7;
-  color: ${colors.softWhite};
-  font-family: ${fonts.terciary};
+  color: ${({ theme }) => theme.colors.softWhite};
+  font-family: ${({ theme }) => theme.fonts.terciary};
   font-weight: regular;
 `;
 
@@ -131,9 +130,9 @@ export const Subtitle = styled.div`
   span {
     padding: 0.45rem 1rem;
     border-radius: 999px;
-    background: ${colors.gradientSoft};
-    color: ${colors.white};
-    border: 1px solid ${colors.yellowMuted};
+    background: ${({ theme }) => theme.colors.gradientSoft};
+    color: ${({ theme }) => theme.colors.white};
+    border: 1px solid ${({ theme }) => theme.colors.yellowMuted};
   }
 `;
 
@@ -146,7 +145,7 @@ export const Tags = styled.div`
   margin-top: 1.5rem;
   margin-bottom: 2rem;
 
-  font-family: ${fonts.secundary};
+  font-family: ${({ theme }) => theme.fonts.secundary};
 `;
 
 export const Tag = styled.span`
@@ -154,23 +153,23 @@ export const Tag = styled.span`
   font-size: 0.9rem;
   font-weight: 500;
 
-  color: ${colors.white};
+  color: ${({ theme }) => theme.colors.white};
 
   background: linear-gradient(
     135deg,
-    ${colors.blueMuted},
-    ${colors.yellowMuted}
+    ${({ theme }) => theme.colors.blueMuted},
+    ${({ theme }) => theme.colors.yellowMuted}
   );
 
   border-radius: 10px;
-  box-shadow: 0 0 14px ${colors.yellowMuted};
+  box-shadow: 0 0 14px ${({ theme }) => theme.colors.yellowMuted};
 
   backdrop-filter: blur(6px);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 22px ${colors.yellowSoft};
+    box-shadow: 0 0 22px ${({ theme }) => theme.colors.yellowSoft};
   }
 `;
 
@@ -181,5 +180,5 @@ export const Divider = styled.hr`
   margin: 1.5rem 0 1.2rem;
   opacity: 0.45;
 
-  background-color: ${colors.blueSoft};
+  background-color: ${({ theme }) => theme.colors.blueSoft};
 `;

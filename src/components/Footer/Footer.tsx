@@ -10,9 +10,11 @@ import {
 } from "./Footer.styles";
 
 import { Socials } from "../Socials/Socials";
-import { colors } from "../../styles/theme";
+import { useTheme } from "styled-components";
 
 export function Footer() {
+  const theme = useTheme();
+
   return (
     <FooterContainer>
       <FooterTop>
@@ -35,8 +37,8 @@ export function Footer() {
         <Social>
           <h4>Follow me</h4>
           <Socials
-            $color={`${colors.greyLight}`}
-            $hover={`${colors.softBlack}`}
+            $color={`${theme.colors.greyLight}`}
+            $hover={`${theme.colors.softBlack}`}
           />
         </Social>
       </FooterTop>
