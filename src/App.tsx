@@ -4,6 +4,7 @@ import { About } from "./sections/About/About";
 import { GlobalStyle } from "./styles/global";
 import { Footer } from "./components/Footer/Footer";
 import { Projects } from "./sections/Projects/Projects";
+import { Experience } from "./sections/Experience/Experience";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Home />
         <About />
         <Projects />
+        <Experience />
       </main>
       <Footer />
     </>
