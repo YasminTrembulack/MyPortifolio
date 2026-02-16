@@ -59,6 +59,9 @@ export const Card = styled.div`
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     border-color: ${({ theme }) => theme.colors.bluePrimary};
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.5),
+      0 0 30px ${({ theme }) => theme.colors.blueMuted};
   }
 
   &:hover ${BlinkingCursor} {
@@ -77,12 +80,12 @@ export const CardGrid = styled.div`
 
   background-image:
     linear-gradient(
-      ${({ theme }) => theme.colors.greyDark} 1px,
+      ${({ theme }) => theme.colors.softBlack} 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      ${({ theme }) => theme.colors.greyDark} 1px,
+      ${({ theme }) => theme.colors.softBlack} 1px,
       transparent 1px
     );
   background-size: 30px 30px;
@@ -105,7 +108,7 @@ export const CardGlow = styled.div`
 
   background: radial-gradient(
     circle,
-    ${({ theme }) => theme.colors.blueSoft},
+    ${({ theme }) => theme.colors.blueMuted},
     transparent 70%
   );
   filter: blur(40px);

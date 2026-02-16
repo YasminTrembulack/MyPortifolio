@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   min-height: 100vh;
-  padding: 4rem 0;
+  padding-top: 4rem;
+  padding-bottom: 0rem;
   background: ${({ theme }) => theme.colors.background};
 `;
 
