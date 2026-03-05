@@ -5,6 +5,7 @@ import { GlobalStyle } from "./styles/global";
 import { Footer } from "./components/Footer/Footer";
 import { Projects } from "./sections/Projects/Projects";
 import { Experience } from "./sections/Experience/Experience";
+import { TechStack } from "./sections/TechStack/TechStack";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <About />
         <Projects />
         <Experience />
+        <TechStack />
       </main>
       <Footer />
     </>
