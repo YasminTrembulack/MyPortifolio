@@ -1,60 +1,80 @@
-💻 Linguagens de Programação
+💻 Languages
 
-Python
-Java
-JavaScript
-TypeScript
-C#
-SQL
+    🐍 Python (python.svg)
+    ☕ Java (java.svg)
+    🟨 JavaScript (javascript.svg)
+    🔷 TypeScript (typescript.svg)
+    ⚙️ C# (csharp.svg)
+    ⚙️ C (c.svg)
+    🐹 Go / GoLang (go.svg)
 
-🌐 Desenvolvimento Web
-🔹 Frontend
+🎨 Frontend
 
-HTML5
-CSS3
-React
+    🌐 HTML5 (html.svg)
+    🎨 CSS3 (css.svg)
+    ⚛️ React (react.svg)
+    🎨 Figma (UI/UX Design) (figma.svg)
 
-🔹 Backend
+⚙️ Backend & APIs
 
-Node.js
-ASP.NET Core
-Spring
-Flask
-Django
-FastAPI
+    🟢 Node.js (nodejs.svg)
+    🟣 ASP.NET Core (net-core.svg)
+    🌱 Spring Boot (spring.svg)
+    🐍 Flask (flask.svg)
+    🐍 Django (django.svg)
+    ⚡ FastAPI (fastapi.svg)
 
 ☁️ Cloud & DevOps
 
-Microsoft Azure
-CI/CD
-Cloud Run (GCP)
+    ☁️ Microsoft Azure (azure.svg)
+    🔧 Azure DevOps (azure-devops.svg)
+    ☁️ Google Cloud Platform (google-cloud-platform.svg)
+    ⚙️ CI/CD Pipelines (cicd.svg)
+    ☁️ Cloud Run (GCP) (google-cloud.svg)
+    🐳 Docker (docker.svg)
+    🌱 Git (git.svg)
 
-🗄️ Banco de Dados
+🗄️ Databases & Search
 
-RDBMS (SQL Server, MySQL)
-NoSQL (MongoDB)
-Elasticsearch
+    🗄️ SQL Databases
+        SQL Server (microsoftsqlserver.svg)
+        MySQL (mysql.svg)
 
-🤖 Inteligência Artificial & Machine Learning
+    📦 NoSQL Databases
+        MongoDB (mongodb.svg)
+        Firebase (firebase.svg)
 
-Machine Learning
-Redes Neurais (Keras)
-Processamento de documentos (PDF / Office)
-Embeddings & Search Semântica
-Chatbots com LLM
+    🔎 Search Engines
+        Elasticsearch (elasticsearch.svg)
 
+    🗃️ Database Concepts
+        RDBMS (database.svg)
+        NoSQL (no-sql.svg)
 
+🤖 AI & Data
 
-🔎 Arquitetura & Engenharia de Software
+    🧠 Machine Learning (machine-learning.svg)
+    🧠 Neural Networks (neural-networks.svg)
+    🔎 Semantic Search / Embeddings (semantic-search.svg)
+    📄 Document Processing (PDF / Office) (document.svg)
+    🤖 LLM Chatbots (bot.svg)
 
-Clean Architecture
-Testes unitários
-Estratégias e Factory Pattern
-Metodologia Ágil
+🏗️ Software Engineering
 
-🔧 Outras Tecnologias
+    🏛️ Clean Architecture (clean-architecture.svg)
+    🧩 Software Architecture (architecture.svg)
+    🧪 Unit Testing (tests.svg)
+    🎯 Design Patterns (raccoon.svg ou puzzle.svg)
 
-Docker
-Git
-Figma
-IoT (Arduino, ESP32)
+📋 Agile & Workflow
+
+    📊 Kanban (kanban-svgrepo-com.svg)
+    🔁 Scrum (scrum.svg)
+    ⚡ Agile Methodologies (agile.svg)
+
+🌐 IoT & Embedded
+
+    🔌 IoT Systems (iot.svg)
+    🔧 Arduino (arduino.svg)
+    📡 ESP32 (esp32.svg)
+    📡 MQTT / Mosquitto (eclipsemosquitto.svg)
