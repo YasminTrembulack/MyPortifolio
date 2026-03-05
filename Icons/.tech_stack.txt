@@ -1,0 +1,60 @@
+💻 Linguagens de Programação
+
+Python
+Java
+JavaScript
+TypeScript
+C#
+SQL
+
+🌐 Desenvolvimento Web
+🔹 Frontend
+
+HTML5
+CSS3
+React
+
+🔹 Backend
+
+Node.js
+ASP.NET Core
+Spring
+Flask
+Django
+FastAPI
+
+☁️ Cloud & DevOps
+
+Microsoft Azure
+CI/CD
+Cloud Run (GCP)
+
+🗄️ Banco de Dados
+
+RDBMS (SQL Server, MySQL)
+NoSQL (MongoDB)
+Elasticsearch
+
+🤖 Inteligência Artificial & Machine Learning
+
+Machine Learning
+Redes Neurais (Keras)
+Processamento de documentos (PDF / Office)
+Embeddings & Search Semântica
+Chatbots com LLM
+
+
+
+🔎 Arquitetura & Engenharia de Software
+
+Clean Architecture
+Testes unitários
+Estratégias e Factory Pattern
+Metodologia Ágil
+
+🔧 Outras Tecnologias
+
+Docker
+Git
+Figma
+IoT (Arduino, ESP32)
