@@ -61,26 +61,26 @@ export const Tabs = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Tab = styled.button<{ active: boolean }>`
+export const Tab = styled.button<{ $active: boolean }>`
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
 
-  background: ${({ theme, active }) =>
-    active ? theme.colors.blueHover : theme.colors.softBlack};
+  background: ${({ theme, $active }) =>
+    $active ? theme.colors.blueHover : theme.colors.softBlack};
 
   color: ${({ theme }) => theme.colors.white};
 
-  box-shadow: ${({ active, theme }) =>
-    active ? `0 0 8px ${theme.colors.blueSoft}` : "none"};
+  box-shadow: ${({ $active, theme }) =>
+    $active ? `0 0 8px ${theme.colors.blueSoft}` : "none"};
 
   transition: all 0.25s ease;
 
   &:hover {
     transform: translateY(-2px);
-    background: ${({ theme, active }) =>
-      active ? theme.colors.blueHover : theme.colors.blueMuted};
+    background: ${({ theme, $active }) =>
+      $active ? theme.colors.blueHover : theme.colors.blueMuted};
   }
 `;
 
@@ -115,9 +115,35 @@ export const Card = styled.div`
   }
 `;
 
-export const Icon = styled.div`
-  font-size: 24px;
-  margin-bottom: 8px;
+export const Icon = styled.div<{ $gradient: [string, string] }>`
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.white};
+
+  border-radius: 18px;
+
+  background: ${({ $gradient }) =>
+    `linear-gradient(135deg, ${$gradient[0]}, ${$gradient[1]})`};
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.35),
+    inset 0 2px 5px rgba(255, 255, 255, 0.2);
+
+  transition: transform 0.25s ease;
+
+  svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+  }
+
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
 `;
 
 export const Name = styled.p`
