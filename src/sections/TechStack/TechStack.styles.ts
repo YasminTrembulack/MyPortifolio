@@ -86,7 +86,7 @@ export const Tab = styled.button<{ $active: boolean }>`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 140px);
+  grid-template-columns: repeat(7, 140px);
   gap: 16px;
   justify-content: center;
   margin: auto;
@@ -97,13 +97,13 @@ export const Card = styled.div`
 
   border-radius: 15px;
   padding: 12px;
+  gap: 10px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  aspect-ratio: 1.5 / 1;
 
   transition:
     transform 0.18s ease,
@@ -139,10 +139,6 @@ export const Icon = styled.div<{ $gradient: [string, string] }>`
     width: 32px;
     height: 32px;
     fill: white;
-  }
-
-  &:hover {
-    transform: translateY(-4px) scale(1.05);
   }
 `;
 

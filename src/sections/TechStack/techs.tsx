@@ -42,7 +42,7 @@ import ScrumIcon from "../../assets/icons/scrum.svg?react";
 import IoTIcon from "../../assets/icons/iot.svg?react";
 import ArduinoIcon from "../../assets/icons/arduino.svg?react";
 import ESP32Icon from "../../assets/icons/esp32.svg?react";
-import MQTTIcon from "../../assets/icons/eclipsemosquitto.svg?react";
+import MQTTIcon from "../../assets/icons/mqtt.svg?react";
 
 export type Tech = {
   name: string;
@@ -334,7 +334,7 @@ export const techs: Tech[] = [
     gradient: ["#e7352c", "#e7352c"],
   },
   {
-    name: "MQTT / Mosquitto",
+    name: "MQTT",
     icon: <MQTTIcon />,
     category: "iot",
     gradient: ["#660066", "#c299ff"],
