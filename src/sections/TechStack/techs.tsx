@@ -17,7 +17,6 @@ import DjangoIcon from "../../assets/icons/django.svg?react";
 import FastAPIIcon from "../../assets/icons/fastapi.svg?react";
 import AzureIcon from "../../assets/icons/azure.svg?react";
 import AzureDevOpsIcon from "../../assets/icons/azure-devops.svg?react";
-import GoogleCloudPlatformIcon from "../../assets/icons/google-cloud-platform.svg?react";
 import GoogleCloudIcon from "../../assets/icons/google-cloud.svg?react";
 import CICDIcon from "../../assets/icons/cicd.svg?react";
 import DockerIcon from "../../assets/icons/docker.svg?react";
@@ -37,8 +36,6 @@ import CleanArchitectureIcon from "../../assets/icons/clean-architecture.svg?rea
 import SoftwareArchitectureIcon from "../../assets/icons/architecture.svg?react";
 import TestsIcon from "../../assets/icons/tests.svg?react";
 import RaccoonIcon from "../../assets/icons/raccoon.svg?react";
-import KanbanIcon from "../../assets/icons/kanban.svg?react";
-import ScrumIcon from "../../assets/icons/scrum.svg?react";
 import IoTIcon from "../../assets/icons/iot.svg?react";
 import ArduinoIcon from "../../assets/icons/arduino.svg?react";
 import ESP32Icon from "../../assets/icons/esp32.svg?react";
@@ -174,13 +171,7 @@ export const techs: Tech[] = [
     gradient: ["#0078d4", "#2560e0"],
   },
   {
-    name: "Google Cloud Platform",
-    icon: <GoogleCloudPlatformIcon />,
-    category: "cloud",
-    gradient: ["#4285f4", "#34a853"],
-  },
-  {
-    name: "Cloud Run",
+    name: "Cloud Cloud",
     icon: <GoogleCloudIcon />,
     category: "cloud",
     gradient: ["#4285f4", "#ea4335"],
@@ -298,20 +289,6 @@ export const techs: Tech[] = [
     icon: <RaccoonIcon />,
     category: "engineering",
     gradient: ["#d63384", "#bc8f8f"],
-  },
-
-  // 📋 Agile
-  {
-    name: "Kanban",
-    icon: <KanbanIcon />,
-    category: "agile",
-    gradient: ["#0078d4", "#50e6ff"],
-  },
-  {
-    name: "Scrum",
-    icon: <ScrumIcon />,
-    category: "agile",
-    gradient: ["#13aa52", "#34d399"],
   },
 
   // 🌐 IoT

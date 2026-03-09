@@ -26,7 +26,6 @@ export const categories = [
   "Database",
   "AI",
   "Engineering",
-  "Agile",
   "IoT",
 ];
 

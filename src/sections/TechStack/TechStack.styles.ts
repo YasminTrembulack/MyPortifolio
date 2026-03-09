@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   min-height: 100vh;
-  padding-top: 4rem;
-  padding-bottom: 0rem;
+  padding: 4rem 0;
   background: ${({ theme }) => theme.colors.background};
 `;
 
@@ -103,7 +102,6 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 
   transition:
     transform 0.18s ease,
