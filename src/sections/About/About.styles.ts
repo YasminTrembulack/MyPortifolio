@@ -87,7 +87,7 @@ export const Content = styled.div`
   justify-content: start;
 `;
 
-export const ContentHeader = styled.div`
+export const ContentHeader = styled.div<{ $visible: boolean }>`
   display: flex;
   justify-content: start;
   gap: 0.75rem;
@@ -95,6 +95,19 @@ export const ContentHeader = styled.div`
   @media (max-width: 900px) {
     justify-content: center;
   }
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 export const Icon = styled.pre`
   font-family: ${({ theme }) => theme.fonts.decorative};
@@ -113,12 +126,25 @@ export const Title = styled.h2`
   margin: 0.5rem 0;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ $visible: boolean }>`
   font-size: 1.1rem;
   line-height: 1.7;
   color: ${({ theme }) => theme.colors.softWhite};
   font-family: ${({ theme }) => theme.fonts.terciary};
   font-weight: regular;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease 0.4s,
+    transform 1.2s ease 0.4s;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
 export const Subtitle = styled.div`
@@ -136,7 +162,7 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const Tags = styled.div`
+export const Tags = styled.div<{ $visible: boolean }>`
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
@@ -146,6 +172,19 @@ export const Tags = styled.div`
   margin-bottom: 2rem;
 
   font-family: ${({ theme }) => theme.fonts.secundary};
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease 0.2s,
+    transform 1.2s ease 0.2s;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
 export const Tag = styled.span`

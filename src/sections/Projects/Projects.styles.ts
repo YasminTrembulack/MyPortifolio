@@ -12,10 +12,6 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Header = styled.div`
-  margin-bottom: 2rem;
-`;
-
 export const Title = styled.h2`
   font-size: 2.7rem;
   font-weight: 600;
@@ -42,14 +38,44 @@ export const Icon = styled.pre`
   text-align: center;
 `;
 
+export const Header = styled.div<{ $visible: boolean }>`
+  margin-bottom: 2rem;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
+`;
+
 export const Subtitle = styled.p`
   margin-top: 0.75rem;
   color: ${({ theme }) => theme.colors.greyLight};
   max-width: 520px;
 `;
 
-export const Grid = styled.div`
+export const Grid = styled.div<{ $visible: boolean }>`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease 0.2s,
+    transform 1.2s ease 0.2s;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;

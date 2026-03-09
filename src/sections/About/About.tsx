@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
   Section,
   Container,
@@ -19,10 +20,31 @@ import { Socials } from "../../components/Socials/Socials";
 import { useTheme } from "styled-components";
 
 export function About() {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const theme = useTheme();
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Section id="about">
+    <Section id="about" ref={sectionRef}>
       <Container>
         <PhotoWrapper>
           <AsciiArt
@@ -37,25 +59,25 @@ export function About() {
         </PhotoWrapper>
 
         <Content>
-          <ContentHeader>
+          <ContentHeader $visible={visible}>
             <Icon>{flower}</Icon>
             <Title>About Me</Title>
           </ContentHeader>
 
-          <Tags>
+          <Tags $visible={visible}>
             <Tag>Software Engineer</Tag>
             <Tag>Full Stack Developer</Tag>
             <Tag>Data Engineer</Tag>
           </Tags>
 
-          <Text>
+          <Text $visible={visible}>
             I am a Software Engineering student, driven by curiosity and the
             desire to create efficient solutions. I am interested in developing
             well-structured applications, with a focus on functionality,
             clarity, and best development practices.
           </Text>
 
-          <Text>
+          <Text $visible={visible}>
             I believe in continuous learning and value teamwork, understanding
             collaboration as an essential part of building better solutions. I
             am constantly improving my skills to grow as a developer and deliver

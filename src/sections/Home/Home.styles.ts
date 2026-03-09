@@ -38,11 +38,9 @@ export const Content = styled.div`
 
   text-align: center;
   color: ${({ theme }) => theme.colors.softWhite};
-
-  animation: ${fadeUp} 1.2s ease forwards;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h1<{ $visible: boolean }>`
   font-family: ${({ theme }) => theme.fonts.primary};
   color: ${({ theme }) => theme.colors.softWhite};
 
@@ -59,9 +57,22 @@ export const Title = styled.h1`
     color: ${({ theme }) => theme.colors.bluePrimary};
     font-weight: 800;
   }
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.p<{ $visible: boolean }>`
   font-family: ${({ theme }) => theme.fonts.secundary};
   font-size: 1rem;
   line-height: 2.4rem;
@@ -85,14 +96,40 @@ export const Subtitle = styled.p`
     display: inline-block;
     padding: 0 14px 0 8px;
   }
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease 0.2s,
+    transform 1.2s ease 0.2s;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
-export const Actions = styled.div`
+export const Actions = styled.div<{ $visible: boolean }>`
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
   margin: 1rem 0;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease 0.4s,
+    transform 1.2s ease 0.4s;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
 export const Button = styled.a`

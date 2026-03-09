@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const cardFadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Section = styled.section`
   min-height: 100vh;
@@ -32,11 +43,24 @@ export const HeaderIcon = styled.pre`
   text-align: center;
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<{ $visible: boolean }>`
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
 export const Container = styled.div`
@@ -81,17 +105,34 @@ export const Tab = styled.button<{ $active: boolean }>`
     background: ${({ theme, $active }) =>
       $active ? theme.colors.blueHover : theme.colors.blueMuted};
   }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
-export const Grid = styled.div`
+export const Grid = styled.div<{ $visible: boolean }>`
   display: grid;
   grid-template-columns: repeat(7, 140px);
   gap: 16px;
   justify-content: center;
   margin: auto;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1.2s ease 0.2s,
+    transform 1.2s ease 0.2s;
+
+  ${({ $visible }) =>
+    $visible &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
-export const Card = styled.div`
+export const Card = styled.div<{ $index: number }>`
   background: rgba(255, 255, 255, 0.03);
 
   border-radius: 15px;
@@ -102,6 +143,11 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: ${cardFadeIn} 0.6s ease forwards;
+  animation-delay: ${({ $index }) => `${$index * 0.1}s`};
 
   transition:
     transform 0.18s ease,
