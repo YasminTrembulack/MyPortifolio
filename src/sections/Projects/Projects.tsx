@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import {
   Section,
   Container,
@@ -11,34 +10,15 @@ import {
 } from "./Projects.styles";
 import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import { flower } from "../../assets/ascii-art";
+import { useIntersection } from "../../hooks/useIntersection";
 
 export function Projects() {
-  const [visible, setVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref, isVisible } = useIntersection();
 
   return (
-    <Section id="projects" ref={sectionRef}>
+    <Section id="projects" ref={ref}>
       <Container>
-        <Header $visible={visible}>
+        <Header $visible={isVisible}>
           <ContentHeader>
             <Icon>{flower}</Icon>
             <Title>Projects</Title>
@@ -46,7 +26,7 @@ export function Projects() {
           <Subtitle>Some of the projects I’ve worked on</Subtitle>
         </Header>
 
-        <Grid $visible={visible}>
+        <Grid $visible={isVisible}>
           <ProjectCard
             title="Personal Portfolio"
             description="Personal portfolio website built with modern frontend technologies, focusing on performance and responsive design."

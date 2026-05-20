@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { scrollToSection } from "../../utils/scrollToSection";
 import {
   Section,
@@ -8,44 +7,25 @@ import {
   Actions,
   Button,
 } from "./Home.styles";
+import { useIntersection } from "../../hooks/useIntersection";
 
 export function Home() {
-  const [visible, setVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref, isVisible } = useIntersection();
 
   return (
-    <Section id="home" ref={sectionRef}>
+    <Section id="home" ref={ref}>
       <Content>
         <div>
-          <Title $visible={visible}>
+          <Title $visible={isVisible}>
             Hello, I'm <strong>Yasmin Trembulack Agostinho</strong>.
           </Title>
 
-          <Subtitle $visible={visible}>
+          <Subtitle $visible={isVisible}>
             <span>“Turning ideas into code.”</span>
             <span>“Learning, building, evolving.”</span>
           </Subtitle>
 
-          <Actions $visible={visible}>
+          <Actions $visible={isVisible}>
             <Button onClick={() => scrollToSection("contact")}>
               🡪 Contact
             </Button>
