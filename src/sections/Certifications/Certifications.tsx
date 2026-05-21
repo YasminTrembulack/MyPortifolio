@@ -43,20 +43,26 @@ export function Certifications() {
             <Icon>{flower}</Icon>
             <Title>Certifications</Title>
           </ContentHeader>
-          <Subtitle>Some of the certifications I’ve obtained</Subtitle>
+          <Subtitle>Some of the certifications I’ve obtained throughout my journey.</Subtitle>
         </Header>
 
         <Grid $visible={visible}>
           <CertificationCard
-            title="Personal Portfolio"
-            description="Personal portfolio website built with modern frontend technologies, focusing on performance and responsive design."
+            title="Técnico Desenvolvimento de Sistemas"
+            institution="Robert Bosch Limitada"
             link="#"
           />
           <CertificationCard
             title="Analytics Dashboard"
-            description="Web dashboard for data visualization with backend API integration and database persistence."
+            institution="Robert Bosch Limitada"
             link="#"
           />
+          <CertificationCard
+            title="Analytics Dashboard"
+            institution="Robert Bosch Limitada"
+            link="#"
+          />
+
         </Grid>
       </Container>
     </Section>

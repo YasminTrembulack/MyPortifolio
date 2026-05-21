@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  min-height: 100vh;
+  min-height: 90vh;
   padding-top: 4rem;
   padding-bottom: 0rem;
   background: ${({ theme }) => theme.colors.background};
@@ -34,7 +34,7 @@ export const Icon = styled.pre`
 
   font-size: 35px;
   margin: 0;
-  color: ${({ theme }) => theme.colors.yellowAccent};
+  color: ${({ theme }) => theme.colors.bluePrimary};
   text-align: center;
 `;
 
