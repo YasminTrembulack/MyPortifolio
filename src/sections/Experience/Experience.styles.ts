@@ -99,7 +99,7 @@ export const ProgressLine = styled.div`
 
 export const Item = styled.div`
   position: relative;
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 `;
 
 export const CardIcon = styled.pre`
@@ -166,97 +166,85 @@ export const MarkerIcon = styled.span<{
   }
 `;
 
-
-  // width: 100%;
-  // max-width: 400px;
-  // padding: 24px;
-  // position: relative;
-  // overflow: hidden;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-
-  // background: ${({ theme }) => theme.colors.background};
-  // border: 1px solid ${({ theme }) => theme.colors.softBlack};
-  // border-radius: 16px;
-
-  // font-family: ${({ theme }) => theme.fonts.primary};
-  // box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-
-  // border-color: ${({ theme }) => theme.colors.greyDark};
-
-  // transition:
-  //   transform 0.3s ease,
-  //   box-shadow 0.3s ease,
-  //   border 0.3s ease;
-
-
-export const Card = styled.div<{
-  $side: "left" | "right";
-  $visible: boolean;
-}>`
+export const Card = styled.div<{ $side: "left" | "right"; $visible: boolean }>`
   width: 100%;
   max-width: 400px;
   padding: 24px;
+
   position: relative;
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  background: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.softBlack};
   border-radius: 16px;
 
-  font-family: ${({ theme }) => theme.fonts.primary};
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  background: ${({ theme }) => theme.colors.background};
+  border: 1px solid ${({ theme }) => theme.colors.greyDark};
 
-  border-color: ${({ theme }) => theme.colors.greyDark};
+  font-family: ${({ theme }) => theme.fonts.primary};
+
+  /* 🔥 IMPORTANTE: cria contexto */
+  isolation: isolate;
+
+  /* base shadow */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 
   ${({ $side }) =>
     $side === "left"
-      ? css`
-          left: 0;
-        `
-      : css`
-          left: 55%;
-        `}
+      ? css`left: 0;`
+      : css`left: 55%;`}
 
-  box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.5),
-    0 0 30px ${({ theme }) => theme.colors.blueMuted};
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transform: translateX(
+    ${({ $visible, $side }) =>
+      $visible ? "0" : $side === "left" ? "-120px" : "120px"}
+  );
 
-  opacity: 0;
-  filter: blur(8px);
+  filter: blur(${({ $visible }) => ($visible ? "0px" : "8px")});
 
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border 0.3s ease;
-
-  ${({ $visible, $side }) =>
-    !$visible &&
-    css`
-      transform: translateX(${$side === "left" ? "-120px" : "120px"});
-    `}
-
-  ${({ $visible }) =>
-    $visible &&
-    css`
-      transform: translateX(0);
-      opacity: 1;
-      filter: blur(0);
-    `}
+  transition: all 0.4s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     border-color: ${({ theme }) => theme.colors.bluePrimary};
+
     box-shadow:
       0 30px 70px rgba(0, 0, 0, 0.5),
-      0 0 30px ${({ theme }) => theme.colors.blueMuted};
+      0 0 35px ${({ theme }) => theme.colors.blueMuted};
   }
+`;
 
+export const CardGlow = styled.div`
+  position: absolute;
+  top: -80px;
+  right: -80px;
+
+  width: 220px;
+  height: 220px;
+
+  background: radial-gradient(
+    circle,
+    ${({ theme }) => theme.colors.blueMuted} 0%,
+    transparent 70%
+  );
+
+  filter: blur(55px);
+
+  z-index: 0;
+
+  opacity: 0;
+
+  transform: scale(0.8);
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+
+  ${Card}:hover & {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
 `;
 
 const gridMove = keyframes`
@@ -267,8 +255,12 @@ const gridMove = keyframes`
 export const CardGrid = styled.div`
   position: absolute;
   inset: 0;
-  z-index: 0;
+
+  z-index: 1;
+
   pointer-events: none;
+
+  opacity: 0.2;
 
   background-image:
     linear-gradient(
@@ -280,14 +272,14 @@ export const CardGrid = styled.div`
       ${({ theme }) => theme.colors.softBlack} 1px,
       transparent 1px
     );
+
   background-size: 30px 30px;
 
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  opacity: 0.3;
 
   ${Card}:hover & {
+    opacity: 0.4;
     animation: ${gridMove} 20s linear infinite;
-    opacity: 0.6;
   }
 `;
 
@@ -295,13 +287,28 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
+`;
+
+export const CardTitle = styled.h3`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-family: ${({ theme }) => theme.fonts.decorative};
+  font-size: 18px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.softWhite};
+
+  margin-bottom: 5px;
 `;
 
 export const Year = styled.span`
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-family: ${({ theme }) => theme.fonts.secundary};
+  font-family: ${({ theme }) => theme.fonts.terciary};
   color: ${({ theme }) => theme.colors.bluePrimary};
   display: block;
   margin-bottom: 6px;

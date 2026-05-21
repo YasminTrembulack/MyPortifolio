@@ -20,6 +20,8 @@ import {
   Subtitle,
   CardIcon,
   CardGrid,
+  CardTitle,
+  CardGlow,
 } from "./Experience.styles";
 
 import Flower1 from "../../assets/icons/flowers/flower1.svg?react";
@@ -150,12 +152,13 @@ export function Experience() {
                 setTimeout(updateProgress, 450);
               }}
             >
+              <CardGlow />
               <CardGrid />
               <Header>
                 <CardIcon>{item.icon}</CardIcon>
 
                 <div style={{ width: "100%" }}>
-                  <h3 style={{ marginBottom: "5px" }}>{item.title}</h3>
+                  <CardTitle>{item.title}</CardTitle>
                   <Year>{item.year}</Year>
                 </div>
                 <Icon $active={activeIndex === index}>+</Icon>
