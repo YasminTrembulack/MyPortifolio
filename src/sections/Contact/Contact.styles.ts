@@ -5,11 +5,6 @@ export const Section = styled.section`
   padding-top: 6rem;
   padding-bottom: 2rem;
 
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content:center;
-
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.softWhite};
 
@@ -39,6 +34,7 @@ export const Header = styled.div<{ $visible: boolean }>`
 
 export const Container = styled.div`
   max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +42,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 100%;
+  padding: 0 1rem;
 
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -106,15 +103,15 @@ export const Title = styled.h2`
 export const Subtitle = styled.p`
   margin-top: 0.75rem;
   color: ${({ theme }) => theme.colors.greyLight};
-  text-align: center;
 `;
 
 export const Divider = styled.div`
   width: 100%;
-  height: 1px;
-  background: ${({ theme }) => theme.colors.greyDark  };
-  opacity: 0.6;
   margin: 24px 0;
+  height: 1px;
+  border: none;
+  opacity: 0.45;
+  background-color: ${({ theme }) => theme.colors.yellowSoft};
 `;
 
 export const InfoList = styled.div`
@@ -169,7 +166,7 @@ export const InfoTitle = styled.h4`
 `;
 
 export const InfoText = styled.p`
-  color: #6b7280;
+  color: ${({ theme }) => theme.colors.grey};
 `;
 
 export const Form = styled.form`

@@ -58,8 +58,17 @@ export const Header = styled.div<{ $visible: boolean }>`
 export const Subtitle = styled.p`
   margin-top: 0.75rem;
   color: ${({ theme }) => theme.colors.greyLight};
-  max-width: 520px;
 `;
+
+export const Divider = styled.div`
+  width: 100%;
+  margin: 24px 0;
+  height: 1px;
+  border: none;
+  opacity: 0.45;
+  background-color: ${({ theme }) => theme.colors.yellowSoft};
+`;
+
 
 export const Grid = styled.div<{ $visible: boolean }>`
   display: grid;

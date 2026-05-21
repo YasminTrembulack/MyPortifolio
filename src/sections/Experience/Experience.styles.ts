@@ -19,8 +19,6 @@ export const Title = styled.h2`
 
 export const ContentHeader = styled.div`
   text-align: center;
-  margin-bottom: 120px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -282,6 +280,23 @@ export const CardGrid = styled.div`
     animation: ${gridMove} 20s linear infinite;
   }
 `;
+
+export const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+export const Divider = styled.div`
+  width: 100%;
+  margin: 0;
+  margin-top: 24px;
+  margin-bottom: 44px;
+  height: 1px;
+  border: none;
+  opacity: 0.45;
+  background-color: ${({ theme }) => theme.colors.blueSoft};
+`;
+
 
 export const Header = styled.div`
   display: flex;

@@ -3,6 +3,7 @@ import {
   Card,
   Container,
   ContentHeader,
+  Divider,
   Grid,
   Header,
   HeaderIcon,
@@ -49,6 +50,7 @@ export function TechStack() {
             Technologies that help me bring ideas to life and turn imagination into code.
           </Subtitle>
         </Header>
+        <Divider></Divider>
         <Tabs>
           {categories.map((cat) => (
             <Tab

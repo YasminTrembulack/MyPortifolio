@@ -12,6 +12,16 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
+export const Divider = styled.div`
+  width: 100%;
+  margin: 24px 0;
+  height: 1px;
+  border: none;
+  opacity: 0.45;
+  background-color: ${({ theme }) => theme.colors.blueSoft};
+`;
+
+
 export const Title = styled.h2`
   font-size: 2.7rem;
   font-weight: 600;

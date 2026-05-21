@@ -18,10 +18,12 @@ import {
   Eyebrow,
   TitleRow,
   Subtitle,
+  Divider,
   CardIcon,
   CardGrid,
   CardTitle,
   CardGlow,
+  Container,
 } from "./Experience.styles";
 
 import Flower1 from "../../assets/icons/flowers/flower1.svg?react";
@@ -122,8 +124,9 @@ export function Experience() {
 
   return (
     <Section id="experience">
-      <ContentHeader>
-        <Eyebrow>My Journey</Eyebrow>
+      <Container>
+        <ContentHeader>
+          <Eyebrow>My Journey</Eyebrow>
 
         <TitleRow>
           <HeaderIcon>{flower}</HeaderIcon>
@@ -131,10 +134,10 @@ export function Experience() {
         </TitleRow>
 
         <Subtitle>
-          Building real-world solutions and growing professionally
+          Building real-world solutions and growing professionally.
         </Subtitle>
       </ContentHeader>
-
+      <Divider />
       <TimelineWrapper ref={timelineRef}>
         <TimelineLine />
         <ProgressLine ref={progressRef} />
@@ -171,6 +174,7 @@ export function Experience() {
           </Item>
         ))}
       </TimelineWrapper>
+      </Container>
     </Section>
   );
 }

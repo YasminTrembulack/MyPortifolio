@@ -7,6 +7,7 @@ import {
   Grid,
   ContentHeader,
   Icon,
+  Divider,
 } from "./Projects.styles";
 import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import { flower } from "../../assets/ascii-art";
@@ -23,9 +24,9 @@ export function Projects() {
             <Icon>{flower}</Icon>
             <Title>Projects</Title>
           </ContentHeader>
-          <Subtitle>Some of the projects I’ve worked on</Subtitle>
+          <Subtitle>Projects I’ve built to explore ideas, solve problems, and improve my skills.</Subtitle>
         </Header>
-
+        <Divider />
         <Grid $visible={isVisible}>
           <ProjectCard
             title="Personal Portfolio"

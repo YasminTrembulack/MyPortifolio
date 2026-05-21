@@ -8,6 +8,7 @@ import {
   Grid,
   ContentHeader,
   Icon,
+  Divider,
 } from "./Certifications.styles";
 import { CertificationCard } from "../../components/CertificationCard/CertificationCard";
 import { flower } from "../../assets/ascii-art";
@@ -45,7 +46,7 @@ export function Certifications() {
           </ContentHeader>
           <Subtitle>Some of the certifications I’ve obtained throughout my journey.</Subtitle>
         </Header>
-
+        <Divider/>
         <Grid $visible={visible}>
           <CertificationCard
             title="Técnico Desenvolvimento de Sistemas"

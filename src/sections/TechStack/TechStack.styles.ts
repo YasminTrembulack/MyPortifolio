@@ -44,7 +44,6 @@ export const HeaderIcon = styled.pre`
 `;
 
 export const Header = styled.div<{ $visible: boolean }>`
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,9 +61,18 @@ export const Header = styled.div<{ $visible: boolean }>`
       transform: translateY(0);
     `}
 `;
+export const Divider = styled.div`
+  width: 100%;
+  margin: 24px 0;
+  height: 1px;
+  border: none;
+  opacity: 0.45;
+  background-color: ${({ theme }) => theme.colors.yellowSoft};
+`;
+
 
 export const Container = styled.div`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
@@ -80,7 +88,7 @@ export const Tabs = styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin: 40px 0;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 `;
 
