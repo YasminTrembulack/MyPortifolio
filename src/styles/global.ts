@@ -23,7 +23,10 @@ export const GlobalStyle = createGlobalStyle`
   main {
     flex: 1;
     width: 100%;
-    background: ${({ theme }) => theme.colors.black};
+    background: linear-gradient(
+      ${({ theme }) => theme.colors.black},
+      ${({ theme }) => theme.colors.background}
+  );
     color: ${({ theme }) => theme.colors.softWhite};
   }
 `;
