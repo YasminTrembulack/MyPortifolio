@@ -46,8 +46,7 @@ export function TechStack() {
             <Title>Tech Stack</Title>
           </ContentHeader>
           <Subtitle>
-            Technologies that help me bring ideas to life and turn imagination
-            into code.
+            Technologies that help me bring ideas to life and turn imagination into code.
           </Subtitle>
         </Header>
         <Tabs>
