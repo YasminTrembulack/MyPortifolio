@@ -1,79 +1,77 @@
 import styled, { keyframes } from "styled-components";
 
-/* Animations */
-const blink = keyframes`
-  0%,100% { opacity: 1; }
-  50% { opacity: 0; }
-`;
-
 const gridMove = keyframes`
   from { background-position: 0 0; }
   to { background-position: 30px 30px; }
 `;
 
-export const BlinkingCursor = styled.span`
-  width: 10px;
-  height: 3px;
+/* =========================
+   CONTAINER
+========================= */
 
-  background: ${({ theme }) => theme.colors.bluePrimary};
-  box-shadow: 0 0 8px ${({ theme }) => theme.colors.bluePrimary};
+export const Container = styled.div`
+  position: relative;
+  max-width: 400px;
 
-  display: none;
-
-  opacity: 0;
-  transform: translateY(2px);
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
-  animation: ${blink} 1s step-end infinite;
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
-/* Card base */
+/* =========================
+   CARD
+========================= */
+
 export const Card = styled.div`
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
   position: relative;
   overflow: hidden;
+
+  width: 100%;
+  max-width: 400px;
+  min-height: 142px;
+
+  padding: 24px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
 
   background: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.softBlack};
+  border: 1px solid ${({ theme }) => theme.colors.greyDark};
   border-radius: 16px;
 
   font-family: ${({ theme }) => theme.fonts.primary};
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 
-  border-color: ${({ theme }) => theme.colors.greyDark};
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
-    border 0.3s ease;
+    border-color 0.3s ease;
 
-  &:hover {
+  ${Container}:hover & {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+
     border-color: ${({ theme }) => theme.colors.bluePrimary};
+
     box-shadow:
       0 30px 70px rgba(0, 0, 0, 0.5),
       0 0 30px ${({ theme }) => theme.colors.blueMuted};
   }
-
-  &:hover ${BlinkingCursor} {
-    display: inline-block;
-    opacity: 1;
-    transform: translateY(0);
-    animation-play-state: running;
-  }
 `;
+
+/* =========================
+   GRID
+========================= */
 
 export const CardGrid = styled.div`
   position: absolute;
   inset: 0;
+
   z-index: 0;
   pointer-events: none;
 
@@ -87,21 +85,27 @@ export const CardGrid = styled.div`
       ${({ theme }) => theme.colors.softBlack} 1px,
       transparent 1px
     );
+
   background-size: 30px 30px;
 
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   opacity: 0.3;
 
-  ${Card}:hover & {
+  ${Container}:hover & {
     animation: ${gridMove} 20s linear infinite;
     opacity: 0.6;
   }
 `;
 
+/* =========================
+   GLOW (CORRIGIDO)
+========================= */
+
 export const CardGlow = styled.div`
   position: absolute;
   top: -60px;
   right: -60px;
+
   width: 180px;
   height: 180px;
 
@@ -110,78 +114,108 @@ export const CardGlow = styled.div`
     ${({ theme }) => theme.colors.blueMuted},
     transparent 70%
   );
+
   filter: blur(40px);
-  z-index: -1;
 
-  transition: transform 0.4s ease;
+  z-index: 0;
 
-  ${Card}:hover & {
+  opacity: 0;
+
+  transform: scale(0.9);
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+
+  ${Container}:hover & {
     transform: scale(1.4);
+    opacity: 0.9;
   }
 `;
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
+
 export const CardHeader = styled.header`
+  position: relative;
+  z-index: 2;
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-  z-index: 2;
+  align-items: flex-start;
+
+  margin-bottom: 10px;
 `;
 
-/* Actions */
-export const ActionButtons = styled.div`
-  display: flex;
-  gap: 8px;
-  z-index: 2;
-`;
+/* =========================
+   ICON
+========================= */
 
-export const IconButton = styled.button`
-  background: transparent;
-  border: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
+export const Icon = styled.div`
+  position: absolute;
+  right: 5px;
+  bottom: -20px;
 
-  color: ${({ theme }) => theme.colors.greyLight};
-  transition: all 0.2s ease;
+  width: 50px;
+  height: 50px;
 
-  &:hover {
-    background: ${({ theme }) => theme.colors.blueMuted};
-    color: ${({ theme }) => theme.colors.white};
-    transform: translateY(-2px);
-  }
+  color: ${({ theme }) => theme.colors.yellowAccent};
+
+  z-index: 3;
 
   svg {
-    width: 20px;
-    height: 20px;
+    position: absolute;
+    inset: 0;
+
+    width: 50px;
+    height: 50px;
+
     fill: currentColor;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    opacity: 0;
+    transform: scale(0.9) rotate(-10deg);
+  }
+
+  svg.active {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 `;
+
+/* =========================
+   TEXTOS
+========================= */
 
 export const RepoTitle = styled.h3`
   display: flex;
-  align-items: center;
-  gap: 6px;
 
   font-family: ${({ theme }) => theme.fonts.decorative};
   font-size: 22px;
   font-weight: 500;
+
   color: ${({ theme }) => theme.colors.softWhite};
 `;
 
-export const RepoDescription = styled.p`
-  min-height: 48px;
+export const Year = styled.h3`
+  display: flex;
+
+  font-family: ${({ theme }) => theme.fonts.decorative};
+  font-size: 22px;
+  font-weight: 500;
+
+  color: ${({ theme }) => theme.colors.blueHover};
+`;
+
+export const RepoSubTitle = styled.p`
   font-family: ${({ theme }) => theme.fonts.terciary};
   font-size: 15px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.colors.grey};
-  margin-bottom: 24px;
-  z-index: 2;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: ${({ theme }) => theme.colors.grey};
+
+  z-index: 2;
 `;

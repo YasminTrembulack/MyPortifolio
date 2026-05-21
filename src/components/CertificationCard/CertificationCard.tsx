@@ -3,38 +3,44 @@ import {
   CardGrid,
   CardGlow,
   CardHeader,
-  ActionButtons,
-  IconButton,
+  Icon,
   RepoTitle,
-  RepoDescription,
+  Container,
+  RepoSubTitle,
+  Year,
 } from "./CertificationCard.styles";
-import GithubIcon from "../../assets/icons/github.svg?react";
+import MedalReward from "../../assets/icons/medal.svg?react";
+import MedalRewardFilled from "../../assets/icons/medal-filled.svg?react";
+import { useState } from "react";
 
 type Props = {
   title: string;
-  description: string;
+  institution: string;
   link: string;
 };
 
-export function CertificationCard({ title, description }: Props) {
+export function CertificationCard({ title, institution }: Props) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <Card>
-      <CardGlow />
-      <CardGrid />
+    <Container>
+      <Card onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}>
+        <CardGlow />
+        <CardGrid />
 
-      <CardHeader>
-        <RepoTitle>
-          {title}
-        </RepoTitle>
-
-        <ActionButtons>
-          <IconButton aria-label="View on GitHub">
-            <GithubIcon />
-          </IconButton>
-        </ActionButtons>
-      </CardHeader>
-
-      <RepoDescription>{description}</RepoDescription>
-    </Card>
+        <CardHeader>
+          <RepoTitle>
+            {title}
+          </RepoTitle>
+          <Year>2023</Year>
+        </CardHeader>
+        <RepoSubTitle>{institution}</RepoSubTitle>
+      </Card>
+      <Icon>
+        <MedalReward className={!hovered ? "active" : ""} />
+        <MedalRewardFilled className={hovered ? "active" : ""} />
+      </Icon>
+    </Container>
   );
 }
