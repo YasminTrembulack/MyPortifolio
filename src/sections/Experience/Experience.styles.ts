@@ -166,18 +166,52 @@ export const MarkerIcon = styled.span<{
   }
 `;
 
+
+  // width: 100%;
+  // max-width: 400px;
+  // padding: 24px;
+  // position: relative;
+  // overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+
+  // background: ${({ theme }) => theme.colors.background};
+  // border: 1px solid ${({ theme }) => theme.colors.softBlack};
+  // border-radius: 16px;
+
+  // font-family: ${({ theme }) => theme.fonts.primary};
+  // box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  // border-color: ${({ theme }) => theme.colors.greyDark};
+
+  // transition:
+  //   transform 0.3s ease,
+  //   box-shadow 0.3s ease,
+  //   border 0.3s ease;
+
+
 export const Card = styled.div<{
   $side: "left" | "right";
   $visible: boolean;
 }>`
-  width: 45%;
+  width: 100%;
+  max-width: 400px;
   padding: 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.softBlack};
   border-radius: 16px;
 
-  position: relative;
-  cursor: pointer;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  border-color: ${({ theme }) => theme.colors.greyDark};
 
   ${({ $side }) =>
     $side === "left"
@@ -196,10 +230,9 @@ export const Card = styled.div<{
   filter: blur(8px);
 
   transition:
-    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 0.6s ease,
-    filter 0.6s ease,
-    border-color 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border 0.3s ease;
 
   ${({ $visible, $side }) =>
     !$visible &&
@@ -216,8 +249,14 @@ export const Card = styled.div<{
     `}
 
   &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     border-color: ${({ theme }) => theme.colors.bluePrimary};
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.5),
+      0 0 30px ${({ theme }) => theme.colors.blueMuted};
   }
+
 `;
 
 const gridMove = keyframes`

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   Card,
   Container,
@@ -16,6 +16,7 @@ import {
 } from "./TechStack.styles";
 import { flower } from "../../assets/ascii-art";
 import { techs } from "./techs";
+import { useIntersection } from "../../hooks/useIntersection";
 
 export const categories = [
   "All",
@@ -31,35 +32,15 @@ export const categories = [
 
 export function TechStack() {
   const [active, setActive] = useState("all");
-  const [visible, setVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const { ref, isVisible } = useIntersection();
 
   const filtered =
     active === "all" ? techs : techs.filter((t) => t.category === active);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <Section id="tech-stack" ref={sectionRef}>
+    <Section id="tech-stack" ref={ref}>
       <Container>
-        <Header $visible={visible}>
+        <Header $visible={isVisible}>
           <ContentHeader>
             <HeaderIcon>{flower}</HeaderIcon>
             <Title>Tech Stack</Title>
@@ -81,7 +62,7 @@ export function TechStack() {
           ))}
         </Tabs>
 
-        <Grid $visible={visible} key={active}>
+        <Grid $visible={isVisible} key={active}>
           {filtered.map((tech, index) => (
             <Card key={tech.name} $index={index}>
               <Icon $gradient={tech.gradient}>{tech.icon}</Icon>
