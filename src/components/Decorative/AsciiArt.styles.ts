@@ -11,6 +11,7 @@ export const ArtText = styled.pre<{
   $useGradient?: boolean;
   $animation?: boolean;
 }>`
+  z-index: 1;
   position: absolute;
 
   ${({ $top }) => $top && `top: ${$top};`}

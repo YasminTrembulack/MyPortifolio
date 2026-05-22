@@ -29,7 +29,7 @@ export function About() {
         <PhotoWrapper>
           <AsciiArt
             $color={`${theme.colors.yellowAccent}`}
-            $left="0.5rem"
+            $left="0.4rem"
             $top="-1.5rem"
             $font_size="6.5px"
             $line_height="0.4"
