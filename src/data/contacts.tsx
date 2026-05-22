@@ -1,7 +1,7 @@
-import LinkedinIcon from "../../assets/icons/linkedin.svg?react";
-import GithubIcon from "../../assets/icons/github.svg?react";
-import GmailIcon from "../../assets/icons/gmail.svg?react";
-import Location from "../../assets/icons/location.svg?react";
+import LinkedinIcon from "../assets/icons/linkedin.svg?react";
+import GithubIcon from "../assets/icons/github.svg?react";
+import GmailIcon from "../assets/icons/gmail.svg?react";
+import Location from "../assets/icons/location.svg?react";
 
 export type Contacts = {
     link: string;
