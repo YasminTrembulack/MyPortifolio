@@ -12,6 +12,7 @@ import {
 } from "./Certifications.styles";
 import { CertificationCard } from "../../components/CertificationCard/CertificationCard";
 import { flower } from "../../assets/ascii-art";
+import { certifications } from "../../data/certifications";
 
 export function Certifications() {
   const [visible, setVisible] = useState(false);
@@ -48,21 +49,14 @@ export function Certifications() {
         </Header>
         <Divider/>
         <Grid $visible={visible}>
-          <CertificationCard
-            title="Técnico Desenvolvimento de Sistemas"
-            institution="Robert Bosch Limitada"
-            link="#"
-          />
-          <CertificationCard
-            title="Analytics Dashboard"
-            institution="Robert Bosch Limitada"
-            link="#"
-          />
-          <CertificationCard
-            title="Analytics Dashboard"
-            institution="Robert Bosch Limitada"
-            link="#"
-          />
+          {certifications.map((c, index) => (
+            <CertificationCard
+              key={index}
+              title={c.title}
+              institution={c.institution}
+              year={c.year}
+            />
+          ))}
 
         </Grid>
       </Container>

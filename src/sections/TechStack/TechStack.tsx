@@ -16,7 +16,7 @@ import {
   Title,
 } from "./TechStack.styles";
 import { flower } from "../../assets/ascii-art";
-import { techs } from "./techs";
+import { techs } from "../../data/techs";
 import { useIntersection } from "../../hooks/useIntersection";
 
 export const categories = [

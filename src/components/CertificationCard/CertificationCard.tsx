@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   CardGrid,
@@ -11,15 +12,10 @@ import {
 } from "./CertificationCard.styles";
 import MedalReward from "../../assets/icons/medal.svg?react";
 import MedalRewardFilled from "../../assets/icons/medal-filled.svg?react";
-import { useState } from "react";
+import type { Certification } from "../../data/certifications";
 
-type Props = {
-  title: string;
-  institution: string;
-  link: string;
-};
 
-export function CertificationCard({ title, institution }: Props) {
+export function CertificationCard({ title, institution, year }: Certification) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -33,7 +29,7 @@ export function CertificationCard({ title, institution }: Props) {
           <RepoTitle>
             {title}
           </RepoTitle>
-          <Year>2023</Year>
+          <Year>{year}</Year>
         </CardHeader>
         <RepoSubTitle>{institution}</RepoSubTitle>
       </Card>

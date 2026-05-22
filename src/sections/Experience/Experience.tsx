@@ -33,7 +33,8 @@ import Flower4 from "../../assets/icons/flowers/flower4.svg?react";
 import Flower5 from "../../assets/icons/flowers/flower5.svg?react";
 import Flower6 from "../../assets/icons/flowers/flower6.svg?react";
 import Flower7 from "../../assets/icons/flowers/flower7.svg?react";
-import { bosch, flower } from "../../assets/ascii-art";
+import { flower } from "../../assets/ascii-art";
+import { experiences } from "../../data/experiences";
 
 export const MARKER_ICONS = [
   Flower1,
@@ -49,30 +50,6 @@ const Marker = ({ active, index }: { active: boolean; index: number }) => {
   const Icon = MARKER_ICONS[index % MARKER_ICONS.length];
   return <MarkerIcon as={Icon} $active={active} />;
 };
-
-const data = [
-  {
-    icon: bosch,
-    year: "2023 - 2025",
-    title: "ETS - Desenvolvimento de Sistemas",
-    description:
-      "Início na Bosch como aprendiz técnica com foco em lógica, backend e fundamentos de arquitetura.",
-  },
-  {
-    icon: bosch,
-    year: "2025 - 2026",
-    title: "BDO - Xpertify Team",
-    description:
-      "Atuação com Azure, APIs REST, testes automatizados e arquitetura de sistemas escaláveis.",
-  },
-  {
-    icon: bosch,
-    year: "2026 - actual",
-    title: "BDO - KMS Team",
-    description:
-      "Atuação com Azure, APIs REST, testes automatizados e arquitetura de sistemas escaláveis.",
-  },
-];
 
 export function Experience() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -142,7 +119,7 @@ export function Experience() {
         <TimelineLine />
         <ProgressLine ref={progressRef} />
 
-        {data.map((item, index) => (
+        {experiences.map((e, index) => (
           <Item key={index} className="timeline-item" data-index={index}>
             <MarkerWrapper>
               <Marker active={activeIndex === index} index={index} />
@@ -158,17 +135,17 @@ export function Experience() {
               <CardGlow />
               <CardGrid />
               <Header>
-                <CardIcon>{item.icon}</CardIcon>
+                <CardIcon>{e.icon}</CardIcon>
 
                 <div style={{ width: "100%" }}>
-                  <CardTitle>{item.title}</CardTitle>
-                  <Year>{item.year}</Year>
+                  <CardTitle>{e.title}</CardTitle>
+                  <Year>{e.year}</Year>
                 </div>
                 <Icon $active={activeIndex === index}>+</Icon>
               </Header>
 
               <Body $active={activeIndex === index}>
-                <p>{item.description}</p>
+                <p>{e.description}</p>
               </Body>
             </Card>
           </Item>

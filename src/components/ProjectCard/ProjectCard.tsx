@@ -13,13 +13,8 @@ import {
 } from "./ProjectCard.styles";
 import GithubIcon from "../../assets/icons/github.svg?react";
 import { badgeVariants, type BadgeVariant } from "./badge.types";
+import type { Project } from "../../data/projects";
 
-type Props = {
-  title: string;
-  description: string;
-  techs: string[];
-  link: string;
-};
 
 const normalizeTech = (tech: string): BadgeVariant => {
   const key = tech.toLowerCase().replace(/\s|\./g, "");
@@ -27,7 +22,7 @@ const normalizeTech = (tech: string): BadgeVariant => {
   return key in badgeVariants ? (key as BadgeVariant) : "default";
 };
 
-export function ProjectCard({ title, description, techs }: Props) {
+export function ProjectCard({ title, description, techs }: Project) {
   return (
     <Card>
       <CardGlow />

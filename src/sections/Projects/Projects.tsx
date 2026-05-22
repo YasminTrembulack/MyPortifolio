@@ -12,6 +12,7 @@ import {
 import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import { flower } from "../../assets/ascii-art";
 import { useIntersection } from "../../hooks/useIntersection";
+import { projects } from "../../data/projects";
 
 export function Projects() {
   const { ref, isVisible } = useIntersection();
@@ -28,39 +29,15 @@ export function Projects() {
         </Header>
         <Divider />
         <Grid $visible={isVisible}>
-          <ProjectCard
-            title="Personal Portfolio"
-            description="Personal portfolio website built with modern frontend technologies, focusing on performance and responsive design."
-            techs={["React", "TypeScript", "HTML", "JavaScript"]}
-            link="#"
-          />
-          <ProjectCard
-            title="Analytics Dashboard"
-            description="Web dashboard for data visualization with backend API integration and database persistence."
-            techs={["React", "JavaScript", "Node", "MySQL"]}
-            link="#"
-          />
-
-          <ProjectCard
-            title="E-commerce Platform"
-            description="Full-featured e-commerce application with authentication, product management and database integration."
-            techs={["Next", "TypeScript", "Node", "MongoDB"]}
-            link="#"
-          />
-
-          <ProjectCard
-            title="REST API Service"
-            description="RESTful API built with Python for managing resources and handling database operations."
-            techs={["Python", "FastAPI", "MySQL"]}
-            link="#"
-          />
-
-          <ProjectCard
-            title="IoT Monitoring System"
-            description="IoT system for monitoring sensors and devices with real-time data processing."
-            techs={["SQL Server", "CSharp", "IoT"]}
-            link="#"
-          />
+         {projects.map((p, index) => (
+            <ProjectCard
+              key={index}
+              title={p.title}
+              description={p.description}
+              techs={p.techs}
+              link={p.link}
+            />
+          ))}
         </Grid>
       </Container>
     </Section>
