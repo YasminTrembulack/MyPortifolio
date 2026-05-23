@@ -1,44 +1,5 @@
 import styled from "styled-components";
-
-export const Section = styled.section`
-  min-height: 100vh;
-  padding-top: 6rem;
-  padding-bottom: 2rem;
-
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.softWhite};
-
-  margin-bottom: 50px;
-`;
-
-export const Header = styled.div<{ $visible: boolean }>`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  width:100%;
-
-  opacity: 0;
-  transform: translateY(32px);
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-
-  ${({ $visible }) =>
-    $visible &&
-    `
-      opacity: 1;
-      transform: translateY(0);
-    `}
-`;
-
-export const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import { fadeLeft, fadeRight, type AnimationProps } from "../../styles/transitions";
 
 export const Content = styled.div`
   width: 100%;
@@ -54,65 +15,17 @@ export const Content = styled.div`
   }
 `;
 
-export const ContentHeader = styled.div`
+export const Side = styled.div`
   display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 0.75rem;
-
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
-`;
-
-export const Icon = styled.pre`
-  font-family: ${({ theme }) => theme.fonts.decorative};
-  white-space: pre;
-
-  font-size: 35px;
-  margin: 0;
-  color: ${({ theme }) => theme.colors.yellowAccent};
-
-  text-align: center;
-`;
-
-export const Right = styled.div`
-  display:flex;
   flex-direction: column;
   gap: 1rem;
-  flex: 8;
 `;
 
-export const Left = styled.div`
-  display:flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 2;
+export const Right = styled(Side)<AnimationProps>`
+  ${fadeLeft};
 `;
 
-
-export const Title = styled.h2`
-  text-align: center;
-
-  font-size: 2.7rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.white};
-`;
-
-
-export const Subtitle = styled.p`
-  margin-top: 0.75rem;
-  color: ${({ theme }) => theme.colors.greyLight};
-`;
-
-export const Divider = styled.div`
-  width: 100%;
-  margin: 24px 0;
-  height: 1px;
-  border: none;
-  opacity: 0.45;
-  background-color: ${({ theme }) => theme.colors.yellowSoft};
-`;
+export const Left = styled(Side)``;
 
 export const InfoList = styled.div`
   display: flex;
@@ -121,42 +34,33 @@ export const InfoList = styled.div`
 
 `;
 
-export const InfoItem = styled.div<{ $visible: boolean }>`
+export const InfoItem = styled.div<{
+  $visible: boolean;
+  $delay?: number;
+
+}>`
+  ${fadeRight}
   display: flex;
   gap: 16px;
   align-items: center;
 
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
   a {
-    color: ${({ theme }) =>  theme.colors.bluePrimary};
+    color: ${({ theme }) => theme.colors.bluePrimary};
 
     transition:
-      opacity 0.2s,
-      color 0.2s;
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-
+      transform 0.3s ease,
+      color 0.3s ease;
   }
-  &:hover {
-    a{
-      color: ${({ theme }) => theme.colors.blueHover};
-    }
+
+  &:hover a {
+    color: ${({ theme }) => theme.colors.blueHover};
+    transform: translateY(-2px);
   }
-  opacity: 0;
-  transform: translateY(32px);
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-
-  ${({ $visible }) =>
-    $visible &&
-    `
-      opacity: 1;
-      transform: translateY(0);
-    `}
-
 `;
 
 export const InfoTitle = styled.h4`

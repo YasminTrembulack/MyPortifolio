@@ -1,15 +1,12 @@
 import styled, { keyframes } from "styled-components";
+import { fadeUp, type AnimationProps } from "../../styles/transitions";
 
 const gridMove = keyframes`
   from { background-position: 0 0; }
   to { background-position: 30px 30px; }
 `;
 
-/* =========================
-   CONTAINER
-========================= */
-
-export const Container = styled.div`
+export const Container = styled.div<AnimationProps>`
   position: relative;
   max-width: 400px;
 
@@ -20,11 +17,9 @@ export const Container = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
-`;
 
-/* =========================
-   CARD
-========================= */
+  ${fadeUp};
+`;
 
 export const Card = styled.div`
   position: relative;
@@ -47,11 +42,6 @@ export const Card = styled.div`
   font-family: ${({ theme }) => theme.fonts.primary};
 
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
 
   ${Container}:hover & {
     transform: translateY(-4px);

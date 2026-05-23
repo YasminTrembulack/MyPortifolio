@@ -13,15 +13,19 @@ import {
 import MedalReward from "../../assets/icons/medal.svg?react";
 import MedalRewardFilled from "../../assets/icons/medal-filled.svg?react";
 import type { Certification } from "../../data/certifications";
+import type { AnimationProps } from "../../styles/transitions";
 
+type Props = Certification & AnimationProps;
 
-export function CertificationCard({ title, institution, year }: Certification) {
+export function CertificationCard({ title, institution, year, $delay, $visible }: Props) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Container>
-      <Card onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}>
+    <Container $visible={$visible} $delay={$delay}>
+      <Card 
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <CardGlow />
         <CardGrid />
 

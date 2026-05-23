@@ -1,23 +1,15 @@
 import { useState } from "react";
 import {
   Card,
-  Container,
-  ContentHeader,
-  Divider,
   Grid,
-  Header,
-  HeaderIcon,
   Icon,
   Name,
-  Section,
-  Subtitle,
   Tab,
   Tabs,
-  Title,
 } from "./TechStack.styles";
-import { flower } from "../../assets/ascii-art";
 import { techs } from "../../data/techs";
 import { useIntersection } from "../../hooks/useIntersection";
+import { BaseSection } from "../../components/BaseSection/BaseSection";
 
 export const categories = [
   "All",
@@ -39,40 +31,39 @@ export function TechStack() {
     active === "all" ? techs : techs.filter((t) => t.category === active);
 
   return (
-    <Section id="tech-stack" ref={ref}>
-      <Container>
-        <Header $visible={isVisible}>
-          <ContentHeader>
-            <HeaderIcon>{flower}</HeaderIcon>
-            <Title>Tech Stack</Title>
-          </ContentHeader>
-          <Subtitle>
-            Technologies that help me bring ideas to life and turn imagination into code.
-          </Subtitle>
-        </Header>
-        <Divider></Divider>
-        <Tabs>
-          {categories.map((cat) => (
-            <Tab
-              key={cat}
-              $active={active === cat.toLowerCase()}
-              onClick={() => setActive(cat.toLowerCase())}
-            >
-              {cat}
-            </Tab>
-          ))}
-        </Tabs>
+    <BaseSection
+        id="tech-stack"
+        title="Tech Stack"
+        description="Technologies that help me bring ideas to life and turn imagination into code."
+        variant="yellow"
+        ref={ref}
+        isVisible={isVisible}
+        $headerAlign="center"
+        $paddingBottom={4}
+        $paddingTop={5}
+    >
+      <div>
+      <Tabs>
+            {categories.map((cat) => (
+              <Tab
+                key={cat}
+                $active={active === cat.toLowerCase()}
+                onClick={() => setActive(cat.toLowerCase())}
+              >
+                {cat}
+              </Tab>
+            ))}
+          </Tabs>
 
-        <Grid $visible={isVisible} key={active}>
-          {filtered.map((tech, index) => (
-            <Card key={tech.name} $index={index}>
-              <Icon $gradient={tech.gradient}>{tech.icon}</Icon>
-              <Name>{tech.name}</Name>
-            </Card>
-          ))}
-        </Grid>
-
-      </Container>
-    </Section >
+          <Grid $visible={isVisible} key={active}>
+            {filtered.map((tech, index) => (
+              <Card key={tech.name} $index={index}>
+                <Icon $gradient={tech.gradient}>{tech.icon}</Icon>
+                <Name>{tech.name}</Name>
+              </Card>
+            ))}
+          </Grid>
+      </div>
+    </BaseSection>
   );
 }

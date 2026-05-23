@@ -1,66 +1,9 @@
 import styled, { css, keyframes } from "styled-components";
 
-export const Section = styled.section`
-  min-height: 100vh;
-  padding-top: 6rem;
-  padding-bottom: 2rem;
-
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.softWhite};
-`;
-
-export const Title = styled.h2`
-  text-align: center;
-
-  font-size: 2.7rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.white};
-`;
-
-export const ContentHeader = styled.div`
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const Eyebrow = styled.span`
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.softWhite};
-  opacity: 0.5;
-  margin-bottom: 14px;
-`;
-
-export const TitleRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
-`;
-
-export const HeaderIcon = styled.pre`
-  font-family: ${({ theme }) => theme.fonts.decorative};
-  white-space: pre;
-
-  font-size: 35px;
-  margin: 0;
-  color: ${({ theme }) => theme.colors.bluePrimary};
-  text-align: center;
-`;
-
-export const Subtitle = styled.p`
-  max-width: 520px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.colors.softWhite};
-  opacity: 0.65;
-`;
-
 export const TimelineWrapper = styled.div`
   position: relative;
   max-width: 1000px;
+  padding-top: 2rem;
   margin: auto;
 `;
 
@@ -280,23 +223,6 @@ export const CardGrid = styled.div`
     animation: ${gridMove} 20s linear infinite;
   }
 `;
-
-export const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-export const Divider = styled.div`
-  width: 100%;
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 44px;
-  height: 1px;
-  border: none;
-  opacity: 0.45;
-  background-color: ${({ theme }) => theme.colors.blueSoft};
-`;
-
 
 export const Header = styled.div`
   display: flex;

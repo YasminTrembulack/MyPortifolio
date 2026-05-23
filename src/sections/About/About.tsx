@@ -4,20 +4,18 @@ import {
   PhotoWrapper,
   Photo,
   Content,
-  Title,
   Text,
   Tags,
-  Divider,
-  Tag,
-  ContentHeader,
-  Icon,
+  Tag
 } from "./About.styles";
 
 import { AsciiArt } from "../../components/Decorative/AsciiArt";
-import { flower, gothic_window } from "../../assets/ascii-art";
+import { gothic_window } from "../../assets/ascii-art";
 import { Socials } from "../../components/Socials/Socials";
 import { useTheme } from "styled-components";
 import { useIntersection } from "../../hooks/useIntersection";
+import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
+import { Divider } from "../../components/Divider/Divider";
 
 export function About() {
   const { ref, isVisible } = useIntersection();
@@ -39,10 +37,14 @@ export function About() {
         </PhotoWrapper>
 
         <Content>
-          <ContentHeader $visible={isVisible}>
-            <Icon>{flower}</Icon>
-            <Title>About Me</Title>
-          </ContentHeader>
+          <SectionHeader 
+            title="About Me"
+            variant="blue"
+            ref={ref}
+            isVisible={isVisible} 
+            $headerAlign="start"
+            $marginBottom={0}
+          />
 
           <Tags $visible={isVisible}>
             <Tag>Software Engineer</Tag>
@@ -64,7 +66,7 @@ export function About() {
             increasingly consistent results.
           </Text>
 
-          <Divider />
+          <Divider isVisible={isVisible} variant="blue" ref={ref}/>
           <Socials />
         </Content>
       </Container>

@@ -87,45 +87,6 @@ export const Content = styled.div`
   justify-content: start;
 `;
 
-export const ContentHeader = styled.div<{ $visible: boolean }>`
-  display: flex;
-  justify-content: start;
-  gap: 0.75rem;
-
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
-
-  opacity: 0;
-  transform: translateY(32px);
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-
-  ${({ $visible }) =>
-    $visible &&
-    `
-      opacity: 1;
-      transform: translateY(0);
-    `}
-`;
-export const Icon = styled.pre`
-  font-family: ${({ theme }) => theme.fonts.decorative};
-  white-space: pre;
-
-  font-size: 35px;
-  margin: 0;
-  color: ${({ theme }) => theme.colors.bluePrimary};
-  text-align: center;
-`;
-
-export const Title = styled.h2`
-  font-size: 2.7rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.white};
-  margin: 0.5rem 0;
-`;
-
 export const Text = styled.p<{ $visible: boolean }>`
   font-size: 1.1rem;
   line-height: 1.7;
@@ -210,14 +171,4 @@ export const Tag = styled.span`
     transform: translateY(-3px);
     box-shadow: 0 0 22px ${({ theme }) => theme.colors.yellowSoft};
   }
-`;
-
-export const Divider = styled.hr`
-  width: 100%;
-  height: 1px;
-  border: none;
-  margin: 1.5rem 0 1.2rem;
-  opacity: 0.45;
-
-  background-color: ${({ theme }) => theme.colors.blueSoft};
 `;

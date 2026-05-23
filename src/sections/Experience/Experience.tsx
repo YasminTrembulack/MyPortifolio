@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  Section,
-  Title,
   TimelineWrapper,
   TimelineLine,
   ProgressLine,
@@ -13,17 +11,10 @@ import {
   Body,
   MarkerIcon,
   MarkerWrapper,
-  ContentHeader,
-  HeaderIcon,
-  Eyebrow,
-  TitleRow,
-  Subtitle,
-  Divider,
   CardIcon,
   CardGrid,
   CardTitle,
   CardGlow,
-  Container,
 } from "./Experience.styles";
 
 import Flower1 from "../../assets/icons/flowers/flower1.svg?react";
@@ -33,8 +24,9 @@ import Flower4 from "../../assets/icons/flowers/flower4.svg?react";
 import Flower5 from "../../assets/icons/flowers/flower5.svg?react";
 import Flower6 from "../../assets/icons/flowers/flower6.svg?react";
 import Flower7 from "../../assets/icons/flowers/flower7.svg?react";
-import { flower } from "../../assets/ascii-art";
 import { experiences } from "../../data/experiences";
+import { BaseSection } from "../../components/BaseSection/BaseSection";
+import { useIntersection } from "../../hooks/useIntersection";
 
 export const MARKER_ICONS = [
   Flower1,
@@ -52,6 +44,8 @@ const Marker = ({ active, index }: { active: boolean; index: number }) => {
 };
 
 export function Experience() {
+  const { ref, isVisible } = useIntersection();
+  
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
@@ -100,21 +94,18 @@ export function Experience() {
   }, []);
 
   return (
-    <Section id="experience">
-      <Container>
-        <ContentHeader>
-          <Eyebrow>My Journey</Eyebrow>
-
-        <TitleRow>
-          <HeaderIcon>{flower}</HeaderIcon>
-          <Title>Experience</Title>
-        </TitleRow>
-
-        <Subtitle>
-          Building real-world solutions and growing professionally.
-        </Subtitle>
-      </ContentHeader>
-      <Divider />
+    <BaseSection
+      id="experience"
+      eyebrow="My Journey"
+      title="Experience"
+      description="Building real-world solutions and growing professionally."
+      variant="blue"
+      $headerAlign="center"
+      ref={ref}
+      isVisible={isVisible}
+      $paddingBottom={2}
+      $paddingTop={6}
+    >
       <TimelineWrapper ref={timelineRef}>
         <TimelineLine />
         <ProgressLine ref={progressRef} />
@@ -151,7 +142,6 @@ export function Experience() {
           </Item>
         ))}
       </TimelineWrapper>
-      </Container>
-    </Section>
+    </BaseSection>
   );
 }
