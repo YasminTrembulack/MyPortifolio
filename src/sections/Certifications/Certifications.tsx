@@ -3,15 +3,17 @@ import { CertificationCard } from "../../components/CertificationCard/Certificat
 import { certifications } from "../../data/certifications";
 import { useIntersection } from "../../hooks/useIntersection";
 import { BaseSection } from "../../components/BaseSection/BaseSection";
+import { useTranslation } from "react-i18next";
 
 export function Certifications() {
   const { ref, isVisible } = useIntersection();
+  const { t } = useTranslation();
 
   return (
     <BaseSection
       id="certifications"
-      title="Certifications"
-      description="Some of the certifications I’ve obtained throughout my journey."
+      title={t("certifications.title")}
+      description={t("certifications.description")}
       variant="blue"
       ref={ref}
       isVisible={isVisible}

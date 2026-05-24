@@ -11,23 +11,22 @@ import {
 
 import { Socials } from "../Socials/Socials";
 import { useTheme } from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
   const theme = useTheme();
+  const { t } = useTranslation();  
 
   return (
     <FooterContainer>
       <FooterTop>
         <Brand>
           <h3>Yasmin</h3>
-          <p>
-            Full Stack Developer dedicated to building modern, accessible, and
-            refined experiences.
-          </p>
+          <p>{t("footer.description")}</p>
         </Brand>
 
         <Links>
-          <h4>Quick links</h4>
+          <h4>{t("footer.quickLinks")}</h4>
           <a onClick={() => scrollToSection("home")}>Home</a>
           <a onClick={() => scrollToSection("about")}>About</a>
           <a onClick={() => scrollToSection("projects")}>Projects</a>
@@ -35,7 +34,7 @@ export function Footer() {
         </Links>
 
         <Social>
-          <h4>Follow me</h4>
+          <h4>{t("footer.followMe")}</h4>
           <Socials
             $color={`${theme.colors.greyLight}`}
             $hover={`${theme.colors.softBlack}`}
@@ -46,7 +45,7 @@ export function Footer() {
       <Divider />
 
       <FooterBottom>
-        © {new Date().getFullYear()} Yasmin. All rights reserved.
+        © {new Date().getFullYear()} Yasmin. {t("footer.copyright")}
       </FooterBottom>
     </FooterContainer>
   );

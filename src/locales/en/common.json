@@ -1,0 +1,64 @@
+{
+  "header":{
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "techStack": "Tech Stack",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hello, I'm ",
+    "subtitle1": "Turning ideas into code.",
+    "subtitle2": "Learning, building, evolving.",
+    "contact": "Contact",
+    "downloadCv": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "tags": {
+      "softwareEngineer": "Software Engineer",
+      "fullStack": "Full Stack Developer",
+      "dataEngineer": "Data Engineer"
+    },
+    "text1": "I am a Software Engineering student, driven by curiosity and the desire to create efficient solutions. I am interested in developing well-structured applications, with a focus on functionality, clarity, and best development practices.",
+    "text2": "I believe in continuous learning and value teamwork, understanding collaboration as an essential part of building better solutions. I am constantly improving my skills to grow as a developer and deliver increasingly consistent results."
+  },
+  "projects":{
+    "title": "Projects",
+    "description": "Projects I’ve built to explore ideas, solve problems, and improve my skills."
+  },
+  "experience":{
+    "eyebrow": "My Journey",
+    "title": "Experience",
+    "description": "Building real-world solutions and growing professionally."
+  },
+  "techStack":{
+    "title": "Tech Stack",
+    "description": "Technologies that help me bring ideas to life and turn imagination into code."
+  },
+  "certifications":{
+    "title": "Certifications",
+    "description": "Some of the certifications I’ve obtained throughout my journey."
+  },
+  "contact":{
+    "title": "Get in Touch",
+    "description": "Have a project, collaboration idea, or opportunity in mind? I’m always open to new connections and would love to hear from you.",
+    "form": {
+      "nameLabel": "What should I call you?",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "johndoe@example.com",
+      "messageLabel": "Tell me about your idea",
+      "messagePlaceholder": "Your message here...",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "Full Stack Developer dedicated to building modern, accessible, and refined experiences.",
+    "quickLinks": "Quick links",
+    "followMe": "Follow me",
+    "copyright": "All rights reserved."
+  }
+}

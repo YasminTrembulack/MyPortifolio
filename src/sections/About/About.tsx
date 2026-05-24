@@ -16,9 +16,12 @@ import { useTheme } from "styled-components";
 import { useIntersection } from "../../hooks/useIntersection";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 import { Divider } from "../../components/Divider/Divider";
+import { useTranslation } from "react-i18next";
 
 export function About() {
   const { ref, isVisible } = useIntersection();
+  const { t } = useTranslation();
+  
   const theme = useTheme();
 
   return (
@@ -27,7 +30,7 @@ export function About() {
         <PhotoWrapper>
           <AsciiArt
             $color={`${theme.colors.yellowAccent}`}
-            $left="0.4rem"
+            $left="1rem"
             $top="-1.5rem"
             $font_size="6.5px"
             $line_height="0.4"
@@ -38,7 +41,7 @@ export function About() {
 
         <Content>
           <SectionHeader 
-            title="About Me"
+            title={t("about.title")}
             variant="blue"
             ref={ref}
             isVisible={isVisible} 
@@ -47,23 +50,17 @@ export function About() {
           />
 
           <Tags $visible={isVisible}>
-            <Tag>Software Engineer</Tag>
-            <Tag>Full Stack Developer</Tag>
-            <Tag>Data Engineer</Tag>
+            <Tag>{t("about.tags.softwareEngineer")}</Tag>
+            <Tag>{t("about.tags.fullStack")}</Tag>
+            <Tag>{t("about.tags.dataEngineer")}</Tag>
           </Tags>
 
           <Text $visible={isVisible}>
-            I am a Software Engineering student, driven by curiosity and the
-            desire to create efficient solutions. I am interested in developing
-            well-structured applications, with a focus on functionality,
-            clarity, and best development practices.
+            {t("about.text1")}
           </Text>
 
           <Text $visible={isVisible}>
-            I believe in continuous learning and value teamwork, understanding
-            collaboration as an essential part of building better solutions. I
-            am constantly improving my skills to grow as a developer and deliver
-            increasingly consistent results.
+            {t("about.text2")}
           </Text>
 
           <Divider isVisible={isVisible} variant="blue" ref={ref}/>

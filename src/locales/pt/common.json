@@ -1,0 +1,64 @@
+{
+  "header":{
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "techStack": "Tecnologias",
+    "certifications": "Certificações",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Olá, eu sou ",
+    "subtitle1": "Transformando ideias em código.",
+    "subtitle2": "Aprendendo, criando e evoluindo.",
+    "contact": "Contato",
+    "downloadCv": "Baixar CV"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "tags": {
+      "softwareEngineer": "Engenheira de Software",
+      "fullStack": "Desenvolvedora Full Stack",
+      "dataEngineer": "Engenheira de Dados"
+    },
+    "text1": "Sou estudante de Engenharia de Software, movida pela curiosidade e pela vontade de criar soluções eficientes. Tenho interesse no desenvolvimento de aplicações bem estruturadas, com foco em funcionalidade, clareza e boas práticas de desenvolvimento.",
+    "text2": "Acredito no aprendizado contínuo e valorizo o trabalho em equipe, entendendo a colaboração como parte essencial da construção de soluções melhores. Estou constantemente aprimorando minhas habilidades para crescer como desenvolvedora e entregar resultados cada vez mais consistentes."
+  },
+  "projects":{
+    "title": "Projetos",
+    "description": "Projetos que desenvolvi para explorar ideias, resolver problemas e aprimorar minhas habilidades."
+  },
+  "experience":{
+    "eyebrow": "Minha jornada",
+    "title": "Experiência",
+    "description": "Construir soluções práticas e crescer profissionalmente."
+  },
+  "techStack":{
+    "title": "Tecnologias",
+    "description": "Tecnologias que me ajudam a dar vida às ideias e transformar a imaginação em código."
+  },
+  "certifications":{
+    "title": "Certificações",
+    "description": "Algumas das certificações que obtive ao longo da minha trajetória."
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "description": "Tem um projeto, uma ideia de colaboração ou uma oportunidade em mente? Estou sempre aberta a novas conexões e adoraria conversar com você.",
+    "form": {
+      "nameLabel": "Como devo te chamar?",
+      "namePlaceholder": "João Silva",
+      "emailLabel": "Email",
+      "emailPlaceholder": "joao@example.com",
+      "messageLabel": "Conte-me sobre sua ideia",
+      "messagePlaceholder": "Sua mensagem aqui...",
+      "submit": "Enviar Mensagem"
+    }
+  },
+  "footer": {
+    "description": "Desenvolvedora Full Stack dedicada a criar experiências modernas, acessíveis e refinadas.",
+    "quickLinks": "Links rápidos",
+    "followMe": "Me acompanhe",
+    "copyright": "Todos os direitos reservados."
+  }
+}

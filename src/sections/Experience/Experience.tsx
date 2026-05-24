@@ -27,6 +27,7 @@ import Flower7 from "../../assets/icons/flowers/flower7.svg?react";
 import { experiences } from "../../data/experiences";
 import { BaseSection } from "../../components/BaseSection/BaseSection";
 import { useIntersection } from "../../hooks/useIntersection";
+import { useTranslation } from "react-i18next";
 
 export const MARKER_ICONS = [
   Flower1,
@@ -45,6 +46,7 @@ const Marker = ({ active, index }: { active: boolean; index: number }) => {
 
 export function Experience() {
   const { ref, isVisible } = useIntersection();
+  const { t } = useTranslation();
   
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -96,9 +98,9 @@ export function Experience() {
   return (
     <BaseSection
       id="experience"
-      eyebrow="My Journey"
-      title="Experience"
-      description="Building real-world solutions and growing professionally."
+      eyebrow={t("experience.eyebrow")}
+      title={t("experience.title")}
+      description={t("experience.description")}
       variant="blue"
       $headerAlign="center"
       ref={ref}

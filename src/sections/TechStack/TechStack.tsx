@@ -10,6 +10,7 @@ import {
 import { techs } from "../../data/techs";
 import { useIntersection } from "../../hooks/useIntersection";
 import { BaseSection } from "../../components/BaseSection/BaseSection";
+import { useTranslation } from "react-i18next";
 
 export const categories = [
   "All",
@@ -26,21 +27,22 @@ export const categories = [
 export function TechStack() {
   const [active, setActive] = useState("all");
   const { ref, isVisible } = useIntersection();
+  const { t } = useTranslation();
 
   const filtered =
     active === "all" ? techs : techs.filter((t) => t.category === active);
 
   return (
     <BaseSection
-        id="tech-stack"
-        title="Tech Stack"
-        description="Technologies that help me bring ideas to life and turn imagination into code."
-        variant="yellow"
-        ref={ref}
-        isVisible={isVisible}
-        $headerAlign="center"
-        $paddingBottom={4}
-        $paddingTop={5}
+      id="tech-stack"
+      title={t("techStack.title")}
+      description={t("techStack.description")}
+      variant="yellow"
+      ref={ref}
+      isVisible={isVisible}
+      $headerAlign="center"
+      $paddingBottom={4}
+      $paddingTop={5}
     >
       <div>
       <Tabs>

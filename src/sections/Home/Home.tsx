@@ -8,29 +8,31 @@ import {
   Button,
 } from "./Home.styles";
 import { useIntersection } from "../../hooks/useIntersection";
+import { useTranslation } from "react-i18next";
 
 export function Home() {
   const { ref, isVisible } = useIntersection();
+  const { t } = useTranslation();
 
   return (
     <Section id="home" ref={ref}>
       <Content>
         <div>
           <Title $visible={isVisible}>
-            Hello, I'm <strong>Yasmin Trembulack Agostinho</strong>.
+            {t("hero.title")}<strong>Yasmin Trembulack Agostinho</strong>.
           </Title>
 
           <Subtitle $visible={isVisible}>
-            <span>“Turning ideas into code.”</span>
-            <span>“Learning, building, evolving.”</span>
+            <span>“{t("hero.subtitle1")}”</span>
+            <span>“{t("hero.subtitle2")}”</span>
           </Subtitle>
 
           <Actions $visible={isVisible}>
             <Button onClick={() => scrollToSection("contact")}>
-              🡪 Contact
+              🡪 {t("hero.contact")}
             </Button>
             <Button href="/cv-yasmin.pdf" download>
-              Download CV
+              {t("hero.downloadCv")}
             </Button>
           </Actions>
         </div>

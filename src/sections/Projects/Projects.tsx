@@ -3,15 +3,17 @@ import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import { useIntersection } from "../../hooks/useIntersection";
 import { projects } from "../../data/projects";
 import { BaseSection } from "../../components/BaseSection/BaseSection";
+import { useTranslation } from "react-i18next";
 
 export function Projects() {
   const { ref, isVisible } = useIntersection();
+  const { t } = useTranslation();
 
   return (
     <BaseSection
       id="projects"
-      title="Projects"
-      description="Projects I’ve built to explore ideas, solve problems, and improve my skills."
+      title={t("projects.title")}
+      description={t("projects.description")}
       variant="yellow"
       ref={ref}
       isVisible={isVisible}

@@ -22,7 +22,7 @@ export const Container = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 5rem;
+  gap: 1rem;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
