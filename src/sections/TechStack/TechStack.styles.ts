@@ -3,11 +3,9 @@ import styled, { keyframes } from "styled-components";
 const cardFadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 `;
 
@@ -80,7 +78,7 @@ export const Card = styled.div<{ $index: number }>`
   justify-content: center;
 
   opacity: 0;
-  transform: translateY(20px);
+
   animation: ${cardFadeIn} 0.6s ease forwards;
   animation-delay: ${({ $index }) => `${$index * 0.1}s`};
 

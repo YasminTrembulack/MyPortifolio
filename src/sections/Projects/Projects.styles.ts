@@ -14,6 +14,10 @@ export const IconButton = styled.button`
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   color: ${({ theme }) => theme.colors.greyLight};
   transition: all 0.2s ease;

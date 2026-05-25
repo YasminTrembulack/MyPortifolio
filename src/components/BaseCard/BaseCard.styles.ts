@@ -81,8 +81,10 @@ export const Card = styled.div<CardProps>`
     animation-play-state: running;
   }
 
-  ${({ $side }) => {$side && `cursor: pointer;`}};
-  
+  ${({ $side }) => {
+    return $side && `cursor: pointer;`;
+  }}  
+
   isolation: isolate;
   // verificar se é possivel remover isso
 `;
