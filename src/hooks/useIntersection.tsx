@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useIntersection(threshold = 0.1) {
+export default function useIntersection(threshold = 0.1) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 

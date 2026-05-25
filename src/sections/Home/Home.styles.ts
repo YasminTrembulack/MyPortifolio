@@ -1,15 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const fadeUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import styled from "styled-components";
 
 export const Section = styled.section`
   position: relative;

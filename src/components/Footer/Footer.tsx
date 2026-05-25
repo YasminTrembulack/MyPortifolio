@@ -9,7 +9,7 @@ import {
   Social,
 } from "./Footer.styles";
 
-import { Socials } from "../Socials/Socials";
+import Socials from "../Socials/Socials";
 import { useTheme } from "styled-components";
 import { useTranslation } from "react-i18next";
 

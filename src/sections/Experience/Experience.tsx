@@ -1,21 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  TimelineWrapper,
-  TimelineLine,
-  ProgressLine,
-  Item,
-  Card,
-  Header,
-  Year,
-  Icon,
-  Body,
-  MarkerIcon,
-  MarkerWrapper,
-  CardIcon,
-  CardGrid,
-  CardTitle,
-  CardGlow,
-} from "./Experience.styles";
+import * as S from "./Experience.styles";
 
 import Flower1 from "../../assets/icons/flowers/flower1.svg?react";
 import Flower2 from "../../assets/icons/flowers/flower2.svg?react";
@@ -25,9 +9,10 @@ import Flower5 from "../../assets/icons/flowers/flower5.svg?react";
 import Flower6 from "../../assets/icons/flowers/flower6.svg?react";
 import Flower7 from "../../assets/icons/flowers/flower7.svg?react";
 import { experiences } from "../../data/experiences";
-import { BaseSection } from "../../components/BaseSection/BaseSection";
-import { useIntersection } from "../../hooks/useIntersection";
+import BaseSection from "../../components/BaseSection/BaseSection";
+import useIntersection from "../../hooks/useIntersection";
 import { useTranslation } from "react-i18next";
+import BaseCard from "../../components/BaseCard/BaseCard";
 
 export const MARKER_ICONS = [
   Flower1,
@@ -41,15 +26,14 @@ export const MARKER_ICONS = [
 
 const Marker = ({ active, index }: { active: boolean; index: number }) => {
   const Icon = MARKER_ICONS[index % MARKER_ICONS.length];
-  return <MarkerIcon as={Icon} $active={active} />;
+  return <S.MarkerIcon as={Icon} $active={active} />;
 };
 
 export function Experience() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
-  
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
   const timelineRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -66,34 +50,11 @@ export function Experience() {
     progressRef.current.style.height = `${height}px`;
   };
 
-  /* Scroll progress */
   useEffect(() => {
     window.addEventListener("scroll", updateProgress);
     return () => window.removeEventListener("scroll", updateProgress);
   }, []);
 
-  /* Entrada dos cards */
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setVisibleItems((prev) =>
-              prev.includes(index) ? prev : [...prev, index],
-            );
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-
-    document
-      .querySelectorAll(".timeline-item")
-      .forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <BaseSection
@@ -108,42 +69,45 @@ export function Experience() {
       $paddingBottom={2}
       $paddingTop={6}
     >
-      <TimelineWrapper ref={timelineRef}>
-        <TimelineLine />
-        <ProgressLine ref={progressRef} />
+      <S.TimelineWrapper ref={timelineRef}>
+        <S.TimelineLine />
+        <S.ProgressLine ref={progressRef} />
 
-        {experiences.map((e, index) => (
-          <Item key={index} className="timeline-item" data-index={index}>
-            <MarkerWrapper>
-              <Marker active={activeIndex === index} index={index} />
-            </MarkerWrapper>
-            <Card
-              $side={index % 2 === 0 ? "left" : "right"}
-              $visible={visibleItems.includes(index)}
-              onClick={() => {
-                setActiveIndex((prev) => (prev === index ? null : index));
-                setTimeout(updateProgress, 450);
-              }}
-            >
-              <CardGlow />
-              <CardGrid />
-              <Header>
-                <CardIcon>{e.icon}</CardIcon>
+        {experiences.map((e, index) => {
+          const side = index % 2 === 0 ? "left" : "right";
 
-                <div style={{ width: "100%" }}>
-                  <CardTitle>{e.title}</CardTitle>
-                  <Year>{e.year}</Year>
-                </div>
-                <Icon $active={activeIndex === index}>+</Icon>
-              </Header>
+          return (
+            <S.Item className="timeline-item" key={index} $side={side}>
+              <S.MarkerWrapper>
+                <Marker active={activeIndex === index} index={index} />
+              </S.MarkerWrapper>
+              <BaseCard
+                $side={side}
+                $visible={isVisible}
+                onClick={() => {
+                  setActiveIndex((prev) => (prev === index ? null : index));
+                  setTimeout(updateProgress, 450);
+                }}
+              >
+                <BaseCard.Header>
+                  <S.CardIcon>{e.icon}</S.CardIcon>
 
-              <Body $active={activeIndex === index}>
-                <p>{e.description}</p>
-              </Body>
-            </Card>
-          </Item>
-        ))}
-      </TimelineWrapper>
+                  <div style={{ width: "100%" }}>
+                    <BaseCard.Title>{e.title}</BaseCard.Title>
+                    <S.Year>{e.year}</S.Year>
+                  </div>
+                  <S.Icon $active={activeIndex === index}>+</S.Icon>
+                </BaseCard.Header>
+
+                <S.Body $active={activeIndex === index}>
+                  <p>{e.description}</p>
+                </S.Body>
+              </BaseCard>
+
+            </S.Item>
+          );
+        })}
+      </S.TimelineWrapper>
     </BaseSection>
   );
 }

@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const TimelineWrapper = styled.div`
   position: relative;
@@ -38,9 +38,12 @@ export const ProgressLine = styled.div`
   transition: height 0.25s ease-out;
 `;
 
-export const Item = styled.div`
-  position: relative;
+export const Item = styled.div<{ $side: "left" | "right" }>`
+  display: flex;
+  align-items: flex-start;
+  justify-content: ${({ $side }) => $side === "left" ? "start" : "end"};
   margin-bottom: 50px;
+  position: relative;
 `;
 
 export const CardIcon = styled.pre`
@@ -68,9 +71,11 @@ export const MarkerWrapper = styled.div`
   pointer-events: none;
 `;
 
-export const MarkerIcon = styled.span<{
+type MarkerIconProps = {
   $active?: boolean;
-}>`
+}
+
+export const MarkerIcon = styled.span<MarkerIconProps>`
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -104,123 +109,6 @@ export const MarkerIcon = styled.span<{
     width: 100%;
     height: 100%;
     fill: currentColor;
-  }
-`;
-
-export const Card = styled.div<{ $side: "left" | "right"; $visible: boolean }>`
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
-
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-
-  border-radius: 16px;
-
-  background: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.greyDark};
-
-  font-family: ${({ theme }) => theme.fonts.primary};
-
-  /* 🔥 IMPORTANTE: cria contexto */
-  isolation: isolate;
-
-  /* base shadow */
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-
-  ${({ $side }) =>
-    $side === "left"
-      ? css`left: 0;`
-      : css`left: 55%;`}
-
-  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
-  transform: translateX(
-    ${({ $visible, $side }) =>
-      $visible ? "0" : $side === "left" ? "-120px" : "120px"}
-  );
-
-  filter: blur(${({ $visible }) => ($visible ? "0px" : "8px")});
-
-  transition: all 0.4s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: ${({ theme }) => theme.colors.bluePrimary};
-
-    box-shadow:
-      0 30px 70px rgba(0, 0, 0, 0.5),
-      0 0 35px ${({ theme }) => theme.colors.blueMuted};
-  }
-`;
-
-export const CardGlow = styled.div`
-  position: absolute;
-  top: -80px;
-  right: -80px;
-
-  width: 220px;
-  height: 220px;
-
-  background: radial-gradient(
-    circle,
-    ${({ theme }) => theme.colors.blueMuted} 0%,
-    transparent 70%
-  );
-
-  filter: blur(55px);
-
-  z-index: 0;
-
-  opacity: 0;
-
-  transform: scale(0.8);
-
-  transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
-
-  ${Card}:hover & {
-    opacity: 0.9;
-    transform: scale(1.3);
-  }
-`;
-
-const gridMove = keyframes`
-  from { background-position: 0 0; }
-  to { background-position: 30px 30px; }
-`;
-
-export const CardGrid = styled.div`
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  pointer-events: none;
-
-  opacity: 0.2;
-
-  background-image:
-    linear-gradient(
-      ${({ theme }) => theme.colors.softBlack} 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      ${({ theme }) => theme.colors.softBlack} 1px,
-      transparent 1px
-    );
-
-  background-size: 30px 30px;
-
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-
-  ${Card}:hover & {
-    opacity: 0.4;
-    animation: ${gridMove} 20s linear infinite;
   }
 `;
 

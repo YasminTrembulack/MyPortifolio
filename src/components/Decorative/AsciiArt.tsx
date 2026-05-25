@@ -28,7 +28,7 @@ type ImageArtProps = BaseProps & {
 
 type Props = TextArtProps | ImageArtProps;
 
-export function AsciiArt({ $src, $children, ...props }: Props) {
+export default function AsciiArt({ $src, $children, ...props }: Props) {
   if ($src) {
     return <ArtImage {...props} src={$src} />;
   }

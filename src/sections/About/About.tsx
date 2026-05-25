@@ -1,21 +1,12 @@
-import {
-  Section,
-  Container,
-  PhotoWrapper,
-  Photo,
-  Content,
-  Text,
-  Tags,
-  Tag
-} from "./About.styles";
+import * as S from  "./About.styles";
 
-import { AsciiArt } from "../../components/Decorative/AsciiArt";
+import AsciiArt from "../../components/Decorative/AsciiArt";
 import { gothic_window } from "../../assets/ascii-art";
-import { Socials } from "../../components/Socials/Socials";
+import Socials from "../../components/Socials/Socials";
 import { useTheme } from "styled-components";
-import { useIntersection } from "../../hooks/useIntersection";
-import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
-import { Divider } from "../../components/Divider/Divider";
+import useIntersection from "../../hooks/useIntersection";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import Divider from "../../components/Divider/Divider";
 import { useTranslation } from "react-i18next";
 
 export function About() {
@@ -25,21 +16,21 @@ export function About() {
   const theme = useTheme();
 
   return (
-    <Section id="about" ref={ref}>
-      <Container>
-        <PhotoWrapper>
+    <S.Section id="about" ref={ref}>
+      <S.Container>
+        <S.PhotoWrapper>
           <AsciiArt
             $color={`${theme.colors.yellowAccent}`}
-            $left="1rem"
+            $left="1.5rem"
             $top="-3.1rem"
             $font_size="6.5px"
             $line_height="0.4"
             $children={gothic_window}
           />
-          <Photo src="/me.png" alt="Yasmin Trembulack" />
-        </PhotoWrapper>
+          <S.Photo src="/me.png" alt="Yasmin Trembulack" />
+        </S.PhotoWrapper>
 
-        <Content>
+        <S.Content>
           <SectionHeader 
             title={t("about.title")}
             variant="blue"
@@ -49,24 +40,24 @@ export function About() {
             $marginBottom={0}
           />
 
-          <Tags $visible={isVisible}>
-            <Tag>{t("about.tags.softwareEngineer")}</Tag>
-            <Tag>{t("about.tags.fullStack")}</Tag>
-            <Tag>{t("about.tags.dataEngineer")}</Tag>
-          </Tags>
+          <S.Tags $visible={isVisible}>
+            <S.Tag>{t("about.tags.softwareEngineer")}</S.Tag>
+            <S.Tag>{t("about.tags.fullStack")}</S.Tag>
+            <S.Tag>{t("about.tags.dataEngineer")}</S.Tag>
+          </S.Tags>
 
-          <Text $visible={isVisible}>
+          <S.Text $visible={isVisible}>
             {t("about.text1")}
-          </Text>
+          </S.Text>
 
-          <Text $visible={isVisible}>
+          <S.Text $visible={isVisible}>
             {t("about.text2")}
-          </Text>
+          </S.Text>
 
           <Divider isVisible={isVisible} variant="blue" ref={ref}/>
           <Socials />
-        </Content>
-      </Container>
-    </Section>
+        </S.Content>
+      </S.Container>
+    </S.Section>
   );
 }

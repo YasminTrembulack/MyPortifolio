@@ -7,8 +7,16 @@ type DividerProps = {
   isVisible: boolean;
 };
 
-export const Divider = forwardRef<HTMLElement, DividerProps>(
-  ({ variant, isVisible }) => {
-    return <Div $variant={variant} $visible={isVisible} />
+const Divider = forwardRef<HTMLDivElement, DividerProps>(
+  ({ variant, isVisible }, ref) => {
+    return (
+      <Div
+        ref={ref}
+        $variant={variant}
+        $visible={isVisible}
+      />
+    );
   }
 );
+
+export default Divider;

@@ -9,7 +9,7 @@ type Props = {
   $hover?: string;
 };
 
-export function Socials({ ...props }: Props) {
+export default function Socials({ ...props }: Props) {
   return (
     <Container {...props}>
       <a href="https://www.linkedin.com/in/yasmintrembulack/" target="_blank">

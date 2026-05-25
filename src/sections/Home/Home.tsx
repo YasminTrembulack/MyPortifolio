@@ -7,7 +7,7 @@ import {
   Actions,
   Button,
 } from "./Home.styles";
-import { useIntersection } from "../../hooks/useIntersection";
+import useIntersection from "../../hooks/useIntersection";
 import { useTranslation } from "react-i18next";
 
 export function Home() {

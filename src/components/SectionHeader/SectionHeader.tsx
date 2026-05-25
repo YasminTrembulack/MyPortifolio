@@ -13,17 +13,26 @@ export type SectionHeaderProps = {
   eyebrow?: string;
 };
 
-export const SectionHeader = forwardRef<HTMLElement, SectionHeaderProps>(
-  ({ variant, isVisible, description, title, eyebrow, $headerAlign, $marginBottom }) => {
+const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
+  function SectionHeader(props, ref) {
     return (
-      <Header $align={$headerAlign} $visible={isVisible} $marginBottom={$marginBottom}>
-        {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      <Header
+        ref={ref}
+        $align={props.$headerAlign}
+        $visible={props.isVisible}
+        $marginBottom={props.$marginBottom}
+      >
+        {props.eyebrow && <Eyebrow>{props.eyebrow}</Eyebrow>}
+
         <Title>
-          <TitleIcon $variant={variant}>{flower}</TitleIcon>
-          <TitleText>{title}</TitleText>
+          <TitleIcon $variant={props.variant}>{flower}</TitleIcon>
+          <TitleText>{props.title}</TitleText>
         </Title>
-        { description && <Subtitle>{description}</Subtitle>}
+
+        {props.description && <Subtitle>{props.description}</Subtitle>}
       </Header>
     );
   }
 );
+
+export default SectionHeader;

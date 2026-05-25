@@ -1,21 +1,7 @@
-import {
-    Button,
-    Field,
-    Form,
-    InfoItem,
-    InfoList,
-    Input,
-    Label,
-    Textarea,
-    InfoTitle,
-    InfoText,
-    Right,
-    Left,
-    Content
-} from "./Contact.styles";
-import { useIntersection } from "../../hooks/useIntersection";
+import * as S from "./Contact.styles";
+import useIntersection from "../../hooks/useIntersection";
 import { getContacts } from "../../data/contacts";
-import { BaseSection } from "../../components/BaseSection/BaseSection";
+import BaseSection from "../../components/BaseSection/BaseSection";
 import { useTranslation } from "react-i18next";
 
 export function Contact() {
@@ -35,42 +21,42 @@ export function Contact() {
             $paddingBottom={2}
             $paddingTop={6}
         >
-            <Content>
-                <Left>
-                    <InfoList>
+            <S.Content>
+                <S.Left>
+                    <S.InfoList>
                         {contacts.map((c, index) => (
-                            <InfoItem key={index} $visible={isVisible} $delay={index * 120}>
+                            <S.InfoItem key={index} $visible={isVisible} $delay={index * 120}>
                                 <a href={c.link} target="_blank" rel="noreferrer">
                                     {c.icon}
                                 </a>
                                 <div>
-                                    <InfoTitle>{c.title}</InfoTitle>
-                                    <InfoText>{c.text}</InfoText>
+                                    <S.InfoTitle>{c.title}</S.InfoTitle>
+                                    <S.InfoText>{c.text}</S.InfoText>
                                 </div>
-                            </InfoItem>
+                            </S.InfoItem>
                         ))}
-                    </InfoList>
-                </Left>
-                <Right $visible={isVisible} $delay={300}>
-                    <Form>
-                        <Field>
-                            <Label>{t("contact.form.nameLabel")}</Label>
-                            <Input type="text" placeholder={t("contact.form.namePlaceholder")} />
-                        </Field>
+                    </S.InfoList>
+                </S.Left>
+                <S.Right $visible={isVisible} $delay={300}>
+                    <S.Form>
+                        <S.Field>
+                            <S.Label>{t("contact.form.nameLabel")}</S.Label>
+                            <S.Input type="text" placeholder={t("contact.form.namePlaceholder")} />
+                        </S.Field>
 
-                        <Field>
-                            <Label>{t("contact.form.emailLabel")}</Label>
-                            <Input type="email" placeholder={t("contact.form.emailPlaceholder")} />
-                        </Field>
+                        <S.Field>
+                            <S.Label>{t("contact.form.emailLabel")}</S.Label>
+                            <S.Input type="email" placeholder={t("contact.form.emailPlaceholder")} />
+                        </S.Field>
 
-                        <Field>
-                            <Label>{t("contact.form.messageLabel")}</Label>
-                            <Textarea rows={5} placeholder={t("contact.form.messagePlaceholder")} />
-                        </Field>
-                        <Button type="submit">{t("contact.form.submit")}</Button>
-                    </Form>
-                </Right>
-            </Content>
+                        <S.Field>
+                            <S.Label>{t("contact.form.messageLabel")}</S.Label>
+                            <S.Textarea rows={5} placeholder={t("contact.form.messagePlaceholder")} />
+                        </S.Field>
+                        <S.Button type="submit">{t("contact.form.submit")}</S.Button>
+                    </S.Form>
+                </S.Right>
+            </S.Content>
         </BaseSection>
     );
 }

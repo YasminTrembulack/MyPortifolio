@@ -1,9 +1,22 @@
-import { Grid } from "./Projects.styles";
-import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
-import { useIntersection } from "../../hooks/useIntersection";
-import { projects } from "../../data/projects";
-import { BaseSection } from "../../components/BaseSection/BaseSection";
 import { useTranslation } from "react-i18next";
+
+import * as S from "./Projects.styles";
+
+import useIntersection from "../../hooks/useIntersection";
+import { projects } from "../../data/projects";
+
+import BaseSection from "../../components/BaseSection/BaseSection";
+import BaseCard from "../../components/BaseCard/BaseCard";
+
+import { badgeVariants, type BadgeVariant } from "./badge.types";
+
+import GithubIcon from "../../assets/icons/github.svg?react";
+
+
+const normalizeTech = (tech: string): BadgeVariant => {
+  const key = tech.toLowerCase().replace(/\s|\./g, "");
+  return key in badgeVariants ? (key as BadgeVariant) : "default";
+};
 
 export function Projects() {
   const { ref, isVisible } = useIntersection();
@@ -21,17 +34,33 @@ export function Projects() {
       $paddingBottom={0}
       $paddingTop={4}
     >
-      <Grid $visible={isVisible}>
+      <BaseSection.Grid>
         {projects.map((p, index) => (
-          <ProjectCard
-            key={index}
-            title={p.title}
-            description={p.description}
-            techs={p.techs}
-            link={p.link}
-          />
+          <BaseCard key={index} $visible={isVisible} $delay={index * 300}>
+
+            <BaseCard.Header>
+              <BaseCard.Title showCursor>
+                {p.title}
+              </BaseCard.Title>
+
+              <S.ActionButtons>
+                <S.IconButton aria-label="View on GitHub">
+                  <GithubIcon />
+                </S.IconButton>
+              </S.ActionButtons>
+            </BaseCard.Header>
+
+            <BaseCard.Description>{p.description}</BaseCard.Description>
+            <S.TagWrapper>
+              {p.techs.map((tech) => (
+                <S.Badge key={tech} $variant={normalizeTech(tech)}>
+                  {tech}
+                </S.Badge>
+              ))}
+            </S.TagWrapper>
+          </BaseCard>
         ))}
-      </Grid>
+      </BaseSection.Grid>
     </BaseSection>
   );
 }

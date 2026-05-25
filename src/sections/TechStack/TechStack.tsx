@@ -8,8 +8,8 @@ import {
   Tabs,
 } from "./TechStack.styles";
 import { techs } from "../../data/techs";
-import { useIntersection } from "../../hooks/useIntersection";
-import { BaseSection } from "../../components/BaseSection/BaseSection";
+import useIntersection from "../../hooks/useIntersection";
+import BaseSection from "../../components/BaseSection/BaseSection";
 import { useTranslation } from "react-i18next";
 
 export const categories = [
