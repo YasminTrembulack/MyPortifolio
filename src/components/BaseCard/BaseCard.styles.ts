@@ -61,9 +61,9 @@ export const Card = styled.div<CardProps>`
   border-color: ${({ theme }) => theme.colors.greyDark};
 
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
