@@ -1,7 +1,6 @@
 import { scrollToSection } from "../../utils/scrollToSection";
 import {
   Brand,
-  Divider,
   FooterBottom,
   FooterContainer,
   FooterTop,
@@ -9,17 +8,18 @@ import {
   Social,
 } from "./Footer.styles";
 
-import Socials from "../Socials/Socials";
-import { useTheme } from "styled-components";
 import { useTranslation } from "react-i18next";
+import Socials from "../Socials/Socials";
+import Divider from "../Divider/Divider";
+import useIntersection from "../../hooks/useIntersection";
 
 export function Footer() {
-  const theme = useTheme();
+  const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();  
 
   return (
     <FooterContainer>
-      <FooterTop>
+      <FooterTop ref={ref} $visible={isVisible}>
         <Brand>
           <h3>Yasmin</h3>
           <p>{t("footer.description")}</p>
@@ -36,15 +36,18 @@ export function Footer() {
         <Social>
           <h4>{t("footer.followMe")}</h4>
           <Socials
-            $color={`${theme.colors.greyLight}`}
-            $hover={`${theme.colors.softBlack}`}
+            contacts={["email", "linkedin", "github"]}
+            $flexDirection="row"
+            $visible={isVisible}
+            $variant="grey"
+            $fade="left"
           />
         </Social>
       </FooterTop>
 
-      <Divider />
+      <Divider ref={ref} isVisible={isVisible} variant="grey"/>
 
-      <FooterBottom>
+      <FooterBottom ref={ref} $visible={isVisible}>
         © {new Date().getFullYear()} Yasmin. {t("footer.copyright")}
       </FooterBottom>
     </FooterContainer>

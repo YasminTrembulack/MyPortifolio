@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeUp, type AnimationProps } from "../../styles/transitions";
 
 export const FooterContainer = styled.footer`
   background: ${({ theme }) => theme.colors.softWhite};
@@ -7,7 +8,7 @@ export const FooterContainer = styled.footer`
   padding: 4rem 2rem 2rem;
 `;
 
-export const FooterTop = styled.div`
+export const FooterTop = styled.div<AnimationProps>`
   max-width: 1200px;
   margin: 0 auto;
 
@@ -18,6 +19,8 @@ export const FooterTop = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
+  ${fadeUp};
 `;
 
 export const Brand = styled.div`
@@ -60,14 +63,10 @@ export const Social = styled.div`
   }
 `;
 
-export const Divider = styled.div`
-  height: 1px;
-  background: ${({ theme }) => theme.colors.greyLight};
-  margin: 3rem 0 1.5rem;
-`;
-
-export const FooterBottom = styled.div`
+export const FooterBottom = styled.div<AnimationProps>`
   text-align: center;
   font-size: 0.85rem;
   color: ${({ theme }) => theme.colors.greyDark};
+
+  ${fadeUp};
 `;
