@@ -144,6 +144,7 @@ export const Header = styled.div`
   align-items: center;
   margin-bottom: 0.5rem;
   z-index: 2;
+  gap: 0.7rem;
 `;
 
 export const Title = styled.h3`

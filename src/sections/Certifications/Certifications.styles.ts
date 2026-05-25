@@ -163,8 +163,10 @@ export const Year = styled.h3`
   display: flex;
 
   font-family: ${({ theme }) => theme.fonts.decorative};
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
+
+  text-align: center;
 
   color: ${({ theme }) => theme.colors.blueHover};
 `;
