@@ -29,4 +29,22 @@ export const GlobalStyle = createGlobalStyle`
   );
     color: ${({ theme }) => theme.colors.softWhite};
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.black};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.greyDark};
+    border-radius: 999px;
+    border: 2px solid ${({ theme }) => theme.colors.background};
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.grey};
+  }
 `;
