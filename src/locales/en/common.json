@@ -36,7 +36,18 @@
   },
   "techStack":{
     "title": "Tech Stack",
-    "description": "Technologies that help me bring ideas to life and turn imagination into code."
+    "description": "Technologies that help me bring ideas to life and turn imagination into code.",
+    "categories": {
+      "all": "All",
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "cloud": "Cloud",
+      "database": "Database",
+      "ai": "AI",
+      "engineering": "Engineering",
+      "iot": "IoT"
+    }
   },
   "certifications":{
     "title": "Certifications",
@@ -45,6 +56,24 @@
   "contact":{
     "title": "Get in Touch",
     "description": "Have a project, collaboration idea, or opportunity in mind? I’m always open to new connections and would love to hear from you.",
+    "cards": {
+      "email": {
+        "title": "Email",
+        "text": "Let’s turn ideas into reality."
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "text": "Open to connections and new opportunities."
+      },
+      "github": {
+        "title": "GitHub",
+        "text": "Code, creativity, and continuous learning."
+      },
+      "location": {
+        "title": "Location",
+        "text": "São José dos Pinhais, PR - Brazil."
+      }
+    },
     "form": {
       "nameLabel": "What should I call you?",
       "namePlaceholder": "John Doe",

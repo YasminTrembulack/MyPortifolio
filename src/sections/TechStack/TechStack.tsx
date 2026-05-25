@@ -13,15 +13,15 @@ import { BaseSection } from "../../components/BaseSection/BaseSection";
 import { useTranslation } from "react-i18next";
 
 export const categories = [
-  "All",
-  "Languages",
-  "Frontend",
-  "Backend",
-  "Cloud",
-  "Database",
-  "AI",
-  "Engineering",
-  "IoT",
+  "all",
+  "languages",
+  "frontend",
+  "backend",
+  "cloud",
+  "database",
+  "ai",
+  "engineering",
+  "iot",
 ];
 
 export function TechStack() {
@@ -52,7 +52,7 @@ export function TechStack() {
                 $active={active === cat.toLowerCase()}
                 onClick={() => setActive(cat.toLowerCase())}
               >
-                {cat}
+                {t(`techStack.categories.${cat}`)}
               </Tab>
             ))}
           </Tabs>

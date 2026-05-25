@@ -36,7 +36,18 @@
   },
   "techStack":{
     "title": "Tecnologias",
-    "description": "Tecnologias que me ajudam a dar vida às ideias e transformar a imaginação em código."
+    "description": "Tecnologias que me ajudam a dar vida às ideias e transformar a imaginação em código.",
+    "categories": {
+      "all": "Todos",
+      "languages": "Linguagens",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "cloud": "Cloud",
+      "database": "Banco de Dados",
+      "ai": "IA",
+      "engineering": "Engenharia",
+      "iot": "IoT"
+    }
   },
   "certifications":{
     "title": "Certificações",
@@ -45,6 +56,24 @@
   "contact": {
     "title": "Entre em Contato",
     "description": "Tem um projeto, uma ideia de colaboração ou uma oportunidade em mente? Estou sempre aberta a novas conexões e adoraria conversar com você.",
+    "cards": {
+      "email": {
+        "title": "Email",
+        "text": "Vamos transformar ideias em realidade."
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "text": "Aberta a conexões e novas oportunidades."
+      },
+      "github": {
+        "title": "GitHub",
+        "text": "Código, criatividade e aprendizado contínuo."
+      },
+      "location": {
+        "title": "Localização",
+        "text": "São José dos Pinhais, PR - Brasil."
+      }
+    },
     "form": {
       "nameLabel": "Como devo te chamar?",
       "namePlaceholder": "João Silva",

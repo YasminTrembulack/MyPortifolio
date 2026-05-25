@@ -171,7 +171,7 @@ export const techs: Tech[] = [
     gradient: ["#0078d4", "#2560e0"],
   },
   {
-    name: "Cloud Cloud",
+    name: "Google Cloud",
     icon: <GoogleCloudIcon />,
     category: "cloud",
     gradient: ["#4285f4", "#ea4335"],

@@ -14,13 +14,14 @@ import {
     Content
 } from "./Contact.styles";
 import { useIntersection } from "../../hooks/useIntersection";
-import { contacts } from "../../data/contacts";
+import { getContacts } from "../../data/contacts";
 import { BaseSection } from "../../components/BaseSection/BaseSection";
 import { useTranslation } from "react-i18next";
 
 export function Contact() {
     const { ref, isVisible } = useIntersection();
     const { t } = useTranslation();
+    const contacts = getContacts(t);
 
     return (
         <BaseSection
