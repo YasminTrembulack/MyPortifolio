@@ -1,13 +1,12 @@
 import * as S from "./Contact.styles";
 import useIntersection from "../../hooks/useIntersection";
-import { getContacts } from "../../data/contacts";
 import BaseSection from "../../components/BaseSection/BaseSection";
 import { useTranslation } from "react-i18next";
+import Socials from "../../components/Socials/Socials";
 
 export function Contact() {
     const { ref, isVisible } = useIntersection();
     const { t } = useTranslation();
-    const contacts = getContacts(t);
 
     return (
         <BaseSection
@@ -23,19 +22,14 @@ export function Contact() {
         >
             <S.Content>
                 <S.Left>
-                    <S.InfoList>
-                        {contacts.map((c, index) => (
-                            <S.InfoItem key={index} $visible={isVisible} $delay={index * 120}>
-                                <a href={c.link} target="_blank" rel="noreferrer">
-                                    {c.icon}
-                                </a>
-                                <div>
-                                    <S.InfoTitle>{c.title}</S.InfoTitle>
-                                    <S.InfoText>{c.text}</S.InfoText>
-                                </div>
-                            </S.InfoItem>
-                        ))}
-                    </S.InfoList>
+                    <Socials
+                        contacts={["email", "linkedin", "github", "location"]}
+                        $visible={isVisible}
+                        $fade="right"
+                        $gap={1.5}
+                        showTitle
+                        showText
+                    />
                 </S.Left>
                 <S.Right $visible={isVisible} $delay={300}>
                     <S.Form>

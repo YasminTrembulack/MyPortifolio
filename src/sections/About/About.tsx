@@ -2,12 +2,12 @@ import * as S from  "./About.styles";
 
 import AsciiArt from "../../components/Decorative/AsciiArt";
 import { gothic_window } from "../../assets/ascii-art";
-import Socials from "../../components/Socials/Socials";
 import { useTheme } from "styled-components";
 import useIntersection from "../../hooks/useIntersection";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import Divider from "../../components/Divider/Divider";
 import { useTranslation } from "react-i18next";
+import Socials from "../../components/Socials/Socials";
 
 export function About() {
   const { ref, isVisible } = useIntersection();
@@ -55,7 +55,12 @@ export function About() {
           </S.Text>
 
           <Divider isVisible={isVisible} variant="blue" ref={ref}/>
-          <Socials />
+          <Socials
+              contacts={["email", "linkedin", "github"]}
+              $flexDirection="row"
+              $visible={isVisible}
+              $fade="left"
+            />
         </S.Content>
       </S.Container>
     </S.Section>

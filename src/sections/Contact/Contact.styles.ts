@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fadeLeft, fadeRight, type AnimationProps } from "../../styles/transitions";
+import { fadeLeft, type AnimationProps } from "../../styles/transitions";
 
 export const Content = styled.div`
   width: 100%;
@@ -26,52 +26,6 @@ export const Right = styled(Side)<AnimationProps>`
 `;
 
 export const Left = styled(Side)``;
-
-export const InfoList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-
-`;
-
-export const InfoItem = styled.div<{
-  $visible: boolean;
-  $delay?: number;
-
-}>`
-  ${fadeRight}
-  display: flex;
-  gap: 16px;
-  align-items: center;
-
-  svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  a {
-    color: ${({ theme }) => theme.colors.bluePrimary};
-
-    transition:
-      transform 0.3s ease,
-      color 0.3s ease;
-  }
-
-  &:hover a {
-    color: ${({ theme }) => theme.colors.blueHover};
-    transform: translateY(-2px);
-  }
-`;
-
-export const InfoTitle = styled.h4`
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.softWhite};
-
-`;
-
-export const InfoText = styled.p`
-  color: ${({ theme }) => theme.colors.grey};
-`;
 
 export const Form = styled.form`
   display: flex;
