@@ -88,6 +88,12 @@
     "description": "Desenvolvedora Full Stack dedicada a criar experiências modernas, acessíveis e refinadas.",
     "quickLinks": "Links rápidos",
     "followMe": "Me acompanhe",
-    "copyright": "Todos os direitos reservados."
+    "copyright": "Todos os direitos reservados.",
+    "links": {
+      "home": "Início",
+      "about": "Sobre",
+      "projects": "Projetos",
+      "contact": "Contato"
+    }
   }
 }

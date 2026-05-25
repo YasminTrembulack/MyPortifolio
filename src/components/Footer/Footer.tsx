@@ -27,10 +27,10 @@ export function Footer() {
 
         <Links>
           <h4>{t("footer.quickLinks")}</h4>
-          <a onClick={() => scrollToSection("home")}>Home</a>
-          <a onClick={() => scrollToSection("about")}>About</a>
-          <a onClick={() => scrollToSection("projects")}>Projects</a>
-          <a onClick={() => scrollToSection("contact")}>Contact</a>
+          <a onClick={() => scrollToSection("home")}>{t('footer.links.home')}</a>
+          <a onClick={() => scrollToSection("about")}>{t('footer.links.about')}</a>
+          <a onClick={() => scrollToSection("projects")}>{t('footer.links.projects')}</a>
+          <a onClick={() => scrollToSection("contact")}>{t('footer.links.contact')}</a>
         </Links>
 
         <Social>

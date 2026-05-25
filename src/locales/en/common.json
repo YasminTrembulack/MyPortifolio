@@ -88,6 +88,12 @@
     "description": "Full Stack Developer dedicated to building modern, accessible, and refined experiences.",
     "quickLinks": "Quick links",
     "followMe": "Follow me",
-    "copyright": "All rights reserved."
+    "copyright": "All rights reserved.",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
   }
 }
