@@ -1,34 +1,59 @@
 
 import { forwardRef } from "react";
-import { Container, Section, type SectionProps } from "./BaseSection.styles";
-import { Divider } from "../Divider/Divider";
-import { SectionHeader, type SectionHeaderProps } from "../SectionHeader/SectionHeader";
+import * as S from "./BaseSection.styles";
+import { type SectionProps } from "./BaseSection.styles";
+import Divider from "../Divider/Divider";
+import  SectionHeader, { type SectionHeaderProps } from "../SectionHeader/SectionHeader";
 
-type BaseSectionProps = {
+type BaseProps = {
   children: React.ReactNode;
   id: string;
 };
 
-type Props = BaseSectionProps & SectionHeaderProps  & SectionProps;
+type Props = BaseProps & SectionHeaderProps & SectionProps;
 
-export const BaseSection = forwardRef<HTMLElement, Props>(
-  ({ id, variant, isVisible, description, title, eyebrow, children, $headerAlign, $paddingBottom, $paddingTop, $minHeight }, ref) => {
+type BaseSection = React.ForwardRefExoticComponent<
+  Props & React.RefAttributes<HTMLElement>
+> & {
+  Grid: React.FC<{ children: React.ReactNode }>;
+};
+
+const Base = forwardRef<HTMLElement, Props>(
+  function Base(props, ref) {
     return (
-      <Section id={id} ref={ref} $paddingBottom={$paddingBottom} $paddingTop={$paddingTop} $minHeight={$minHeight}>
-        <Container>
-          <SectionHeader 
-            description={description} 
-            title={title} 
-            variant={variant} 
-            eyebrow={eyebrow} 
-            isVisible={isVisible} 
-            $headerAlign={$headerAlign} 
-            ref={ref} 
+      <S.Section
+        id={props.id}
+        ref={ref}
+        $paddingBottom={props.$paddingBottom}
+        $paddingTop={props.$paddingTop}
+        $minHeight={props.$minHeight}
+      >
+        <S.Container>
+          <SectionHeader
+            description={props.description}
+            title={props.title}
+            variant={props.variant}
+            eyebrow={props.eyebrow}
+            isVisible={props.isVisible}
+            $headerAlign={props.$headerAlign}
           />
-          <Divider variant={variant} isVisible={isVisible} />
-          {children}
-        </Container>
-      </Section>
+
+          <Divider
+            variant={props.variant}
+            isVisible={props.isVisible}
+          />
+
+          {props.children}
+        </S.Container>
+      </S.Section>
     );
   }
 );
+
+const BaseSection = Base as BaseSection;
+
+BaseSection.Grid = function Grid({ children }: { children: React.ReactNode }) {
+  return <S.Grid>{children}</S.Grid>;
+};
+
+export default BaseSection;
