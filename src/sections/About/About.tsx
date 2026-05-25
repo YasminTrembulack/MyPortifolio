@@ -31,7 +31,7 @@ export function About() {
           <AsciiArt
             $color={`${theme.colors.yellowAccent}`}
             $left="1rem"
-            $top="-1.5rem"
+            $top="-3.1rem"
             $font_size="6.5px"
             $line_height="0.4"
             $children={gothic_window}

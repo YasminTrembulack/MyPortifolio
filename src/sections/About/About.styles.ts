@@ -35,6 +35,8 @@ export const PhotoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  align-self: start;
 `;
 
 export const Photo = styled.img`
