@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Div = styled.div<{
   $visible: boolean;
-  $variant: "blue" | "yellow";
+  $variant: "blue" | "yellow" | "grey";
   $marginTop?: number;
   $marginBottom?: number;
 }>`
@@ -16,7 +16,9 @@ export const Div = styled.div<{
   opacity: ${({ $visible }) => ($visible ? 0.45 : 0)};
 
   background-color: ${({ theme, $variant = "blue" }) =>
-    $variant === "yellow" ? theme.colors.yellowSoft : theme.colors.blueSoft};
+    $variant === "yellow" ? 
+      theme.colors.yellowSoft : $variant === "grey" ? 
+        theme.colors.greyLight : theme.colors.blueSoft};
 
   transform: ${({ $visible }) => ($visible ? "scaleX(1)" : "scaleX(0)")};
   transition-delay: 300ms;

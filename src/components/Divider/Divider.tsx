@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { Div } from "./Divider.styles";
 
 type DividerProps = {
-  variant: "blue" | "yellow";
+  variant: "blue" | "yellow" | "grey";
   isVisible: boolean;
 };
 
