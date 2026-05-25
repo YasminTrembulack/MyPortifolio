@@ -40,6 +40,11 @@ import IoTIcon from "../assets/icons/iot.svg?react";
 import ArduinoIcon from "../assets/icons/arduino.svg?react";
 import ESP32Icon from "../assets/icons/esp32.svg?react";
 import MQTTIcon from "../assets/icons/mqtt.svg?react";
+import LinuxIcon from "../assets/icons/linux.svg?react";
+import VectorIcon from "../assets/icons/vector-search.svg?react";
+import PostgresIcon from "../assets/icons/postgresql.svg?react";
+import PipelineIcon from "../assets/icons/pipeline.svg?react";
+import ETLIcon from "../assets/icons/etl.svg?react";
 
 export type Tech = {
   name: string;
@@ -194,6 +199,12 @@ export const techs: Tech[] = [
     category: "cloud",
     gradient: ["#f1502f", "#e94e31"],
   },
+  {
+  name: "Linux",
+    icon: <LinuxIcon />,
+    category: "cloud",
+    gradient: ["#222", "#555"],
+  },
 
   // 🗄️ Databases & Search
   {
@@ -238,6 +249,12 @@ export const techs: Tech[] = [
     category: "database",
     gradient: ["#13aa52", "#50c878"],
   },
+  {
+    name: "PostgreSQL",
+    icon: <PostgresIcon />,
+    category: "database",
+    gradient: ["#336791", "#4f8cc9"],
+  },
 
   // 🤖 AI & Data
   {
@@ -264,6 +281,12 @@ export const techs: Tech[] = [
     category: "ai",
     gradient: ["#4285f4", "#34a853"],
   },
+  {
+    name: "Vector Search",
+    icon: <VectorIcon />,
+    category: "ai",
+    gradient: ["#14b8a6", "#0ea5e9"],
+  },
 
   // 🏗️ Software Engineering
   {
@@ -289,6 +312,18 @@ export const techs: Tech[] = [
     icon: <RaccoonIcon />,
     category: "engineering",
     gradient: ["#d63384", "#bc8f8f"],
+  },
+  {
+    name: "Data Pipelines",
+    icon: <PipelineIcon />,
+    category: "engineering",
+    gradient: ["#06b6d4", "#3b82f6"],
+  },
+  {
+    name: "ETL Processing",
+    icon: <ETLIcon />,
+    category: "engineering",
+    gradient: ["#f59e0b", "#f97316"],
   },
 
   // 🌐 IoT
