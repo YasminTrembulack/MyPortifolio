@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { fadeUp, type AnimationProps } from "../../styles/transitions";
 
 const gridMove = keyframes`
@@ -8,9 +8,26 @@ const gridMove = keyframes`
 
 export const Container = styled.div<AnimationProps>`
   position: relative;
-  max-width: 400px;
+  break-inside: avoid;
 
   ${fadeUp};
+`;
+
+export const MasonryWrapper = styled.div`
+  .masonry-grid {
+    display: flex;
+    margin-left: -2rem;
+    width: auto;
+  }
+
+  .masonry-grid_column {
+    padding-left: 2rem;
+    background-clip: padding-box;
+  }
+
+  .masonry-grid_column > div {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Card = styled.div`
@@ -124,8 +141,6 @@ export const Icon = styled.div`
 
   color: ${({ theme }) => theme.colors.yellowAccent};
 
-  z-index: 3;
-
   svg {
     position: absolute;
     inset: 0;
@@ -178,4 +193,19 @@ export const RepoSubTitle = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 
   z-index: 2;
+`;
+
+export const Body = styled.div<{ $active: boolean }>`
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+
+  ${({ $active }) =>
+    $active &&
+    css`
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 16px;
+    `}
 `;
