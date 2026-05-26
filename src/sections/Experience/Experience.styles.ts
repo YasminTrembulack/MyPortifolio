@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 export const TimelineWrapper = styled.div`
   position: relative;
-  max-width: 1000px;
   padding-top: 2rem;
   margin: auto;
 `;
@@ -44,6 +43,22 @@ export const Item = styled.div<{ $side: "left" | "right" }>`
   justify-content: ${({ $side }) => $side === "left" ? "start" : "end"};
   margin-bottom: 2rem;
   position: relative;
+`;
+
+export const HeaderText = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const Subtitle = styled.div`
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  color: ${({ theme }) => theme.colors.grey};
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
 `;
 
 export const CardIcon = styled.pre`
@@ -134,19 +149,17 @@ export const CardTitle = styled.h3`
 `;
 
 export const Year = styled.span`
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.fonts.terciary};
   color: ${({ theme }) => theme.colors.bluePrimary};
   display: block;
-  margin-bottom: 6px;
 `;
 
 export const Icon = styled.span<{ $active: boolean }>`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.softWhite};
   transition: transform 0.3s ease;
+  margin-left: 5px;
 
   ${({ $active }) =>
     $active &&

@@ -1,6 +1,6 @@
 {
   "header":{
-    "home": "Home",
+    "hero": "Home",
     "about": "About",
     "projects": "Projects",
     "experience": "Experience",
@@ -90,7 +90,7 @@
     "followMe": "Follow me",
     "copyright": "All rights reserved.",
     "links": {
-      "home": "Home",
+      "hero": "Home",
       "about": "About",
       "projects": "Projects",
       "contact": "Contact"

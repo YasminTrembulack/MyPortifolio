@@ -1,42 +1,35 @@
 import { scrollToSection } from "../../utils/scrollToSection";
-import {
-  Section,
-  Content,
-  Title,
-  Subtitle,
-  Actions,
-  Button,
-} from "./Home.styles";
+import * as S from "./Hero.styles";
 import useIntersection from "../../hooks/useIntersection";
 import { useTranslation } from "react-i18next";
 
-export function Home() {
+export default function Hero() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
 
   return (
-    <Section id="home" ref={ref}>
-      <Content>
+    <S.Section id="hero" ref={ref}>
+      <S.Content>
         <div>
-          <Title $visible={isVisible}>
+          <S.Title $visible={isVisible}>
             {t("hero.title")}<strong>Yasmin Trembulack Agostinho</strong>.
-          </Title>
+          </S.Title>
 
-          <Subtitle $visible={isVisible}>
+          <S.Subtitle $visible={isVisible}>
             <span>“{t("hero.subtitle1")}”</span>
             <span>“{t("hero.subtitle2")}”</span>
-          </Subtitle>
+          </S.Subtitle>
 
-          <Actions $visible={isVisible}>
-            <Button onClick={() => scrollToSection("contact")}>
+          <S.Actions $visible={isVisible}>
+            <S.Button onClick={() => scrollToSection("contact")}>
               🡪 {t("hero.contact")}
-            </Button>
-            <Button href="/cv-yasmin.pdf" download>
+            </S.Button>
+            <S.Button href="/cv-yasmin.pdf" download>
               {t("hero.downloadCv")}
-            </Button>
-          </Actions>
+            </S.Button>
+          </S.Actions>
         </div>
-      </Content>
-    </Section>
+      </S.Content>
+    </S.Section>
   );
 }

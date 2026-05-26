@@ -1,12 +1,10 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
-import * as S from "./BaseCard.styles";
-import type { AnimationProps } from "../../styles/transitions";
+import * as S from "./Card.styles";
+import type { AnimationProps } from "../../../styles/transitions";
 
-interface BaseCardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  $minHeight?: number;
-  $side?: "left" | "right";
 }
 
 interface TitleProps {
@@ -14,14 +12,22 @@ interface TitleProps {
   showCursor?: boolean;
 }
 
-function BaseCard({
+interface CardHeaderProps {
+  children: ReactNode;
+};
+
+function Card({
   children,
   $minHeight,
   $delay,
   $visible = true,
   $side,
   ...rest
-}: BaseCardProps & AnimationProps) {
+}: CardProps 
+  & S.CardProps
+  & AnimationProps
+  & S.CardRevealProps
+) {
   return (
     <S.CardReveal
       $visible={$visible}
@@ -40,11 +46,11 @@ function BaseCard({
   );
 }
 
-BaseCard.Header = function Header({ children }: { children: ReactNode }) {
-  return <S.Header>{children}</S.Header>;
+Card.Header = function Header({ children, $marginBottom }: CardHeaderProps & S.HeaderProps) {
+  return <S.Header $marginBottom={$marginBottom}>{children}</S.Header>;
 }
 
-BaseCard.Title = function Title({
+Card.Title = function Title({
   children,
   showCursor,
 }: TitleProps) {
@@ -56,8 +62,8 @@ BaseCard.Title = function Title({
   );
 }
 
-BaseCard.Description = function Description({ children }: { children: ReactNode }) {
+Card.Description = function Description({ children }: { children: ReactNode }) {
   return <S.Description>{children}</S.Description>
 }
 
-export default BaseCard;
+export default Card;

@@ -1,7 +1,7 @@
 
 import { forwardRef } from "react";
-import * as S from "./BaseSection.styles";
-import { type SectionProps } from "./BaseSection.styles";
+import * as S from "./Section.styles";
+import { type SectionProps } from "./Section.styles";
 import Divider from "../Divider/Divider";
 import  SectionHeader, { type SectionHeaderProps } from "../SectionHeader/SectionHeader";
 
@@ -12,14 +12,14 @@ type BaseProps = {
 
 type Props = BaseProps & SectionHeaderProps & SectionProps;
 
-type BaseSection = React.ForwardRefExoticComponent<
+type Section = React.ForwardRefExoticComponent<
   Props & React.RefAttributes<HTMLElement>
 > & {
   Grid: React.FC<{ children: React.ReactNode }>;
 };
 
-const Base = forwardRef<HTMLElement, Props>(
-  function Base(props, ref) {
+const BaseSection = forwardRef<HTMLElement, Props>(
+  function BaseSection(props, ref) {
     return (
       <S.Section
         id={props.id}
@@ -50,10 +50,10 @@ const Base = forwardRef<HTMLElement, Props>(
   }
 );
 
-const BaseSection = Base as BaseSection;
+const Section = BaseSection as Section;
 
-BaseSection.Grid = function Grid({ children }: { children: React.ReactNode }) {
+Section.Grid = function Grid({ children }: { children: React.ReactNode }) {
   return <S.Grid>{children}</S.Grid>;
 };
 
-export default BaseSection;
+export default Section;

@@ -8,11 +8,11 @@ import Flower4 from "../../assets/icons/flowers/flower4.svg?react";
 import Flower5 from "../../assets/icons/flowers/flower5.svg?react";
 import Flower6 from "../../assets/icons/flowers/flower6.svg?react";
 import Flower7 from "../../assets/icons/flowers/flower7.svg?react";
-import { experiences } from "../../data/experiences";
-import BaseSection from "../../components/BaseSection/BaseSection";
+import { experiences } from "../../content/experiences";
+import Section from "../../components/ui/Section/Section";
 import useIntersection from "../../hooks/useIntersection";
 import { useTranslation } from "react-i18next";
-import BaseCard from "../../components/BaseCard/BaseCard";
+import Card from "../../components/ui/Card/Card";
 
 export const MARKER_ICONS = [
   Flower1,
@@ -29,7 +29,7 @@ const Marker = ({ active, index }: { active: boolean; index: number }) => {
   return <S.MarkerIcon as={Icon} $active={active} />;
 };
 
-export function Experience() {
+export default function Experience() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
 
@@ -57,7 +57,7 @@ export function Experience() {
 
 
   return (
-    <BaseSection
+    <Section
       id="experience"
       eyebrow={t("experience.eyebrow")}
       title={t("experience.title")}
@@ -81,7 +81,7 @@ export function Experience() {
               <S.MarkerWrapper>
                 <Marker active={activeIndex === index} index={index} />
               </S.MarkerWrapper>
-              <BaseCard
+              <Card
                 $side={side}
                 $visible={isVisible}
                 onClick={() => {
@@ -89,25 +89,28 @@ export function Experience() {
                   setTimeout(updateProgress, 450);
                 }}
               >
-                <BaseCard.Header>
+                <Card.Header $marginBottom={0} $gap={0}>
                   <S.CardIcon>{e.icon}</S.CardIcon>
-
-                  <div style={{ width: "100%" }}>
-                    <BaseCard.Title>{e.title}</BaseCard.Title>
-                    <S.Year>{e.year}</S.Year>
-                  </div>
+                  <S.HeaderText style={{  }}>
+                    <Card.Title>{e.title}</Card.Title>
+                    <S.Subtitle>
+                      <S.Year>{e.year}</S.Year>
+                      <p>{e.location}</p>
+                    </S.Subtitle>
+                      
+                  </S.HeaderText>
                   <S.Icon $active={activeIndex === index}>+</S.Icon>
-                </BaseCard.Header>
+                </Card.Header>
 
                 <S.Body $active={activeIndex === index}>
                   <p>{e.description}</p>
                 </S.Body>
-              </BaseCard>
+              </Card>
 
             </S.Item>
           );
         })}
       </S.TimelineWrapper>
-    </BaseSection>
+    </Section>
   );
 }

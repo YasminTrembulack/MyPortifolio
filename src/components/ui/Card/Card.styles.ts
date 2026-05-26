@@ -1,5 +1,19 @@
 import styled, { keyframes } from "styled-components";
-import { fadeLeft, fadeRight, fadeUp, type AnimationProps } from "../../styles/transitions";
+import { fadeLeft, fadeRight, fadeUp, type AnimationProps } from "../../../styles/transitions";
+
+export type CardRevealProps = {
+  $side?: "left" | "right";
+} & AnimationProps;
+
+export type CardProps = {
+  $side?: "left" | "right";
+  $minHeight?: number;
+};
+
+export type HeaderProps = {
+  $marginBottom?: number;
+  $gap?: number;
+}
 
 const blink = keyframes`
   0%,100% { opacity: 1; }
@@ -23,10 +37,6 @@ export const Cursor = styled.span`
   animation: ${blink} 1s step-end infinite;
 `;
 
-type CardRevealProps = {
-  $side?: "left" | "right";
-} & AnimationProps;
-
 export const CardReveal = styled.div<CardRevealProps>`
   ${({ $side }) => {
     if ($side === "left") return fadeLeft;
@@ -35,14 +45,9 @@ export const CardReveal = styled.div<CardRevealProps>`
   }}
 `;
 
-type CardProps = {
-  $side?: "left" | "right";
-  $minHeight?: number;
-};
-
 export const Card = styled.div<CardProps>`
   width: 100%;
-  max-width: 400px;
+  max-width: 550px;
   padding: 24px;
   position: relative;
   overflow: hidden;
@@ -138,13 +143,13 @@ export const Grid = styled.div`
   }
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<HeaderProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${({ $marginBottom = 0.5 }) => $marginBottom}rem;
+  gap: ${({ $gap = 0.7 }) => $gap}rem;
   z-index: 2;
-  gap: 0.7rem;
 `;
 
 export const Title = styled.h3`

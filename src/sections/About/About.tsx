@@ -1,15 +1,16 @@
 import * as S from  "./About.styles";
 
-import AsciiArt from "../../components/Decorative/AsciiArt";
+import AsciiArt from "../../components/shared/Decorative/AsciiArt";
 import { gothic_window } from "../../assets/ascii-art";
 import { useTheme } from "styled-components";
 import useIntersection from "../../hooks/useIntersection";
-import SectionHeader from "../../components/SectionHeader/SectionHeader";
-import Divider from "../../components/Divider/Divider";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader";
+import Divider from "../../components/ui/Divider/Divider";
 import { useTranslation } from "react-i18next";
-import Socials from "../../components/Socials/Socials";
+import Socials from "../../components/shared/Socials/Socials";
 
-export function About() {
+
+export default function About() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
   

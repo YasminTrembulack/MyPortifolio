@@ -1,39 +1,32 @@
-import { scrollToSection } from "../../utils/scrollToSection";
-import {
-  Brand,
-  FooterBottom,
-  FooterContainer,
-  FooterTop,
-  Links,
-  Social,
-} from "./Footer.styles";
+import { scrollToSection } from "../../../utils/scrollToSection";
+import * as S from "./Footer.styles";
 
 import { useTranslation } from "react-i18next";
-import Socials from "../Socials/Socials";
-import Divider from "../Divider/Divider";
-import useIntersection from "../../hooks/useIntersection";
+import Socials from "../../shared/Socials/Socials";
+import Divider from "../../ui/Divider/Divider";
+import useIntersection from "../../../hooks/useIntersection";
 
-export function Footer() {
+export default function Footer() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();  
 
   return (
-    <FooterContainer>
-      <FooterTop ref={ref} $visible={isVisible}>
-        <Brand>
+    <S.FooterContainer>
+      <S.FooterTop ref={ref} $visible={isVisible}>
+        <S.Brand>
           <h3>Yasmin</h3>
           <p>{t("footer.description")}</p>
-        </Brand>
+        </S.Brand>
 
-        <Links>
+        <S.Links>
           <h4>{t("footer.quickLinks")}</h4>
-          <a onClick={() => scrollToSection("home")}>{t('footer.links.home')}</a>
+          <a onClick={() => scrollToSection("hero")}>{t('footer.links.hero')}</a>
           <a onClick={() => scrollToSection("about")}>{t('footer.links.about')}</a>
           <a onClick={() => scrollToSection("projects")}>{t('footer.links.projects')}</a>
           <a onClick={() => scrollToSection("contact")}>{t('footer.links.contact')}</a>
-        </Links>
+        </S.Links>
 
-        <Social>
+        <S.Social>
           <h4>{t("footer.followMe")}</h4>
           <Socials
             contacts={["email", "linkedin", "github"]}
@@ -42,14 +35,14 @@ export function Footer() {
             $variant="grey"
             $fade="left"
           />
-        </Social>
-      </FooterTop>
+        </S.Social>
+      </S.FooterTop>
 
       <Divider ref={ref} isVisible={isVisible} variant="grey"/>
 
-      <FooterBottom ref={ref} $visible={isVisible}>
+      <S.FooterBottom ref={ref} $visible={isVisible}>
         © {new Date().getFullYear()} Yasmin. {t("footer.copyright")}
-      </FooterBottom>
-    </FooterContainer>
+      </S.FooterBottom>
+    </S.FooterContainer>
   );
 }

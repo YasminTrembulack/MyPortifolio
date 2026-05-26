@@ -6,10 +6,10 @@ import {
   Name,
   Tab,
   Tabs,
-} from "./TechStack.styles";
-import { techs } from "../../data/techs";
+} from "./Skills.styles";
+import { techs } from "../../content/techs";
 import useIntersection from "../../hooks/useIntersection";
-import BaseSection from "../../components/BaseSection/BaseSection";
+import Section from "../../components/ui/Section/Section";
 import { useTranslation } from "react-i18next";
 
 export const categories = [
@@ -24,7 +24,7 @@ export const categories = [
   "iot",
 ];
 
-export function TechStack() {
+export default function Skills() {
   const [active, setActive] = useState("all");
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ export function TechStack() {
     active === "all" ? techs : techs.filter((t) => t.category === active);
 
   return (
-    <BaseSection
+    <Section
       id="tech-stack"
       title={t("techStack.title")}
       description={t("techStack.description")}
@@ -66,6 +66,6 @@ export function TechStack() {
             ))}
           </Grid>
       </div>
-    </BaseSection>
+    </Section>
   );
 }

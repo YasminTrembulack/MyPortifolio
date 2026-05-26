@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { badgeVariants, type BadgeVariant } from "../../sections/Projects/badge.types";
+import { badgeVariants, type BadgeVariant } from "./badge.types";
 
 /* Actions */
 export const ActionButtons = styled.div`

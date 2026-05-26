@@ -1,6 +1,6 @@
 {
   "header":{
-    "home": "Início",
+    "hero": "Início",
     "about": "Sobre",
     "projects": "Projetos",
     "experience": "Experiência",
@@ -90,7 +90,7 @@
     "followMe": "Me acompanhe",
     "copyright": "Todos os direitos reservados.",
     "links": {
-      "home": "Início",
+      "hero": "Início",
       "about": "Sobre",
       "projects": "Projetos",
       "contact": "Contato"

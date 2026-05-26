@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from "react";
 
 import * as S from "./Socials.styles";
-import type { AnimationProps } from "../../styles/transitions";
-import { getContacts } from "../../data/contacts";
+import type { AnimationProps } from "../../../styles/transitions";
+import { getContacts } from "../../../content/contacts";
 import { useTranslation } from "react-i18next";
 
 interface SocialsProps extends HTMLAttributes<HTMLDivElement> {

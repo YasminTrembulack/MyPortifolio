@@ -1,6 +1,6 @@
 
 import { forwardRef } from "react";
-import { flower } from "../../assets/ascii-art";
+import { flower } from "../../../assets/ascii-art";
 import { Eyebrow, Header, Subtitle, Title, TitleIcon, TitleText } from "./SectionHeader.styles";
 
 export type SectionHeaderProps = {

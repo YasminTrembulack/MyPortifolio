@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fadeUp, type AnimationProps } from "../../styles/transitions";
+import { fadeUp, type AnimationProps } from "../../../styles/transitions";
 
 export const FooterContainer = styled.footer`
   background: ${({ theme }) => theme.colors.softWhite};

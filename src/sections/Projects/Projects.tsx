@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import * as S from "./Projects.styles";
 
 import useIntersection from "../../hooks/useIntersection";
-import { projects } from "../../data/projects";
+import { projects } from "../../content/projects";
 
-import BaseSection from "../../components/BaseSection/BaseSection";
-import BaseCard from "../../components/BaseCard/BaseCard";
+import Section from "../../components/ui/Section/Section";
+import Card from "../../components/ui/Card/Card";
 
 import { badgeVariants, type BadgeVariant } from "./badge.types";
 
@@ -18,12 +18,12 @@ const normalizeTech = (tech: string): BadgeVariant => {
   return key in badgeVariants ? (key as BadgeVariant) : "default";
 };
 
-export function Projects() {
+export default function Projects() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
 
   return (
-    <BaseSection
+    <Section
       id="projects"
       title={t("projects.title")}
       description={t("projects.description")}
@@ -34,23 +34,23 @@ export function Projects() {
       $paddingBottom={0}
       $paddingTop={4}
     >
-      <BaseSection.Grid>
+      <Section.Grid>
         {projects.map((p, index) => (
-          <BaseCard key={index} $visible={isVisible} $delay={index * 300}>
+          <Card key={index} $visible={isVisible} $delay={index * 300}>
 
-            <BaseCard.Header>
-              <BaseCard.Title showCursor>
+            <Card.Header>
+              <Card.Title showCursor>
                 {p.title}
-              </BaseCard.Title>
+              </Card.Title>
 
               <S.ActionButtons>
                 <S.IconButton aria-label="View on GitHub">
                   <GithubIcon />
                 </S.IconButton>
               </S.ActionButtons>
-            </BaseCard.Header>
+            </Card.Header>
 
-            <BaseCard.Description>{p.description}</BaseCard.Description>
+            <Card.Description>{p.description}</Card.Description>
             <S.TagWrapper>
               {p.techs.map((tech) => (
                 <S.Badge key={tech} $variant={normalizeTech(tech)}>
@@ -58,9 +58,9 @@ export function Projects() {
                 </S.Badge>
               ))}
             </S.TagWrapper>
-          </BaseCard>
+          </Card>
         ))}
-      </BaseSection.Grid>
-    </BaseSection>
+      </Section.Grid>
+    </Section>
   );
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fadeLeft, fadeRight, fadeUp, type AnimationProps } from "../../styles/transitions";
+import { fadeLeft, fadeRight, fadeUp, type AnimationProps } from "../../../styles/transitions";
 
 export type InfoListProps = {
   $flexDirection?: "row" | "column";

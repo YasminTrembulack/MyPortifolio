@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fadeUp, type AnimationProps } from "../../styles/transitions";
+import { fadeUp, type AnimationProps } from "../../../styles/transitions";
 
 type HeaderProps = AnimationProps & {
   $marginBottom?: number;

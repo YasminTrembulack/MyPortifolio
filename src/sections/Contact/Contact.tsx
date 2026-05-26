@@ -1,15 +1,16 @@
 import * as S from "./Contact.styles";
 import useIntersection from "../../hooks/useIntersection";
-import BaseSection from "../../components/BaseSection/BaseSection";
+import Section from "../../components/ui/Section/Section";
 import { useTranslation } from "react-i18next";
-import Socials from "../../components/Socials/Socials";
+import Socials from "../../components/shared/Socials/Socials";
 
-export function Contact() {
+
+export default function Contact() {
     const { ref, isVisible } = useIntersection();
     const { t } = useTranslation();
 
     return (
-        <BaseSection
+        <Section
             id="contact"
             title={t("contact.title")}
             description={t("contact.description")}
@@ -51,6 +52,6 @@ export function Contact() {
                     </S.Form>
                 </S.Right>
             </S.Content>
-        </BaseSection>
+        </Section>
     );
 }
