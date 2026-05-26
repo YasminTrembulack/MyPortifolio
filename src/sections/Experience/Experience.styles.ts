@@ -42,7 +42,7 @@ export const Item = styled.div<{ $side: "left" | "right" }>`
   display: flex;
   align-items: flex-start;
   justify-content: ${({ $side }) => $side === "left" ? "start" : "end"};
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
   position: relative;
 `;
 
