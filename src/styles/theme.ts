@@ -22,8 +22,7 @@ export const theme = {
     yellowMuted: "rgba(240,213,140,0.15)",
 
     gradientPrimary: "linear-gradient(135deg, #38bdf8, #f5c77a)",
-    gradientSoft:
-      "linear-gradient(135deg, rgba(56,189,248,0.35), rgba(245,199,122,0.25))",
+    gradientSoft: "linear-gradient(135deg, rgba(56,189,248,0.35), rgba(245,199,122,0.25))",
   },
 
   fonts: {
