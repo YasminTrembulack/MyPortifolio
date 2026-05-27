@@ -18,7 +18,7 @@ export const Ascii = styled.pre<AsciiProps>`
     white-space: pre;
     font-family: monospace;
 
-    font-size: 4px;
+    font-size: 3px;
     line-height: 0.45;
     background: radial-gradient(ellipse 65% 500% at 52% 50%,#cf9f23 35%,#1a77ad 45%,#0ea5e9 100%);
 
