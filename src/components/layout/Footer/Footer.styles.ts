@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { fadeUp, type AnimationProps } from "../../../styles/transitions";
 
 export const FooterContainer = styled.footer`
+  position: relative;
+  overflow: "hidden";
   background: ${({ theme }) => theme.colors.softWhite};
   color: ${({ theme }) => theme.colors.background};
 
-  padding: 4rem 2rem 2rem;
+  padding: 4rem 0rem 2rem;
 `;
 
 export const FooterTop = styled.div<AnimationProps>`
@@ -13,7 +15,7 @@ export const FooterTop = styled.div<AnimationProps>`
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 0.4fr;
   gap: 3rem;
 
   @media (max-width: 768px) {

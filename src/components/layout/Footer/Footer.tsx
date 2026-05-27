@@ -5,13 +5,17 @@ import { useTranslation } from "react-i18next";
 import Socials from "../../shared/Socials/Socials";
 import Divider from "../../ui/Divider/Divider";
 import useIntersection from "../../../hooks/useIntersection";
+import DraggableText from "../../shared/DraggableText/DraggableText";
+import { fairy_cat } from "../../../assets/ascii-art";
+import { useRef } from "react";
 
 export default function Footer() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();  
 
   return (
-    <S.FooterContainer>
+    <S.FooterContainer  ref={containerRef}>
       <S.FooterTop ref={ref} $visible={isVisible}>
         <S.Brand>
           <h3>Yasmin</h3>
@@ -36,6 +40,7 @@ export default function Footer() {
             $fade="left"
           />
         </S.Social>
+        <p>🡗 Drag Me</p>
       </S.FooterTop>
 
       <Divider ref={ref} isVisible={isVisible} variant="grey"/>
@@ -43,6 +48,8 @@ export default function Footer() {
       <S.FooterBottom ref={ref} $visible={isVisible}>
         © {new Date().getFullYear()} Yasmin. {t("footer.copyright")}
       </S.FooterBottom>
+
+      <DraggableText ref={containerRef} $visible={isVisible}>{fairy_cat}</DraggableText>
     </S.FooterContainer>
   );
 }
