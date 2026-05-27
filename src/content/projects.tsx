@@ -40,5 +40,5 @@ export const projects: Project[] = [
       "IoT system for monitoring sensors and devices with real-time data processing.",
     techs: ["SQL Server", "CSharp", "IoT"],
     link: "#",
-  },
+  }
 ];

@@ -1,6 +1,6 @@
-import * as S from  "./About.styles";
+import * as S from "./About.styles";
 
-import AsciiArt from "../../components/shared/Decorative/AsciiArt";
+import AsciiArt from "../../components/shared/AsciiArt/AsciiArt";
 import { gothic_window } from "../../assets/ascii-art";
 import { useTheme } from "styled-components";
 import useIntersection from "../../hooks/useIntersection";
@@ -13,7 +13,7 @@ import Socials from "../../components/shared/Socials/Socials";
 export default function About() {
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
-  
+
   const theme = useTheme();
 
   return (
@@ -26,17 +26,18 @@ export default function About() {
             $top="-3.1rem"
             $font_size="6.5px"
             $line_height="0.4"
-            $children={gothic_window}
-          />
+          >
+            {gothic_window}
+          </AsciiArt>
           <S.Photo src="/me.png" alt="Yasmin Trembulack" />
         </S.PhotoWrapper>
 
         <S.Content>
-          <SectionHeader 
+          <SectionHeader
             title={t("about.title")}
             variant="blue"
             ref={ref}
-            isVisible={isVisible} 
+            isVisible={isVisible}
             $headerAlign="start"
             $marginBottom={0}
           />
@@ -55,13 +56,13 @@ export default function About() {
             {t("about.text2")}
           </S.Text>
 
-          <Divider isVisible={isVisible} variant="blue" ref={ref}/>
+          <Divider isVisible={isVisible} variant="blue" ref={ref} />
           <Socials
-              contacts={["email", "linkedin", "github"]}
-              $flexDirection="row"
-              $visible={isVisible}
-              $fade="left"
-            />
+            contacts={["email", "linkedin", "github"]}
+            $flexDirection="row"
+            $visible={isVisible}
+            $fade="left"
+          />
         </S.Content>
       </S.Container>
     </S.Section>

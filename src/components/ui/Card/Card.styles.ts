@@ -7,7 +7,7 @@ export type CardRevealProps = {
 
 export type CardProps = {
   $side?: "left" | "right";
-  $minHeight?: number;
+  $maxWidth?: number;
 };
 
 export type HeaderProps = {
@@ -47,14 +47,13 @@ export const CardReveal = styled.div<CardRevealProps>`
 
 export const Card = styled.div<CardProps>`
   width: 100%;
-  max-width: 550px;
   padding: 24px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: ${({ $minHeight = 0 }) => $minHeight}px;
+  max-width: ${({ $maxWidth }) => $maxWidth && `${$maxWidth}px`};
 
   background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.softBlack};

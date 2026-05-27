@@ -10,15 +10,19 @@ type BaseProps = {
   id: string;
 };
 
-type Props = BaseProps & SectionHeaderProps & SectionProps;
+type BaseSectionProps = BaseProps & SectionHeaderProps & SectionProps;
+
+type GridProps = S.GridProps & {
+  children: React.ReactNode;
+}
 
 type Section = React.ForwardRefExoticComponent<
-  Props & React.RefAttributes<HTMLElement>
+  BaseSectionProps & React.RefAttributes<HTMLElement>
 > & {
-  Grid: React.FC<{ children: React.ReactNode }>;
+  Grid: React.FC<GridProps>;
 };
 
-const BaseSection = forwardRef<HTMLElement, Props>(
+const BaseSection = forwardRef<HTMLElement, BaseSectionProps>(
   function BaseSection(props, ref) {
     return (
       <S.Section
@@ -52,8 +56,8 @@ const BaseSection = forwardRef<HTMLElement, Props>(
 
 const Section = BaseSection as Section;
 
-Section.Grid = function Grid({ children }: { children: React.ReactNode }) {
-  return <S.Grid>{children}</S.Grid>;
+Section.Grid = function Grid({ children, ...props }: GridProps) {
+  return <S.Grid {...props}>{children}</S.Grid>;
 };
 
 export default Section;

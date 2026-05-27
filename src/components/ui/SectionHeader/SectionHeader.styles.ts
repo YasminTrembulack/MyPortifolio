@@ -28,7 +28,7 @@ export const Eyebrow = styled.span`
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.softWhite};
   opacity: 0.5;
-  margin-bottom: 14px;
+  margin-bottom: 5px;
 `;
 
 export const TitleIcon = styled.pre<TitleIconProps>`

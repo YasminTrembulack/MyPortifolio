@@ -6,10 +6,14 @@ export type SectionProps = {
   $minHeight?: number;
 };
 
+export type GridProps = {
+  $gridTemplateColumns: string;
+}
+
 export const Section = styled.section<SectionProps>`
   min-height: ${({ $minHeight = 100 }) => $minHeight}vh;
-  padding-top: ${({ $paddingTop = 0 }) => $paddingTop}rem;
-  padding-bottom: ${({ $paddingBottom = 0 }) => $paddingBottom}rem;
+  padding-top: ${({ $paddingTop = 5 }) => $paddingTop}rem;
+  padding-bottom: ${({ $paddingBottom = 3 }) => $paddingBottom}rem;
   background: ${({ theme }) => theme.colors.background};
 `;
 
@@ -18,8 +22,10 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Grid = styled.div`
+export const Grid = styled.div<GridProps>`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  background: ${({ theme }) => theme.colors.background};
+  grid-template-columns: ${({ $gridTemplateColumns }) => $gridTemplateColumns};
+
   gap: 2rem;
 `;

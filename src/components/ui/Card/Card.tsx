@@ -18,10 +18,10 @@ interface CardHeaderProps {
 
 function Card({
   children,
-  $minHeight,
   $delay,
   $visible = true,
   $side,
+  $maxWidth,
   ...rest
 }: CardProps 
   & S.CardProps
@@ -34,7 +34,7 @@ function Card({
       $delay={$delay}
       $side={$side}>
       <S.Card
-        $minHeight={$minHeight}
+        $maxWidth={$maxWidth}
         $side={$side}
         {...rest}
       >

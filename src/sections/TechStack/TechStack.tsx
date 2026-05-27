@@ -6,7 +6,7 @@ import {
   Name,
   Tab,
   Tabs,
-} from "./Skills.styles";
+} from "./TechStack.styles";
 import { techs } from "../../content/techs";
 import useIntersection from "../../hooks/useIntersection";
 import Section from "../../components/ui/Section/Section";
@@ -24,7 +24,7 @@ export const categories = [
   "iot",
 ];
 
-export default function Skills() {
+export default function TechStack() {
   const [active, setActive] = useState("all");
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
@@ -41,30 +41,28 @@ export default function Skills() {
       ref={ref}
       isVisible={isVisible}
       $headerAlign="center"
-      $paddingBottom={4}
-      $paddingTop={5}
     >
       <div>
-      <Tabs>
-            {categories.map((cat) => (
-              <Tab
-                key={cat}
-                $active={active === cat.toLowerCase()}
-                onClick={() => setActive(cat.toLowerCase())}
-              >
-                {t(`techStack.categories.${cat}`)}
-              </Tab>
-            ))}
-          </Tabs>
+        <Tabs>
+          {categories.map((cat) => (
+            <Tab
+              key={cat}
+              $active={active === cat.toLowerCase()}
+              onClick={() => setActive(cat.toLowerCase())}
+            >
+              {t(`techStack.categories.${cat}`)}
+            </Tab>
+          ))}
+        </Tabs>
 
-          <Grid $visible={isVisible} key={active}>
-            {filtered.map((tech, index) => (
-              <Card key={tech.name} $index={index}>
-                <Icon $gradient={tech.gradient}>{tech.icon}</Icon>
-                <Name>{tech.name}</Name>
-              </Card>
-            ))}
-          </Grid>
+        <Grid $visible={isVisible} key={active}>
+          {filtered.map((tech, index) => (
+            <Card key={tech.name} $index={index}>
+              <Icon $gradient={tech.gradient}>{tech.icon}</Icon>
+              <Name>{tech.name}</Name>
+            </Card>
+          ))}
+        </Grid>
       </div>
     </Section>
   );

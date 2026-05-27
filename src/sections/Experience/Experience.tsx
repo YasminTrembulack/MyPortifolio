@@ -66,8 +66,6 @@ export default function Experience() {
       $headerAlign="center"
       ref={ref}
       isVisible={isVisible}
-      $paddingBottom={2}
-      $paddingTop={6}
     >
       <S.TimelineWrapper ref={timelineRef}>
         <S.TimelineLine />
@@ -82,6 +80,7 @@ export default function Experience() {
                 <Marker active={activeIndex === index} index={index} />
               </S.MarkerWrapper>
               <Card
+                $maxWidth={550}
                 $side={side}
                 $visible={isVisible}
                 onClick={() => {

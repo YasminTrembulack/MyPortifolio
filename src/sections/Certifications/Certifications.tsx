@@ -9,18 +9,12 @@ import MedalReward from "../../assets/icons/medal.svg?react";
 import MedalRewardFilled from "../../assets/icons/medal-filled.svg?react";
 import { useState } from "react";
 
-
-import Masonry from "react-masonry-css";
-
-
 export default function Certifications() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const { ref, isVisible } = useIntersection();
   const { t } = useTranslation();
-
-  const breakpointColumnsObj = { default: 3, 1100: 2, 700: 1 };
 
   return (
     <Section
@@ -30,42 +24,33 @@ export default function Certifications() {
       variant="blue"
       ref={ref}
       isVisible={isVisible}
-      $headerAlign="start"
-      $paddingBottom={0}
-      $paddingTop={8}
       $minHeight={87}
     >
-      <S.MasonryWrapper>
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="masonry-grid"
-          columnClassName="masonry-grid_column"
-        >
-          {certifications.map((c, index) => (
-            <S.Container key={index} $visible={isVisible} $delay={index * 300}>
-              <Card
-                $minHeight={140}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() => setActiveIndex((prev) => (prev === index ? null : index))}
-              >
-                <Card.Header>
-                  <Card.Title>{c.title}</Card.Title>
-                  <S.Year>{c.year}</S.Year>
-                </Card.Header>
-                <S.RepoSubTitle>{c.institution}</S.RepoSubTitle>
-                <S.Body $active={activeIndex === index}>
-                  <p>{c.description}</p>
-                </S.Body>
-              </Card>
-              <S.Icon>
-                <MedalReward className={hoveredIndex !== index ? "active" : ""} />
-                <MedalRewardFilled className={hoveredIndex === index ? "active" : ""} />
-              </S.Icon>
-            </S.Container>
-          ))}
-        </Masonry>
-      </S.MasonryWrapper>
+      <Section.Grid $gridTemplateColumns="1fr">
+        {certifications.map((c, index) => (
+          <S.Container key={index} $visible={isVisible} $delay={index * 300}>
+            <Card
+              $maxWidth={5000}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => setActiveIndex((prev) => (prev === index ? null : index))}
+            >
+              <Card.Header>
+                <Card.Title>{c.title}</Card.Title>
+                <S.Year>{c.year}</S.Year>
+              </Card.Header>
+              <S.RepoSubTitle>{c.institution}</S.RepoSubTitle>
+              <S.Body $active={activeIndex === index}>
+                <p>{c.description}</p>
+              </S.Body>
+            </Card>
+            <S.Icon>
+              <MedalReward className={hoveredIndex !== index ? "active" : ""} />
+              <MedalRewardFilled className={hoveredIndex === index ? "active" : ""} />
+            </S.Icon>
+          </S.Container>
+        ))}
+      </Section.Grid>
     </Section>
   );
 }

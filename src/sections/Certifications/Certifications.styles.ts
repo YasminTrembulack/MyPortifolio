@@ -13,23 +13,6 @@ export const Container = styled.div<AnimationProps>`
   ${fadeUp};
 `;
 
-export const MasonryWrapper = styled.div`
-  .masonry-grid {
-    display: flex;
-    margin-left: -2rem;
-    width: auto;
-  }
-
-  .masonry-grid_column {
-    padding-left: 2rem;
-    background-clip: padding-box;
-  }
-
-  .masonry-grid_column > div {
-    margin-bottom: 2rem;
-  }
-`;
-
 export const Card = styled.div`
   position: relative;
   overflow: hidden;

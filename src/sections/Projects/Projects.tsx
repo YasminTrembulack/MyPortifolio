@@ -30,11 +30,8 @@ export default function Projects() {
       variant="yellow"
       ref={ref}
       isVisible={isVisible}
-      $headerAlign="start"
-      $paddingBottom={0}
-      $paddingTop={4}
     >
-      <Section.Grid>
+      <Section.Grid $gridTemplateColumns="repeat(auto-fit, minmax(280px, 1fr))">
         {projects.map((p, index) => (
           <Card key={index} $visible={isVisible} $delay={index * 300}>
 

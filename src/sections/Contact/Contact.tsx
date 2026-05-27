@@ -17,9 +17,6 @@ export default function Contact() {
             variant="yellow"
             ref={ref}
             isVisible={isVisible}
-            $headerAlign="start"
-            $paddingBottom={2}
-            $paddingTop={6}
         >
             <S.Content>
                 <S.Left>
