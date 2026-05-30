@@ -5,9 +5,8 @@ import { useTranslation } from "react-i18next";
 import Socials from "../../shared/Socials/Socials";
 import Divider from "../../ui/Divider/Divider";
 import useIntersection from "../../../hooks/useIntersection";
-import DraggableText from "../../shared/DraggableText/DraggableText";
-import { fairy_cat } from "../../../assets/ascii-art";
 import { useRef } from "react";
+import { UndertaleFooterMessage } from "../../../sections/UndertaleFooterMessage/UndertaleFooterMessage";
 
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,16 +39,14 @@ export default function Footer() {
             $fade="left"
           />
         </S.Social>
-        <p>🡗 Drag Me</p>
       </S.FooterTop>
 
       <Divider ref={ref} isVisible={isVisible} variant="grey"/>
 
       <S.FooterBottom ref={ref} $visible={isVisible}>
+        <UndertaleFooterMessage />
         © {new Date().getFullYear()} Yasmin. {t("footer.copyright")}
       </S.FooterBottom>
-
-      <DraggableText ref={containerRef} $visible={isVisible}>{fairy_cat}</DraggableText>
     </S.FooterContainer>
   );
 }

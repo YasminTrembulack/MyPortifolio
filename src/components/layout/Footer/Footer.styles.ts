@@ -3,19 +3,21 @@ import { fadeUp, type AnimationProps } from "../../../styles/transitions";
 
 export const FooterContainer = styled.footer`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: "hidden";
   background: ${({ theme }) => theme.colors.softWhite};
   color: ${({ theme }) => theme.colors.background};
 
-  padding: 4rem 0rem 2rem;
+  padding: 4rem 4rem 2rem;
 `;
 
 export const FooterTop = styled.div<AnimationProps>`
-  max-width: 1200px;
-  margin: 0 auto;
-
+  width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 0.4fr;
+  grid-template-columns: auto auto auto;
   gap: 3rem;
 
   @media (max-width: 768px) {
@@ -69,6 +71,12 @@ export const FooterBottom = styled.div<AnimationProps>`
   text-align: center;
   font-size: 0.85rem;
   color: ${({ theme }) => theme.colors.greyDark};
+    
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+
 
   ${fadeUp};
 `;
