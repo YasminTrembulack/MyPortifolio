@@ -8,13 +8,14 @@ import TechStack from "./sections/TechStack/TechStack";
 import Certifications from "./sections/Certifications/Certifications";
 import Contact from "./sections/Contact/Contact";
 import Footer from "./components/layout/Footer/Footer";
+import { UndertaleOverlay } from "./components/layout/UndertaleOverlay/UndertaleOverlay";
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <UndertaleOverlay />
       <Header />
-
       <main>
         <Hero />
         <About />
