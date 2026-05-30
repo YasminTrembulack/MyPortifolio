@@ -30,5 +30,6 @@ export const theme = {
     secundary: "'Lora', sans-serif",
     terciary: "'Karla', sans-serif",
     decorative: "'DotGothic16', sans-serif",
+    undertale: "'PixelOperator', sans-serif",
   },
 };

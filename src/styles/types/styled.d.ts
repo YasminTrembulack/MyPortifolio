@@ -33,6 +33,7 @@ declare module "styled-components" {
       secundary: string;
       terciary: string;
       decorative: string;
+      undertale: string;
     };
   }
 }

@@ -1,6 +1,24 @@
 import { createGlobalStyle } from "styled-components";
+import PixelOperator from "../assets/fonts/PixelOperator.ttf";
+import PixelOperatorBold from "../assets/fonts/PixelOperator-Bold.ttf";
 
 const GlobalStyle = createGlobalStyle`
+
+  @font-face {
+    font-family: "PixelOperator";
+    src: url(${PixelOperator}) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "PixelOperator";
+    src: url(${PixelOperatorBold}) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
   * {
     margin: 0;
     padding: 0;
