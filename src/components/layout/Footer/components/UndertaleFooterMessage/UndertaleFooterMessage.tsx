@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import UndertaleRedSoulIcon from "../../assets/icons/undertale-red-soul.svg?react";
-import UndertaleRedSoulBrokeIcon from "../../assets/icons/undertale-red-soul-broke.svg?react";
-import { useUndertale } from "../../context/UndertaleContext/UndertaleContext";
+import UndertaleRedSoulIcon from "../../../../../assets/icons/undertale-red-soul.svg?react";
+import UndertaleRedSoulBrokeIcon from "../../../../../assets/icons/undertale-red-soul-broke.svg?react";
+import { useUndertale } from "../../../../../context/UndertaleContext/UndertaleContext";
 import * as S from "./UndertaleFooterMessage.styles";
 
 const text = "* Despite everything, it's still you.";

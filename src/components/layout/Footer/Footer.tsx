@@ -6,7 +6,7 @@ import Socials from "../../shared/Socials/Socials";
 import Divider from "../../ui/Divider/Divider";
 import useIntersection from "../../../hooks/useIntersection";
 import { useRef } from "react";
-import { UndertaleFooterMessage } from "../../../sections/UndertaleFooterMessage/UndertaleFooterMessage";
+import { UndertaleFooterMessage } from "./components/UndertaleFooterMessage/UndertaleFooterMessage";
 
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
